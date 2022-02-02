@@ -1,3 +1,8 @@
 .mycontent-left {
-    border-right: 1px dashed #707071;
+    border-right: 5px dashed #707071;
+}
+
+.profilepic{
+    height: 40px;
+    border: 2px solid #D65F3D;
 }

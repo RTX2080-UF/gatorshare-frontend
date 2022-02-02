@@ -1,4 +1,5 @@
 import { Navbar, Nav, Container } from 'react-bootstrap';
+import Image from 'react-bootstrap/Image'
 import React from 'react'
 import LineSeparator from './LineSeparator';
 import {
@@ -9,6 +10,7 @@ import {
 } from "react-router-dom";
 
 import "./NavBar.css";
+import dp from "../images/pp.jfif"
 
 const NavBar = () => {
     return (
@@ -20,13 +22,29 @@ const NavBar = () => {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
                         </Nav>
-                        <Nav>
-                            <Nav.Link href="#deets">Profile</Nav.Link>
-                            <LineSeparator/>
-                            <Nav.Link href="#deets">Your posts</Nav.Link>
-                            <LineSeparator/>
+                        <Nav classname="align-items-center">
+                            <Nav.Link href="#deets">
+                                <div className="d-flex me-2 align-items-center" style={{flexDirection: "row"}}>
+                                    <div className="left me-2 justify-content-center" >
+                                        <Image className="profilepic" src={dp} roundedCircle></Image>
+                                    </div>
+                                    <div>
+                                        <strong>Profile Name</strong>
+                                        <p style={{marginBottom: "0"}}>View profile</p>
+                                    </div>
+                                </div>
+                            </Nav.Link>
+                            <Nav.Link>
+                                <LineSeparator/>
+                            </Nav.Link>
+                            <Nav.Link className="text-center" href="#deets">Your posts</Nav.Link>
+                            <Nav.Link>
+                                <LineSeparator/>
+                            </Nav.Link>
                             <Nav.Link href="#deets">Create</Nav.Link>
-                            <LineSeparator/>
+                            <Nav.Link>
+                                <LineSeparator/>
+                            </Nav.Link>
                             <Nav.Link eventKey={2} href="#memes">
                                 Notifications
                             </Nav.Link>

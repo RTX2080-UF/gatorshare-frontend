@@ -1,11 +1,9 @@
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Main from './components/Main';
 
-function App() {
-  return (
-    <Main />
-  );
+const App = () => {
+  return <Main />
 }
 
 export default App;

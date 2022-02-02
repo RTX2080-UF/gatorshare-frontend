@@ -3,10 +3,7 @@ import Image from 'react-bootstrap/Image'
 import React from 'react'
 import LineSeparator from './LineSeparator';
 import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-    Link
+    BrowserRouter as Router
 } from "react-router-dom";
 
 import "./NavBar.css";

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Col, Row } from "react-bootstrap"
 import data from "../data/Data"
+import Post from "../components/Post"
 
 const Home = () => {
     const [posts, setPosts] = useState([])
@@ -11,16 +12,17 @@ const Home = () => {
         })
     }, [])
 
-    return <div className="home-page">
+    return <div className="page">
         <Row>
             <Col xs={12}>
-                <h4>Posts</h4>
+                <h2 className="mb-3">Posts</h2>
             </Col>
         </Row>
         <Row>
             {posts.map(post => {
-                // TODO: Add post component here.
-                return <Col xs={12}></Col>
+                return <Col xs={12} className="mb-3">
+                    <Post data={post} />
+                </Col>
             })}
         </Row>
     </div>

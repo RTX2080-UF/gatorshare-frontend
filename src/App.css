@@ -1,16 +1,21 @@
 .page-container {
+  width: 100% !important;  
   height: 100vh !important;
-  width: 100% !important;
 }
 
 .main-page {
   width: 100vw !important;
   height: 100vh !important;
+  overflow: hidden;
 }
 
-.home-page {
+.main-container {
+  height: calc(100vh - 72px) !important;
+}
+
+.page {
   width: 100% !important;
-  height: 100% !important;
+  height: calc(100% - 72px) !important;
   overflow-y: auto !important;
   overflow-x: hidden !important;
   padding: 24px;
@@ -20,4 +25,14 @@
   position: relative;
   height: 24px;
   width: auto;
+}
+
+.user-nav {
+  position: relative;
+  height: 30px;
+  width: auto;
+}
+
+.avatar {
+  border: 2px solid #D65F3D;
 }

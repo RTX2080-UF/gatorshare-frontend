@@ -7,16 +7,16 @@ import {
 } from "react-router-dom";
 
 import "./NavBar.css";
-import dp from "../images/pp.jfif"
 import UserNav from './UserNav';
 import data from '../data/Data';
+import logo from "../assets/logo_wide.png"
 
 const NavBar = () => {
     const dummyUser = data.getDummyUser
     return (
         <Router>
             <Navbar className="ps-3 pe-3" collapseOnSelect expand="lg" bg="light" variant="light">
-                <Navbar.Brand href="#home">GatorShare</Navbar.Brand>
+                <Navbar.Brand href="#home"><Image src={logo} height={30} /></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-auto align-items-center">

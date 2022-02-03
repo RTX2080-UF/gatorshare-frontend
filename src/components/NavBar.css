@@ -1,0 +1,12 @@
+.mycontent-left {
+    border-right: 5px dashed #707071;
+}
+
+.profilepic{
+    height: 50px;
+    border: 2px solid #D65F3D;
+}
+
+.primarycolor{
+    color: #D65F3D;
+}

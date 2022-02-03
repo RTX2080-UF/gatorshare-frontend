@@ -1,8 +1,12 @@
-import React from 'react'
-import { Modal, Button, Form, Badge, DropdownType, Dropdown} from 'react-bootstrap';
+import { Modal, Button, Form, Badge, Dropdown} from 'react-bootstrap';
+import { React, useState } from 'react';
 import "../App.css";
 
 const CreatePostModal = (props) => {
+    const [checked, setChecked] = useState(false);
+    const handleChecked = (e) => {
+        setChecked(e.target.checked)
+    }
     
     return (
             <Modal
@@ -36,8 +40,8 @@ const CreatePostModal = (props) => {
                                     <p>Participant Limit: </p>
                                 </div>
                                 <div class="col-lg-6 col-md-12 d-flex flex-row">
-                                    <Form.Control className="me-5" type="number" />
-                                    <Form.Check className="ms-3 me-2"label="Unlimited"/>
+                                    <Form.Control className="me-5" type="number" disabled={checked === true ? true : false}/>
+                                    <Form.Check className="ms-3 me-2"label="Unlimited" onClick={handleChecked}/>
                                 </div>
                             </div>
                             <div class="row">

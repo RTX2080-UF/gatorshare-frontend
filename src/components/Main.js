@@ -1,5 +1,6 @@
 import React from "react"
 import { Col, Row } from "react-bootstrap"
+import Home from "../pages/Home"
 import NavBar from "./NavBar"
 import SideBar from "./SideBar"
 
@@ -11,7 +12,8 @@ const Main = () => {
                 <SideBar />
             </Col>
             <Col className="page-container">
-                {/* Add Homepage Here */}
+                {/* TODO: Change the page according to the current route, will be implemented during a future sprint */}
+                <Home />
             </Col>
         </Row>
     </div>

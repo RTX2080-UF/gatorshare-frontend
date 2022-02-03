@@ -1,6 +1,6 @@
 # gatorshare-frontend
 
-https://gatorshare.netlify.app (WIP)
+CI/CD Deplyment active. Main branch changes will be published to https://gatorshare.netlify.app
 
 Frontend Code of GatorShare, Software Engineering Spring 2022 project.
 Built by:

@@ -1,6 +1,6 @@
 import React from 'react'
-import { Modal, Button } from 'react-bootstrap';
-
+import { Modal, Button, Form } from 'react-bootstrap';
+import "../App.css";
 
 const CreatePostModal = (props) => {
     
@@ -18,9 +18,13 @@ const CreatePostModal = (props) => {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                <div className="mb-3 text-center justify-content-center">
-                        <input type="text" className="form-control" style={{ width: '100%' }} placeholder="Title" aria-label="Username" aria-describedby="basic-addon1"/>
-                    </div>
+                    <Form>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Control type="text" placeholder="Title" />
+                            {/* <Form.Label>Description</Form.Label> */}
+                            <Form.Control as="textarea" rows={3} placeholder='Enter description' />
+                        </Form.Group>
+                    </Form>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={()=>props.handleClose()}>

@@ -36,3 +36,7 @@
 .avatar {
   border: 2px solid #D65F3D;
 }
+
+.form-control {
+  margin-bottom: 15px;
+}

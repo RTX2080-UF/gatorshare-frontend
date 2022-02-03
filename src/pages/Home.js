@@ -12,7 +12,7 @@ const Home = () => {
         })
     }, [])
 
-    return <div className="home-page">
+    return <div className="page">
         <Row>
             <Col xs={12}>
                 <h2 className="mb-3">Posts</h2>

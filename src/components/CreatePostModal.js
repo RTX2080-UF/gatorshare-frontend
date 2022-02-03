@@ -23,6 +23,33 @@ const CreatePostModal = (props) => {
                             <Form.Control type="text" placeholder="Title" />
                             {/* <Form.Label>Description</Form.Label> */}
                             <Form.Control as="textarea" rows={3} placeholder='Enter description' />
+                            <div class="row">
+                                <div class="col-lg-6 col-md-12">
+                                    <p>Expiry: </p>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <Form.Control type="date"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-12">
+                                    <p>Participant Limit: </p>
+                                </div>
+                                <div class="col-lg-6 col-md-12 d-flex flex-row">
+                                    <Form.Control className="me-5" type="number" />
+                                    <Form.Check className="ms-3 me-2"label="Unlimited"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-12">
+                                    <p>Category: </p>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <Form.Control type="text"/>
+                                </div>
+                            </div>
+                            <Form.Label>Tags:</Form.Label>
+                            {/* Expiry:  */}
                         </Form.Group>
                     </Form>
                 </Modal.Body>

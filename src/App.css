@@ -6,6 +6,7 @@
 .main-page {
   width: 100vw !important;
   height: 100vh !important;
+  overflow: hidden;
 }
 
 .home-page {
@@ -19,5 +20,11 @@
 .user-mini {
   position: relative;
   height: 24px;
+  width: auto;
+}
+
+.user-nav {
+  position: relative;
+  height: 30px;
   width: auto;
 }

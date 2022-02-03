@@ -1,3 +1,11 @@
 .mycontent-left {
     border-right: 5px dashed #707071;
 }
+
+.primarycolor{
+    background-color: #D65F3D;
+}
+
+.primarytextcolor{
+    color: #D65F3D;
+}

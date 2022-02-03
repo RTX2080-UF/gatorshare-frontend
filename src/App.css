@@ -40,3 +40,8 @@
 .form-control {
   margin-bottom: 15px;
 }
+
+.badge {
+  margin: 3px;
+  background-color: #D65F3D;
+}

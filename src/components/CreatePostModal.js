@@ -1,5 +1,5 @@
 import React from 'react'
-import { Modal, Button, Form } from 'react-bootstrap';
+import { Modal, Button, Form, Badge, DropdownType, Dropdown} from 'react-bootstrap';
 import "../App.css";
 
 const CreatePostModal = (props) => {
@@ -45,10 +45,23 @@ const CreatePostModal = (props) => {
                                     <p>Category: </p>
                                 </div>
                                 <div class="col-lg-6 col-md-12">
-                                    <Form.Control type="text"/>
+                                    <Dropdown>
+                                        <Dropdown.Toggle variant="secondary" className="primarycolor" id="dropdown-basic" title="Select">Select Category</Dropdown.Toggle>
+                                        <Dropdown.Menu>
+                                            <Dropdown.Item eventKey="1">Cab share</Dropdown.Item>
+                                            <Dropdown.Item eventKey="2">Groceries</Dropdown.Item>
+                                            <Dropdown.Item eventKey="3">Vacation</Dropdown.Item>
+                                        </Dropdown.Menu>
+                                    </Dropdown>
                                 </div>
                             </div>
                             <Form.Label>Tags:</Form.Label>
+                            <p>
+                                <Badge pill bg="badge">Gatorshare</Badge>
+                                <Badge pill bg="badge">tag2</Badge>
+                                <Badge pill bg="badge">niche</Badge>
+                                <Badge pill bg="badge">rtx2080</Badge>
+                            </p>
                             {/* Expiry:  */}
                         </Form.Group>
                     </Form>

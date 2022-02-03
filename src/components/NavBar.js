@@ -1,4 +1,4 @@
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 import Image from 'react-bootstrap/Image'
 import React from 'react'
 import LineSeparator from './LineSeparator';

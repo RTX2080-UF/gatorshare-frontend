@@ -7,14 +7,17 @@ import {
 } from "react-router-dom";
 
 import "./NavBar.css";
-import dp from "../images/pp.jfif"
+import dp from "../assets/pp.jfif"
+import logo from "../assets/logo_square_transparent.svg"
 
 const NavBar = () => {
     return (
         <Router>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
                 <Container>
-                    <Navbar.Brand href="#home">GatorShare</Navbar.Brand>
+                    <Navbar.Brand href="#home">
+                        <Image className="profilepic" src={logo} roundedCircle></Image>
+                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">

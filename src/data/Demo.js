@@ -1,3 +1,5 @@
+import { getDummyAvatar } from "../utils/Utils"
+
 const DEMO_DB = {
     posts: [
         {
@@ -9,7 +11,7 @@ const DEMO_DB = {
                 firstName: "John",
                 lastName: "Doe",
                 email: "johndoe@example.com",
-                avatar: "https://i.pravatar.cc/300"
+                avatar: getDummyAvatar()
             },
             participants: [],
             timestamp: 1643936763000
@@ -20,7 +22,7 @@ const DEMO_DB = {
         firstName: "John",
         lastName: "Doe",
         email: "johndoe@example.com",
-        avatar: "https://i.pravatar.cc/300"
+        avatar: getDummyAvatar()
     },
     comments: [{
         id: 1,
@@ -32,7 +34,7 @@ const DEMO_DB = {
             firstName: "Paul",
             lastName: "Smith",
             email: "psmith@example.com",
-            avatar: "https://i.pravatar.cc/450"
+            avatar: getDummyAvatar()
         }
     }]
 }
@@ -66,9 +68,20 @@ const data = {
         }, 100)
     }),
     createComment: (commentData) => new Promise((resolve, reject) => {
+        commentData.user = {
+            id: 1,
+            firstName: "John",
+            lastName: "Doe",
+            email: "jdoe@example.com",
+            avatar: getDummyAvatar()
+        }
+        commentData.timestamp = Date.now()
+        commentData.id = parseInt(Math.random() * 100)
+
         DEMO_DB.comments.push(commentData)
+
         setTimeout(() => {
-            resolve(true)
+            resolve(commentData)
         }, 100)
     })
 }

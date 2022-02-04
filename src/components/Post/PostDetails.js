@@ -30,7 +30,21 @@ const PostDetails = () => {
         data.getComments(postId).then(commentsData => {
             setComments(commentsData)
         })
+
     }, [postId])
+
+    const [currentComment, setCurrentComment] = useState('')
+
+    const commentBeingTyped = (event) => {
+        setCurrentComment(event.target.value)
+    }
+
+    const createComment = () => {
+        data.createComment({
+            postId: postId,
+            message: currentComment,
+        }).then(comment => setComments([...comments, comment]))
+    }
 
     return post ? <div className="page">
         <Link to="/"><Icon path={mdiArrowLeft} size={1} color="gray" /></Link>
@@ -62,10 +76,10 @@ const PostDetails = () => {
         <h5 className="mb-3">Comments</h5>
         <Row>
             <Col>
-                <Form.Control type="text" placeholder="Enter your comment here" />
+                <Form.Control type="text" placeholder="Enter your comment here" onChange={commentBeingTyped.bind(this)}/>
             </Col>
             <Col xs="auto">
-                <Button variant="warning" id="comment-post">Post</Button>
+                <Button variant="warning" id="comment-post" onClick={() => createComment()}>Post</Button>
             </Col>
             {
                 comments.length > 0 ? comments.map(comment => {

@@ -1,5 +1,5 @@
 import React from "react"
-import { Col, Container, Row } from "react-bootstrap"
+import { Col, Row } from "react-bootstrap"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Home from "../pages/Home"
 import NavBar from "./NavBar"

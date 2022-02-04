@@ -1,8 +1,16 @@
+import { useEffect, useState } from "react"
 import { Card, Col, Row } from "react-bootstrap"
 import { getHumanReadableTimestamp } from "../../utils/Utils"
 import UserMini from "../UserMini"
+import api from "../../data/Data"
 
 const Post = ({ data }) => {
+    const [commentCount, setCommentCount] = useState(0)
+
+    useEffect(() => {
+        api.getComments(data.id).then( comments => setCommentCount(comments.length))
+    }, [data.id])
+
     return <Card body>
         <h4>{data.title}</h4>
         <small>
@@ -19,7 +27,7 @@ const Post = ({ data }) => {
             </Row>
         </small>
         <p>{data.desc}</p>
-        <p><small><span>{data.participants.length} participants</span> • <span>{data.comments.length} comments</span></small></p>
+        <p><small><span>{data.participants.length} participants</span> • <span>{commentCount} comments</span></small></p>
     </Card>
 }
 

@@ -1,4 +1,4 @@
-import { Col, Row } from "react-bootstrap"
+import { Button, Col, Form, Row } from "react-bootstrap"
 import { mdiArrowLeft } from '@mdi/js'
 import Icon from '@mdi/react'
 import { getHumanReadableTimestamp } from "../../utils/Utils"
@@ -6,6 +6,7 @@ import UserMini from "../UserMini"
 import { useEffect, useState } from "react"
 import data from "../../data/Data"
 import { Link, useParams } from "react-router-dom"
+import Comment from "../Comment/Comment"
 
 const PostDetails = () => {
 
@@ -14,16 +15,20 @@ const PostDetails = () => {
     const postId = params.postId
 
     const [post, setPost] = useState(null)
+    const [comments, setComments] = useState([])
 
     useEffect(() => {
         data.getPostById(postId).then(postData => {
-            console.log(postId)
             if (postData) {
                 setPost(postData)
             } else {
                 window.alert('No such post exists')
                 window.location.href = "/"
             }
+        })
+
+        data.getComments(postId).then(commentsData => {
+            setComments(commentsData)
         })
     }, [postId])
 
@@ -47,12 +52,30 @@ const PostDetails = () => {
         <Row>
             {
                 post?.participants.length > 0 ? post.participants.map(participant => {
-                    return <Col xs="auto">
+                    return <Col xs="auto" key={participant.id}>
                         <UserMini firstName={participant.firstName} lastName={participant.lastName} avatar={participant.avatar} />
                     </Col>
                 }) : <p>No participants yet</p>
             }
         </Row>
+        <hr />
+        <h5 className="mb-3">Comments</h5>
+        <Row>
+            <Col>
+                <Form.Control type="text" placeholder="Enter your comment here" />
+            </Col>
+            <Col xs="auto">
+                <Button variant="warning" id="comment-post">Post</Button>
+            </Col>
+            {
+                comments.length > 0 ? comments.map(comment => {
+                    return <Col xs={12} key={comment.id}>
+                        <Comment comment={comment} />
+                    </Col>
+                }) : <p>Be the first one to comment!</p>
+            }
+        </Row>
+
     </div> : null
 }
 

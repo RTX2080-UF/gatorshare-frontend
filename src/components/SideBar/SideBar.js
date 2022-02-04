@@ -21,7 +21,7 @@ const SideBar = () => {
     return <Row style={style} className={"m-0 p-0 pt-5"}>
         {
             SIDEBAR_ITEMS.map(item => {
-                return <Col xs={12} className={"m-0 p-0"}>
+                return <Col xs={12} className={"m-0 p-0"} key={item.name}>
                     <SideBarItem name={item.name} icon={item.icon} active link={item.link}/>
                 </Col>
             })

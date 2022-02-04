@@ -9,7 +9,7 @@ const Post = ({ data }) => {
 
     useEffect(() => {
         api.getComments(data.id).then( comments => setCommentCount(comments.length))
-    }, [])
+    }, [data.id])
 
     return <Card body>
         <h4>{data.title}</h4>

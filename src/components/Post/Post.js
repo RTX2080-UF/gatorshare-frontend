@@ -1,6 +1,6 @@
 import { Card, Col, Row } from "react-bootstrap"
-import { getHumanReadableTimestamp } from "../utils/Utils"
-import UserMini from "./UserMini"
+import { getHumanReadableTimestamp } from "../../utils/Utils"
+import UserMini from "../UserMini"
 
 const Post = ({ data }) => {
     return <Card body>

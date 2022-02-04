@@ -1,7 +1,9 @@
 import React from "react"
 import { Col, Container, Row } from "react-bootstrap"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Home from "../pages/Home"
 import NavBar from "./NavBar"
+import PostDetails from "./Post/PostDetails"
 import SideBar from "./SideBar"
 
 const Main = () => {
@@ -13,8 +15,15 @@ const Main = () => {
                     <SideBar />
                 </Col>
                 <Col className="page-container">
-                    {/* TODO: Change the page according to the current route, will be implemented during a future sprint */}
-                    <Home />
+                    <BrowserRouter>
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="post">
+                                <Route path=":postId" element={<PostDetails/>} />
+                            </Route>
+                        </Routes>
+                    </BrowserRouter>
+                    {/* <Route path="/" element={} /> */}
                 </Col>
             </Row>
         </Container>

@@ -1,7 +1,8 @@
 import { Navbar, Nav } from 'react-bootstrap';
 import Image from 'react-bootstrap/Image'
-import React from 'react'
+import { React, useState } from 'react';
 import LineSeparator from './LineSeparator';
+import CreatePostModal from './CreatePostModal';
 import {
     BrowserRouter as Router
 } from "react-router-dom";
@@ -13,8 +14,21 @@ import logo from "../assets/logo_wide.png"
 
 const NavBar = () => {
     const dummyUser = data.getDummyUser
+    const [show, setShow] = useState(false);
+    const handleShow = () => setShow(true);
+    const handleClose = () => setShow(false);
+    const handleCreateClick = (e)=> {
+        console.log("Create clicked")
+        handleShow()
+    }
+    const returnModal = ()=>{
+        return (
+            <CreatePostModal show={show} handleShow={handleShow} handleClose={handleClose}></CreatePostModal>
+        )
+    }
     return (
         <Router>
+            {show ? returnModal() : ""}
             <Navbar className="ps-3 pe-3" collapseOnSelect expand="lg" bg="light" variant="light">
                 <Navbar.Brand href="#home"><Image src={logo} height={30} /></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -30,7 +44,7 @@ const NavBar = () => {
                         <Nav.Link>
                             <LineSeparator />
                         </Nav.Link>
-                        <Nav.Link href="#deets" className="text-uppercase"><strong className='primarycolor'>Create</strong></Nav.Link>
+                        <Nav.Link href="#deets" className="text-uppercase" onClick={(e)=>handleCreateClick(e)}><strong className='primarytextcolor'>Create</strong></Nav.Link>
                         <Nav.Link>
                             <LineSeparator />
                         </Nav.Link>
@@ -45,10 +59,6 @@ const NavBar = () => {
 
             {/* <Routes>
                 <Route path="/" element={<Things thingsList={things} />} />
-                <Route exact path="/services" element={<Services lstThings={things} />} />
-                <Route exact path="/relations" element={<Relationships servicesList={things} />} />
-                <Route exact path="/recipe" element={<Recipe servicesList={things} />} />
-                <Route exact path="/apps" element={<Apps servicesList={things} />} />
             </Routes> */}
         </Router>
     )

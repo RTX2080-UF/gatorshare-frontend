@@ -12,7 +12,6 @@ const DEMO_DB = {
                 avatar: "https://i.pravatar.cc/300"
             },
             participants: [],
-            comments: [],
             timestamp: 1643936763000
         }
     ],
@@ -23,7 +22,19 @@ const DEMO_DB = {
         email: "johndoe@example.com",
         avatar: "https://i.pravatar.cc/300"
     },
-    comments: []
+    comments: [{
+        id: 1,
+        postId: 1,
+        message: 'This is a test comment!',
+        timestamp: 1643938848000,
+        user: {
+            id: 1,
+            firstName: "Paul",
+            lastName: "Smith",
+            email: "psmith@example.com",
+            avatar: "https://i.pravatar.cc/450"
+        }
+    }]
 }
 
 

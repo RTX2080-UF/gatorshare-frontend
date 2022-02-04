@@ -1,8 +1,9 @@
 import { Navbar, Nav } from 'react-bootstrap';
 import { mdiBellOutline } from '@mdi/js';
 import Image from 'react-bootstrap/Image'
-import React from 'react'
+import { React, useState } from 'react';
 import LineSeparator from './LineSeparator';
+import CreatePostModal from './CreatePostModal';
 import {
     BrowserRouter as Router
 } from "react-router-dom";
@@ -15,8 +16,22 @@ import Icon from '@mdi/react';
 
 const NavBar = () => {
     const currentUser = data.getCurrentUser()
+    
+    const [show, setShow] = useState(false);
+    const handleShow = () => setShow(true);
+    const handleClose = () => setShow(false);
+    const handleCreateClick = (e)=> {
+        console.log("Create clicked")
+        handleShow()
+    }
+    const returnModal = ()=>{
+        return (
+            <CreatePostModal show={show} handleShow={handleShow} handleClose={handleClose}></CreatePostModal>
+        )
+    }
     return (
         <Router>
+            {show ? returnModal() : ""}
             <Navbar className="ps-3 pe-3" collapseOnSelect expand="lg" bg="light" variant="light">
                 <Navbar.Brand href="#home"><Image src={logo} height={30} /></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -32,7 +47,7 @@ const NavBar = () => {
                         <Nav.Link>
                             <LineSeparator />
                         </Nav.Link>
-                        <Nav.Link href="#deets" className="text-uppercase"><strong className='primarycolor'>Create</strong></Nav.Link>
+                        <Nav.Link href="#deets" className="text-uppercase" onClick={(e)=>handleCreateClick(e)}><strong className='primarytextcolor'>Create</strong></Nav.Link>
                         <Nav.Link>
                             <LineSeparator />
                         </Nav.Link>
@@ -42,6 +57,10 @@ const NavBar = () => {
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
+
+            {/* <Routes>
+                <Route path="/" element={<Things thingsList={things} />} />
+            </Routes> */}
         </Router>
     )
 }

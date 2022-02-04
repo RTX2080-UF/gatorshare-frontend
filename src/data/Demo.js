@@ -4,8 +4,8 @@ const DEMO_DB = {
     posts: [
         {
             id: 1,
-            title: "A sample post for the demo",
-            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat.",
+            title: "Carpool to Rosemary Hill Observatory",
+            desc: "The Astronomy and Astrophysics Society of UF is conducting a visit to the Rosemary Hill Observatory. We'll be able to look at the stars and the planets using great telescopes and other visual aids. This is also a good time for astrophotographers as the sky is very dark over there. I have space for 3 more people, and we'll be splitting the gas, which I don't think would be more than $2 each. If interested, please respond to this post.",
             user: {
                 id: 1,
                 firstName: "John",
@@ -27,7 +27,7 @@ const DEMO_DB = {
     comments: [{
         id: 1,
         postId: 1,
-        message: 'This is a test comment!',
+        message: 'I am interested! Count me in.',
         timestamp: 1643938848000,
         user: {
             id: 1,

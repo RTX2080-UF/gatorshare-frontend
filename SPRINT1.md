@@ -35,5 +35,5 @@ https://www.youtube.com/watch?v=Uqa2b2MekAw
 2. Created the navigation bar.
 3. Created the posts section where user can see the relavant posts.
 4. Created "create post" modal where user can create a post if needed.
-5. CI/CD integration is complete.
-6. Integration with the backend(pending).
+5. Frontend integration with mock data for sprint 1.
+6. CI/CD integration is complete.

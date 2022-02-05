@@ -4,9 +4,15 @@
 The aim was to build the basic structure of the React app, including the code structure, routing strategy and best practices (utility functions and abstracted data access layers). Additionally, features to be implemented was showing all the posts, creating new posts and allowing comments. These major features had supplemental features such as building UI components like thenavigation bar, sidebar, home and post details. CI/CD was also implemented, achieved using Netlify. A working version of this repository can be found at https://gatorshare.netlify.app. 
 
 ### Video:
+#### Demo:
 [![Sprint 1 Demo](https://img.youtube.com/vi/Uqa2b2MekAw/0.jpg)](https://www.youtube.com/watch?v=Uqa2b2MekAw)
 
 https://www.youtube.com/watch?v=Uqa2b2MekAw
+
+#### Postman
+[![Sprint 1 Postman](https://img.youtube.com/vi/QqsWVejhuFI/0.jpg)](https://www.youtube.com/watch?v=QqsWVejhuFI)
+
+https://youtu.be/QqsWVejhuFI
 
 ### User stories achieved:
 1. User should be able to post a "shared request". (Issue #14)

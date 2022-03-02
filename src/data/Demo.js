@@ -1,6 +1,6 @@
 import { getDummyAvatar } from "../utils/Utils"
 
-const DEMO_DB = {
+export const DEMO_DB = {
     posts: [
         {
             id: 1,

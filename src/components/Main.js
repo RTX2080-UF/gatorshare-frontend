@@ -6,6 +6,12 @@ import NavBar from "./NavBar"
 import PostDetails from "./Post/PostDetails"
 import SideBar from "./SideBar/SideBar"
 
+// const Main = () => {
+//     return <div className="main-page">
+//         <NavBar />
+//         <Login className="main-container"/>
+//     </div>
+// }
 const Main = () => {
     return <div className="main-page">
         <NavBar />

@@ -50,3 +50,31 @@
   margin: 3px;
   background-color: #D65F3D;
 }
+
+.login-center {
+  position: absolute;
+  background-color: rgb(0,0,0,0.3);
+  height: 100%;
+  width: 100%;
+  mix-blend-mode: normal;
+}
+
+.form {
+  background-color: white;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+}
+
+.gatorshare-button{
+  background-color: #D65F3D;
+  outline: none;
+  border:none !important;
+}
+.gatorshare-button:focus, 
+.gatorshare-button:active{
+  background-color: #D65F3D;
+  outline: none !important;
+}
+.gatorshare-button:hover{
+  background-color: #D65F3D;
+  outline: none !important;
+}

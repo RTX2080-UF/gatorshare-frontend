@@ -1,8 +1,8 @@
 import {Button, Form} from 'react-bootstrap';
 
 const Login = () => {
-    return <div className="main-container">
-        <Form>
+    return <div className="login-center d-flex justify-content-center align-items-center">
+        <Form className="form rounded m-4 p-4">
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>User Name:</Form.Label>
                 <Form.Control type="email" placeholder="Enter Username" />
@@ -15,7 +15,7 @@ const Login = () => {
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label="Keep me signed in" />
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" className='gatorshare-button'>
                 Login
             </Button>
         </Form>

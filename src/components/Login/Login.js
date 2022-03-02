@@ -15,9 +15,15 @@ const Login = () => {
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label="Keep me signed in" />
             </Form.Group>
-            <Button variant="primary" type="submit" className='gatorshare-button'>
+            <Button variant="primary" type="submit" className='mb-3 gatorshare-button'>
                 Login
             </Button>
+            <p className="forgot-password text-left">
+                <a href="#forgotPassword">Forgot password?</a>
+            </p>
+            <p className="forgot-password text-left">
+                <a href="/signup">Create a new account?</a>
+            </p>
         </Form>
     </div>
 } 

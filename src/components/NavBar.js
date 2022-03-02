@@ -4,9 +4,6 @@ import Image from 'react-bootstrap/Image'
 import { React, useState } from 'react';
 import LineSeparator from './LineSeparator';
 import CreatePostModal from './CreatePostModal';
-import {
-    BrowserRouter as Router
-} from "react-router-dom";
 
 import "./NavBar.css";
 import UserNav from './UserNav';

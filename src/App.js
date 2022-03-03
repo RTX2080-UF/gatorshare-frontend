@@ -1,9 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import Main from './components/Main';
+import Entry from './components/Entry';
+// import Main from './components/Main';
 
 const App = () => {
-  return <Main />
+  return <Entry />
+  // return <Main />
 }
 
 export default App;

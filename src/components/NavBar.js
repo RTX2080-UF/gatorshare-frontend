@@ -4,9 +4,6 @@ import Image from 'react-bootstrap/Image'
 import { React, useState } from 'react';
 import LineSeparator from './LineSeparator';
 import CreatePostModal from './CreatePostModal';
-import {
-    BrowserRouter as Router
-} from "react-router-dom";
 
 import "./NavBar.css";
 import UserNav from './UserNav';
@@ -30,7 +27,7 @@ const NavBar = () => {
         )
     }
     return (
-        <Router>
+        <div>
             {show ? returnModal() : ""}
             <Navbar className="ps-3 pe-3" collapseOnSelect expand="lg" bg="light" variant="light">
                 <Navbar.Brand href="#home"><Image src={logo} height={30} /></Navbar.Brand>
@@ -57,11 +54,7 @@ const NavBar = () => {
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
-
-            {/* <Routes>
-                <Route path="/" element={<Things thingsList={things} />} />
-            </Routes> */}
-        </Router>
+        </div>
     )
 }
 

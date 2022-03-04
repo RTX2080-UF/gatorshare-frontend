@@ -27,8 +27,8 @@ const PostDetails = () => {
             }
         })
 
-        data.getComments(postId).then(commentsData => {
-            setComments(commentsData)
+        data.getCommentsOfPost(postId).then(commentsData => {
+            setComments(commentsData.data)
         })
 
     }, [postId])
@@ -41,8 +41,10 @@ const PostDetails = () => {
 
     const createComment = () => {
         data.createComment({
+            userId: data.getCurrentUser().id,
             postId: postId,
             message: currentComment,
+            parentId: 0
         }).then(comment => setComments([...comments, comment]))
     }
 

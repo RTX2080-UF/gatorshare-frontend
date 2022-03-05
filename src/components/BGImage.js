@@ -1,6 +1,6 @@
 import React from "react"
 import Image from "react-bootstrap/Image"
-import loginimg from "../assets/loginimg.jpeg"
+import loginimg from "../assets/loginimg.webp"
 
 const BGImage = () => {
     return <div>

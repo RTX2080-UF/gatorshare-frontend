@@ -3,5 +3,7 @@
       "testFiles": "**/*.test.{js,ts,jsx,tsx}",
       "componentFolder": "src"
     },
+    "viewportWidth": 1500,
+    "viewportHeight": 900,
     "baseUrl": "http://localhost:3000"
 }

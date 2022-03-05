@@ -1,5 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# Since we are using Yarn, package-lock should not be committed anymore.
+package-lock.json
+
 # dependencies
 /node_modules
 /.pnp

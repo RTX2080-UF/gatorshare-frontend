@@ -1,19 +1,39 @@
 import { Button, Form } from 'react-bootstrap';
 import BGImage from "../BGImage"
+import data from "../../data/Data"
+import { useState } from "react"
+import { useNavigate } from 'react-router-dom';
+
+
 
 const Login = () => {
+    const navigate = useNavigate();
+    const [username, setUserName] = useState('');
+    const [pwd, setPwd] = useState('');
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        const requestData = `{"username":"${username}","password":"${pwd}"}`;
+        console.log(requestData);
+        data.login(requestData).then(res => {
+            console.log(res);
+            navigate("/onboarding");
+        })
+    };
+
+
     return <div>
         <BGImage />
         <div className="login-center d-flex justify-content-center align-items-center">
-            <Form className="form rounded m-4 p-4">
+            <Form className="form rounded m-4 p-4" onSubmit={handleLogin}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>User Name:</Form.Label>
-                    <Form.Control type="email" placeholder="Enter Username" />
+                    <Form.Control type="text" placeholder="Enter Username" value={username} onChange={(e) => setUserName(e.target.value)}/>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control type="password" placeholder="Password" value={pwd} onChange={(e) => setPwd(e.target.value)}/>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Keep me signed in" />

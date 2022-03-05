@@ -1,34 +1,30 @@
 const KEYS = {
-    user: 'user'
+    user: 'user',
+    accessToken: 'accessToken'
 }
-const SessionUtils = () => {
-    const isLoggedIn = () => {
-        return getCurrentUser != null
-    }
 
-    const logOutUser = () => {
-        if (isLoggedIn) {
-            localStorage.removeItem(KEYS.user)
-        }
-    }
+export const isLoggedIn = () => {
+    return getCurrentUser() != null && getAccessToken() != null
+}
 
-    const setUser = (userData) => {
-        localStorage.setItem(KEYS.user, userData)
-    }
-
-    const getCurrentUser = () => {
-        return localStorage.getItem(KEYS.user)
-    }
-
-    const setAccessToken = (accessToken) => {
-        const user = getCurrentUser()
-        user.accessToken = accessToken
-        setUser(user)
-    }
-
-    const getAccessToken = () => {
-        return getCurrentUser().accessToken
+export const logOutUser = () => {
+    if (isLoggedIn()) {
+        localStorage.removeItem(KEYS.user)
     }
 }
 
-export default SessionUtils
+export const setUser = (userData) => {
+    localStorage.setItem(KEYS.user, userData)
+}
+
+export const getCurrentUser = () => {
+    return localStorage.getItem(KEYS.user)
+}
+
+export const setAccessToken = (accessToken) => {
+    localStorage.setItem(KEYS.accessToken, accessToken)
+}
+
+export const getAccessToken = () => {
+    return localStorage.getItem(KEYS.accessToken)
+}

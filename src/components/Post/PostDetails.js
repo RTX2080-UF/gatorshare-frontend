@@ -7,6 +7,7 @@ import { useEffect, useState } from "react"
 import data from "../../data/Data"
 import { Link, useParams } from "react-router-dom"
 import Comment from "../Comment/Comment"
+import { DEMO_DB } from "../../data/Demo"
 
 const PostDetails = () => {
 
@@ -19,16 +20,14 @@ const PostDetails = () => {
 
     useEffect(() => {
         data.getPostById(postId).then(postData => {
-            if (postData) {
-                setPost(postData)
-            } else {
-                window.alert('No such post exists')
-                window.location.href = "/"
-            }
+            setPost(postData.data)
+        }).catch(error => {
+            window.alert('Failed to fetch post details! \n' + error)
+            window.location.href = "/"
         })
 
-        data.getComments(postId).then(commentsData => {
-            setComments(commentsData)
+        data.getCommentsOfPost(postId).then(commentsData => {
+            setComments(DEMO_DB.comments)
         })
 
     }, [postId])
@@ -54,25 +53,25 @@ const PostDetails = () => {
                 <p>Posted by</p>
             </Col>
             <Col xs="auto" className="m-0 p-0">
-                <UserMini firstName={post?.user.firstName} lastName={post?.user.lastName} avatar={post?.user.avatar} />
+                <UserMini firstName={post?.User.firstName} lastName={post?.User.lastName} avatar={post?.User.avatar} />
             </Col>
             <Col>
-                on {getHumanReadableTimestamp(post?.timestamp)}
+                on {getHumanReadableTimestamp(post?.CreatedAt)}
             </Col>
         </Row>
-        <p>{post?.desc}</p>
+        <p>{post?.description}</p>
         <hr />
-        <h5 className="mb-3">Participants</h5>
+        {/* <h5 className="mb-3">Participants</h5>
         <Row>
             {
-                post?.participants.length > 0 ? post.participants.map(participant => {
+                post?.participantsNum > 0 ? post.participants.map(participant => {
                     return <Col xs="auto" key={participant.id}>
                         <UserMini firstName={participant.firstName} lastName={participant.lastName} avatar={participant.avatar} />
                     </Col>
                 }) : <p>No participants yet</p>
             }
         </Row>
-        <hr />
+        <hr /> */}
         <h5 className="mb-3">Comments</h5>
         <Row>
             <Col>

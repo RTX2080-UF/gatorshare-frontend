@@ -10,7 +10,8 @@ const ENDPOINTS = {
     getCommentsOfPost: (postId) => `/comments/getAll/${postId}`,
     createComment: () => '/comments/create',
     login: () => '/users/login',
-    register: () => '/users/register'
+    register: () => '/users/register',
+    getPostById: (postId) => `/posts/getOne/${postId}`
 }
 
 const getRequest = (url, resolve, reject) => {
@@ -50,6 +51,11 @@ const data = {
         getRequest(url, resolve, reject)
     }),
 
+    getPostById: (postId) => new Promise((resolve, reject) => {
+        const url = `${SERVER_URL}${VERSION}${ENDPOINTS.getPostById(postId)}`
+        getRequest(url, resolve, reject)
+    }), 
+
     createPost: (postData) => new Promise((resolve, reject) => {
         const url = `${SERVER_URL}${VERSION}${ENDPOINTS.createPost()}`
         postRequest(url, postData, resolve, reject)
@@ -75,9 +81,9 @@ const data = {
         postRequest(url, signupData, resolve, reject)
     }),
 
-    getCurrentUser: () => {
-        return DEMO_DB.user
-    },
+    getCurrentUser: () => new Promise((resolve, reject) => {
+        resolve(DEMO_DB.user)
+    }),
 
     getAllCategories: () => new Promise((resolve, reject) => {
         setInterval(() => {

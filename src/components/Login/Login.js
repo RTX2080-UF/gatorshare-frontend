@@ -3,7 +3,7 @@ import BGImage from "../BGImage"
 import data from "../../data/Data"
 import { useState } from "react"
 import { useNavigate } from 'react-router-dom';
-// import sessionUtils from '../../utils/SessionUtils'
+import {setAccessToken} from '../../utils/SessionUtils'
 
 
 const Login = () => {
@@ -15,8 +15,7 @@ const Login = () => {
         e.preventDefault();
         const requestData = `{"username":"${username}","password":"${pwd}"}`;
         data.login(requestData).then(res => {
-            // console.log(res.data);
-            // sessionUtils.setAccessToken(res.data);
+            setAccessToken(res.data);
             navigate("/onboarding");
         })
     };

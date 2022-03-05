@@ -8,7 +8,6 @@ const Home = () => {
 
     useEffect(() => {
         data.getPosts(1).then(posts => {
-            console.log(posts)
             setPosts(posts.data)
         })
     }, [])

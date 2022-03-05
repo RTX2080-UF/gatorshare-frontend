@@ -18,7 +18,6 @@ const NavBar = () => {
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
     const handleCreateClick = (e)=> {
-        console.log("Create clicked")
         handleShow()
     }
     const returnModal = ()=>{

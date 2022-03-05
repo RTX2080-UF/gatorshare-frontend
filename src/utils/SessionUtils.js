@@ -4,19 +4,19 @@ const KEYS = {
 }
 
 export const isLoggedIn = () => {
-    return getCurrentUser() !== null && getCurrentUser() !== undefined
-        && getAccessToken() !== null && getAccessToken !== undefined
+    return getCurrentUser() !== null && getAccessToken() !== null
 }
+
 
 export const logOutUser = () => {
     if (isLoggedIn()) {
-        localStorage.removeItem(KEYS.user)
-        localStorage.removeItem(KEYS.accessToken)
+        clearAccessToken()
+        clearUser()
     }
 }
 
 export const setUser = (userData) => {
-    localStorage.setItem(KEYS.user, userData)
+    localStorage.setItem(KEYS.user, JSON.stringify(userData))
 }
 
 export const clearUser = () => {
@@ -24,7 +24,7 @@ export const clearUser = () => {
 }
 
 export const getCurrentUser = () => {
-    return localStorage.getItem(KEYS.user)
+    return localStorage.getItem(KEYS.user) ? JSON.parse(localStorage.getItem(KEYS.user)) : null
 }
 
 export const setAccessToken = (accessToken) => {

@@ -24,7 +24,7 @@ const Onboarding = () => {
     const selectOrUnselectCategory = (categoryId) => {
         const categoriesToSelect = [...selectedCategories]
         const index = categoriesToSelect.indexOf(categoryId);
-        if (index == -1) {
+        if (index === -1) {
             categoriesToSelect.push(categoryId)
         } else {
             categoriesToSelect.splice(index, 1)
@@ -35,7 +35,7 @@ const Onboarding = () => {
     const selectOrUnselectPopularUser = (userId) => {
         const usersToSelect = [...selectedUsers]
         const index = usersToSelect.indexOf(userId);
-        if (index == -1) {
+        if (index === -1) {
             usersToSelect.push(userId)
         } else {
             usersToSelect.splice(index, 1)
@@ -61,7 +61,7 @@ const Onboarding = () => {
         {
             categories.map(category => {
                 return <Col sm={12} md={4} lg={3} className="mt-3" onClick={() => selectOrUnselectCategory(category.id)}>
-                    <Category data={category} selected={selectedCategories.indexOf(category.id) != -1} />
+                    <Category data={category} selected={selectedCategories.indexOf(category.id) !== -1} />
                 </Col>
             })
         }
@@ -75,7 +75,7 @@ const Onboarding = () => {
         {
             popularUsers.map(user => {
                 return <Col sm={12} md={4} lg={3} className="mt-3" onClick={() => selectOrUnselectPopularUser(user.id)}>
-                    <User data={user} selected={selectedUsers.indexOf(user.id) != -1} />
+                    <User data={user} selected={selectedUsers.indexOf(user.id) !== -1} />
                 </Col>
             })
         }

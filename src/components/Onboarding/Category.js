@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { Card, Col, Image, Row } from "react-bootstrap"
 
 const Category = ({data, selected}) => {

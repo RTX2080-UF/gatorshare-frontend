@@ -33,7 +33,7 @@ const postRequest = (url, data, resolve, reject) => {
             'Content-Type': 'application/json'
         },
         method: 'POST',
-        body: JSON.stringify(data)
+        body: data
     }).then(response => {
         if (response.status >= 200 && response.status <= 299) {
             response.json().then(result => {
@@ -73,6 +73,7 @@ const data = {
 
     login: (loginData) => new Promise((resolve, reject) => {
         const url = `${SERVER_URL}${VERSION}${ENDPOINTS.login()}`
+        console.log(url);
         postRequest(url, loginData, resolve, reject)
     }),
 

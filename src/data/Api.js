@@ -95,6 +95,12 @@ const data = {
             resolve(DEMO_DB.categories)
         }, 500);
     }),
+
+    getPopularUsers: () => new Promise((resolve, reject) => {
+        setInterval(() => {
+            resolve(DEMO_DB.popularUsers)
+        }, 500);
+    }),
 }
 
 export default data

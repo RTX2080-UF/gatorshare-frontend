@@ -13,11 +13,7 @@ const Main = () => {
                 <SideBar />
             </Col>
             <Col className="page-container">
-                {/* <BrowserRouter> */}
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                </Routes>
-                {/* </BrowserR  outer> */}
+                <Home />
             </Col>
         </Row>
     </div>

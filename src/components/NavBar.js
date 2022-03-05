@@ -7,12 +7,12 @@ import CreatePostModal from './CreatePostModal';
 
 import "./NavBar.css";
 import UserNav from './UserNav';
-import data from '../data/Data';
 import logo from "../assets/logo_wide.png"
 import Icon from '@mdi/react';
+import { getCurrentUser } from '../utils/SessionUtils';
 
 const NavBar = () => {
-    const currentUser = data.getCurrentUser()
+    const currentUser = getCurrentUser()
     
     const [show, setShow] = useState(false);
     const handleShow = () => setShow(true);

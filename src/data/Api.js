@@ -81,9 +81,9 @@ const data = {
         postRequest(url, signupData, resolve, reject)
     }),
 
-    getCurrentUser: () => {
-        return DEMO_DB.user
-    },
+    getCurrentUser: () => new Promise((resolve, reject) => {
+        resolve(DEMO_DB.user)
+    }),
 
     getAllCategories: () => new Promise((resolve, reject) => {
         setInterval(() => {

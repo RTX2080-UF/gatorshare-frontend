@@ -41,22 +41,26 @@ export const DEMO_DB = {
         {
             id: 1,
             icon: 'https://i.postimg.cc/bwF2zTP3/carpool.png',
-            name: 'Carpooling'
+            name: 'Carpooling',
+            selected: false
         },
         {
             id: 2,
             icon: 'https://i.postimg.cc/Dz9JGw8G/food.png',
-            name: 'Groceries'
+            name: 'Groceries',
+            selected: false
         },
         {
             id: 3,
             icon: 'https://i.postimg.cc/rp0RzrFc/taxi.png',
-            name: 'Ride Sharing'
+            name: 'Ride Sharing',
+            selected: false
         },
         {
             id: 4,
             icon: 'https://i.postimg.cc/vBTq4XxT/gift.png',
-            name: 'Giveaways'
+            name: 'Giveaways',
+            selected: false
         }
     ]
 }

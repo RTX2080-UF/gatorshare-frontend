@@ -87,3 +87,12 @@
   width: 100%;
   overflow: hidden;
 }
+
+.selected-card {
+  border-color: #D65F3D;
+  border-width: 2px;
+}
+
+.text-color-accent {
+  color: #D65F3D;
+}

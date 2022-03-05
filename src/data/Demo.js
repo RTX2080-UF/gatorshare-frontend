@@ -36,7 +36,85 @@ export const DEMO_DB = {
             email: "psmith@example.com",
             avatar: getDummyAvatar()
         }
-    }]
+    }],
+    categories: [
+        {
+            id: 1,
+            icon: 'https://i.postimg.cc/bwF2zTP3/carpool.png',
+            name: 'Carpooling',
+            selected: false
+        },
+        {
+            id: 2,
+            icon: 'https://i.postimg.cc/Dz9JGw8G/food.png',
+            name: 'Groceries',
+            selected: false
+        },
+        {
+            id: 3,
+            icon: 'https://i.postimg.cc/rp0RzrFc/taxi.png',
+            name: 'Ride Sharing',
+            selected: false
+        },
+        {
+            id: 4,
+            icon: 'https://i.postimg.cc/vBTq4XxT/gift.png',
+            name: 'Giveaways',
+            selected: false
+        }
+    ],
+    popularUsers: [
+        {
+            id: 1,
+            firstName: "John",
+            lastName: "Doe",
+            email: "johndoe@example.com",
+            avatar: getDummyAvatar()
+        },
+        {
+            id: 2,
+            firstName: "Paul",
+            lastName: "Smith",
+            email: "psmith@example.com",
+            avatar: getDummyAvatar()
+        },
+        {
+            id: 3,
+            firstName: "Lily",
+            lastName: "Evans",
+            email: "evansl@example.com",
+            avatar: getDummyAvatar()
+        },
+        {
+            id: 4,
+            firstName: "Lacrosse",
+            lastName: "Josh",
+            email: "ljosh@example.com",
+            avatar: getDummyAvatar()
+        },
+        {
+            id: 5,
+            firstName: "Martha",
+            lastName: "Matercod",
+            email: "mmader@example.com",
+            avatar: getDummyAvatar()
+        },
+        {
+            id: 6,
+            firstName: "Samantha",
+            lastName: "Joe",
+            email: "sjoe@example.com",
+            avatar: getDummyAvatar()
+        },
+        {
+            id: 7,
+            firstName: "Rhyder",
+            lastName: "Rhodes",
+            email: "rrhodes@example.com",
+            avatar: getDummyAvatar()
+        }
+
+    ]
 }
 
 

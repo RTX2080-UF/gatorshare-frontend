@@ -10,7 +10,8 @@ const ENDPOINTS = {
     getCommentsOfPost: (postId) => `/comments/getAll/${postId}`,
     createComment: () => '/comments/create',
     login: () => '/users/login',
-    register: () => '/users/register'
+    register: () => '/users/register',
+    getPostById: (postId) => `/posts/getOne/${postId}`
 }
 
 const getRequest = (url, resolve, reject) => {
@@ -49,6 +50,11 @@ const data = {
         const url = `${SERVER_URL}${VERSION}${ENDPOINTS.getAllPostsOfUser(userId)}`
         getRequest(url, resolve, reject)
     }),
+
+    getPostById: (postId) => new Promise((resolve, reject) => {
+        const url = `${SERVER_URL}${VERSION}${ENDPOINTS.getPostById(postId)}`
+        getRequest(url, resolve, reject)
+    }), 
 
     createPost: (postData) => new Promise((resolve, reject) => {
         const url = `${SERVER_URL}${VERSION}${ENDPOINTS.createPost()}`

@@ -3,15 +3,8 @@ import { Col, Row } from "react-bootstrap"
 import { Route, Routes } from "react-router-dom"
 import Home from "../pages/Home"
 import NavBar from "./NavBar"
-import PostDetails from "./Post/PostDetails"
 import SideBar from "./SideBar/SideBar"
 
-// const Main = () => {
-//     return <div className="main-page">
-//         <NavBar />
-//         <Login className="main-container"/>
-//     </div>
-// }
 const Main = () => {
     return <div className="main-page">
         <NavBar />
@@ -23,9 +16,6 @@ const Main = () => {
                 {/* <BrowserRouter> */}
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="post">
-                        <Route path=":postId" element={<PostDetails />} />
-                    </Route>
                 </Routes>
                 {/* </BrowserR  outer> */}
             </Col>

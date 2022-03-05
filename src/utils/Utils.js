@@ -1,5 +1,5 @@
-export const getHumanReadableTimestamp = (millis) => {
-    const date = new Date(millis)
+export const getHumanReadableTimestamp = (millisOrDateStr) => {
+    const date = new Date(millisOrDateStr)
     return date.toLocaleString()
 }
 

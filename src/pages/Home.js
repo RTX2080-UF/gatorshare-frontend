@@ -25,8 +25,8 @@ const Home = () => {
             {
                 posts.length > 0 ?
                     posts.map(post => {
-                        return <Col xs={12} className="mb-3" key={post.id}>
-                            <a href={"/post/" + post.id} className="link-no-style"><Post data={post} /></a>
+                        return <Col xs={12} className="mb-3" key={post.ID}>
+                            <a href={"/post/" + post.ID} className="link-no-style"><Post data={post} /></a>
                         </Col>
                     }) :
                     <p>No posts yet, go ahead and create one!</p>

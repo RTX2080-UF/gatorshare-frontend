@@ -1,6 +1,5 @@
 import React from "react"
 import { Col, Row } from "react-bootstrap"
-import { Route, Routes } from "react-router-dom"
 import Home from "../pages/Home"
 import NavBar from "./NavBar"
 import SideBar from "./SideBar/SideBar"

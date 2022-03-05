@@ -17,9 +17,11 @@ The aim was to build the basic structure of the React app, including the code st
 ### Features completed:
 1. Created the `Login` component - User can enter username and password to login.
 2. Created the `Signup` component - User can enter the details such as firstname, last name, email and password to create a new account.
-3. Integrated `Cypress` testing framework to test the flow of our application.
-4. Integrated `JTest` unit testing framework.
-5. Implemented test cases for the Login component.
-6. Implemented test cases for the Signup component.
-7. CI/CD integration with Netlify.
-8. Implemented routing strategies.
+3. Created the `Onboarding` component - User can select his/her interests and the corresponding posts are shown in the home screen.
+4. Integrated `Cypress` testing framework to test the flow of our application.
+5. Integrated `JTest` unit testing framework.
+6. Implemented test cases for the Login component.
+7. Implemented test cases for the Signup component.
+8. Implemented unit test cases for SessionUtils class.
+9. CI/CD integration with Netlify.
+10. Implemented routing strategies.

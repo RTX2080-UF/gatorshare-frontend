@@ -5,7 +5,7 @@ The aim was to build the basic structure of the React app, including the code st
 
 
 #### Demo
-![](sprint2.gif)
+![](/src/assets/sprint2.gif)
 
 ### User stories achieved:
 1. User should be able to create an account. (Issue #2)
@@ -18,8 +18,8 @@ The aim was to build the basic structure of the React app, including the code st
 1. Created the `Login` component - User can enter username and password to login.
 2. Created the `Signup` component - User can enter the details such as firstname, last name, email and password to create a new account.
 3. Integrated `Cypress` testing framework to test the flow of our application.
-3. Integrated `JTest` unit testing framework.
-4. Implemented test cases for the Login component.
-5. Implemented test cases for the Signup component.
-6. CI/CD integration with Netlify.
-7. Implemented routing strategies.
+4. Integrated `JTest` unit testing framework.
+5. Implemented test cases for the Login component.
+6. Implemented test cases for the Signup component.
+7. CI/CD integration with Netlify.
+8. Implemented routing strategies.

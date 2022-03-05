@@ -86,10 +86,15 @@ const data = {
         }
     }),
 
-
     getCurrentUser: () => {
         return DEMO_DB.user
     },
+
+    getAllCategories: () => new Promise((resolve, reject) => {
+        setInterval(() => {
+            resolve(DEMO_DB.categories)
+        }, 500);
+    }),
 }
 
 export default data

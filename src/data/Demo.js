@@ -36,7 +36,29 @@ export const DEMO_DB = {
             email: "psmith@example.com",
             avatar: getDummyAvatar()
         }
-    }]
+    }],
+    categories: [
+        {
+            id: 1,
+            icon: 'https://i.postimg.cc/bwF2zTP3/carpool.png',
+            name: 'Carpooling'
+        },
+        {
+            id: 2,
+            icon: 'https://i.postimg.cc/Dz9JGw8G/food.png',
+            name: 'Groceries'
+        },
+        {
+            id: 3,
+            icon: 'https://i.postimg.cc/rp0RzrFc/taxi.png',
+            name: 'Ride Sharing'
+        },
+        {
+            id: 4,
+            icon: 'https://i.postimg.cc/vBTq4XxT/gift.png',
+            name: 'Giveaways'
+        }
+    ]
 }
 
 

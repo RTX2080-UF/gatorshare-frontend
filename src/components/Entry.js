@@ -4,6 +4,7 @@ import Onboarding from "../pages/Onboarding";
 import Login from "./Login/Login"
 import Signup from "./Signup/Signup"
 import Main from "./Main";
+import PostDetails from "./Post/PostDetails";
 
 const Entry = () => {
     return <div>
@@ -13,6 +14,10 @@ const Entry = () => {
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/" element={<Main />} />
                 <Route path="/onboarding" element={<Onboarding />} />
+                <Route path="/post">
+                    <Route path=":postId" element={<PostDetails />} />
+                </Route>
+
             </Routes>
         </BrowserRouter>
     </div>

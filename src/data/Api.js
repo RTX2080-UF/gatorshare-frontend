@@ -75,17 +75,6 @@ const data = {
         postRequest(url, signupData, resolve, reject)
     }),
 
-    logOut: () => new Promise((resolve, reject) => {
-        const user = localStorage.getItem('user')
-        if (user) {
-            localStorage.setItem('user', null)
-            window.location.href('/login')
-            resolve('Logged out')
-        } else {
-            reject('Not logged in')
-        }
-    }),
-
     getCurrentUser: () => {
         return DEMO_DB.user
     },

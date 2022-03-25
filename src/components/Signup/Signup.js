@@ -1,27 +1,52 @@
 import { Button, Form } from 'react-bootstrap';
 import BGImage from "../BGImage"
+import data from "../../data/Data"
+import { useState } from "react"
+import { useNavigate } from 'react-router-dom';
+import {setAccessToken} from '../../utils/SessionUtils'
 
 const Signup = () => {
+
+    const navigate = useNavigate();
+    const [username, setUserName] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [pwd, setPwd] = useState('');
+
+    const handleSignUp = (e) => {
+        e.preventDefault();
+        const requestData = `{"Username":"${username}","Firstname":"${firstName}","Lastname":"${lastName}","Email":"${email}","Password":"${pwd}"}`;
+        data.register(requestData).then(res => {
+            // setAccessToken(res.data);
+            // navigate("/onboarding");
+        })
+    };
+
     return <div>
         <BGImage />
         <div className="login-center d-flex justify-content-center align-items-center">
-            <Form className="form rounded m-4 p-4">
+            <Form className="form rounded m-4 p-4" onSubmit={handleSignUp}>
                 <h3>Sign Up</h3>
                 <div className="form-group">
+                    <label>Username</label>
+                    <input type="text" className="form-control" placeholder="Enter user name" value={username} onChange={(e) => setUserName(e.target.value)}/>
+                </div>
+                <div className="form-group">
                     <label>First name</label>
-                    <input type="text" className="form-control" placeholder="First name" />
+                    <input type="text" className="form-control" placeholder="First name" value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
                 </div>
                 <div className="form-group">
                     <label>Last name</label>
-                    <input type="text" className="form-control" placeholder="Last name" />
+                    <input type="text" className="form-control" placeholder="Last name" value={lastName} onChange={(e) => setLastName(e.target.value)}/>
                 </div>
                 <div className="form-group">
                     <label>Email address</label>
-                    <input type="email" className="form-control" placeholder="Enter email" />
+                    <input type="email" className="form-control" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)}/>
                 </div>
                 <div className="form-group">
                     <label>Password</label>
-                    <input type="password" className="form-control" placeholder="Enter password" />
+                    <input type="password" className="form-control" placeholder="Enter password" value={pwd} onChange={(e) => setPwd(e.target.value)}/>
                 </div>
                 <Button variant="primary" type="submit" className='mb-3 gatorshare-button'>
                     Sign Up

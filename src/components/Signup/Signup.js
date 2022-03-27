@@ -30,23 +30,23 @@ const Signup = () => {
                 <h3>Sign Up</h3>
                 <div className="form-group">
                     <label>Username</label>
-                    <input type="text" className="form-control" placeholder="Enter user name" value={username} onChange={(e) => setUserName(e.target.value)}/>
+                    <input type="text" id="username" className="form-control" placeholder="Enter user name" value={username} onChange={(e) => setUserName(e.target.value)}/>
                 </div>
                 <div className="form-group">
                     <label>First name</label>
-                    <input type="text" className="form-control" placeholder="First name" value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
+                    <input type="text" id="firstname" className="form-control" placeholder="First name" value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
                 </div>
                 <div className="form-group">
                     <label>Last name</label>
-                    <input type="text" className="form-control" placeholder="Last name" value={lastName} onChange={(e) => setLastName(e.target.value)}/>
+                    <input type="text" id="lastname" className="form-control" placeholder="Last name" value={lastName} onChange={(e) => setLastName(e.target.value)}/>
                 </div>
                 <div className="form-group">
                     <label>Email address</label>
-                    <input type="email" className="form-control" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                    <input type="email" id="email" className="form-control" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)}/>
                 </div>
                 <div className="form-group">
                     <label>Password</label>
-                    <input type="password" className="form-control" placeholder="Enter password" value={pwd} onChange={(e) => setPwd(e.target.value)}/>
+                    <input type="password" id="password" className="form-control" placeholder="Enter password" value={pwd} onChange={(e) => setPwd(e.target.value)}/>
                 </div>
                 <Button variant="primary" type="submit" className='mb-3 gatorshare-button'>
                     Sign Up

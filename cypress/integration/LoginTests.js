@@ -35,5 +35,13 @@ describe('Testing Login UI', function () {
         cy.get("#username").type('johndoe').should('have.value','johndoe');
         cy.get("#password").type('123').should('have.value','123');
     });
+    it('login flow', function () {
+        cy.visit("/login");
+        cy.get('.form-check [type="checkbox"]').check().should('be.checked');
+        cy.get("#username").type('johndoe').should('have.value','johndoe');
+        cy.get("#password").type('123').should('have.value','123');
+        cy.get("button").click();
+        // cy.location('pathname').should('eq', '/onboarding');
+    });
 
 });

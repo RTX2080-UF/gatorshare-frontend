@@ -6,13 +6,17 @@ import LineSeparator from './LineSeparator';
 import CreatePostModal from './CreatePostModal';
 
 import "./NavBar.css";
+import { useEffect } from "react"
 import UserNav from './UserNav';
 import logo from "../assets/logo_wide.png"
 import Icon from '@mdi/react';
 import { getCurrentUser } from '../utils/SessionUtils';
 
 const NavBar = () => {
-    const currentUser = getCurrentUser()
+    let currentUser = getCurrentUser()
+    useEffect(() => {
+        currentUser = getCurrentUser()
+    }, [])
     
     const [show, setShow] = useState(false);
     const handleShow = () => setShow(true);

@@ -4,6 +4,7 @@ import Home from "../../pages/Home"
 import NavBar from "./../NavBar"
 import SettingsSideBar from "./SettingsSideBar"
 import Data from "../../data/Data"
+import Profile from "./Profile"
 import { setUser } from "../../utils/SessionUtils"
 import {PATH} from "./SettingsPath";
 
@@ -23,7 +24,7 @@ const Settings = () => {
             </Col>
             
             <Col className="page-container">
-                {item === PATH.PROFILE ? "Profile" : ""} 
+                {item === PATH.PROFILE ? <Profile/> : ""} 
                 {item === PATH.SECURITY ? "Security" : ""} 
                 {item === PATH.NOTIFICATIONS ? "Notifications" : ""} 
             </Col>

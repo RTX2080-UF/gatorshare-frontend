@@ -23,9 +23,9 @@ const Settings = () => {
             </Col>
             
             <Col className="page-container">
-                {item === PATH.PROFILE ? <Home /> : ""} 
-                {item === PATH.SECURITY ? <Home /> : ""} 
-                {item === PATH.NOTIFICATIONS ? <Home /> : ""} 
+                {item === PATH.PROFILE ? "Profile" : ""} 
+                {item === PATH.SECURITY ? "Security" : ""} 
+                {item === PATH.NOTIFICATIONS ? "Notifications" : ""} 
             </Col>
         </Row>
     </div>

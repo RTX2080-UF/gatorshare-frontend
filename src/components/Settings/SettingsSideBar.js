@@ -1,9 +1,33 @@
 import { mdiHomeOutline } from '@mdi/js';
+import React, { useState } from "react"
 import { Col, Row } from 'react-bootstrap';
 import COLORS from '../../theme/colors';
-import SideBarItem from '../SideBar/SideBarItem';
+import SettingsSideBarItem from './SettingsSideBarItem';
+import {PATH} from "./SettingsPath";
 
-const SettingsSideBar = () => {
+const SettingsSideBar = (props) => {
+    const [pactive, setpActive] = useState(true);
+    const [sactive, setsActive] = useState(false);
+    const [nactive, setnActive] = useState(false);
+
+    const handleProfileClick = (e)=> {
+        props.setSettingsPath(PATH.PROFILE);
+        setpActive(true);
+        setsActive(false);
+        setnActive(false);
+    }
+    const handleSecurityClick = (e)=> {
+        props.setSettingsPath(PATH.SECURITY);
+        setpActive(false);
+        setsActive(true);
+        setnActive(false);
+    }
+    const handleNotificationsClick = (e)=> {
+        props.setSettingsPath(PATH.NOTIFICATIONS);
+        setpActive(false);
+        setsActive(false);
+        setnActive(true);
+    }
     const SIDEBAR_ITEMS = [
         {
             icon: mdiHomeOutline,
@@ -30,13 +54,13 @@ const SettingsSideBar = () => {
     return <div style={style} className={"m-0 p-0 pt-5"}>
             <Row className={"m-0 p-0 pt-5"}>
                 <Col xs={12} className={"m-0 p-0"} key="Profile">
-                    <SideBarItem name="Profile" icon={mdiHomeOutline} active/>
+                    <SettingsSideBarItem name="Profile" icon={mdiHomeOutline} active handleClick={(e)=>handleProfileClick(e)}/>
                 </Col>
                 <Col xs={12} className={"m-0 p-0"} key="Security">
-                    <SideBarItem name="Security" icon={mdiHomeOutline}/>
+                    <SettingsSideBarItem name="Security" icon={mdiHomeOutline} active handleClick={(e)=>handleSecurityClick(e)}/>
                 </Col>
                 <Col xs={12} className={"m-0 p-0"} key="Notifications">
-                    <SideBarItem name="Notifications" icon={mdiHomeOutline}/>
+                    <SettingsSideBarItem name="Notifications" icon={mdiHomeOutline} active handleClick={(e)=>handleNotificationsClick(e)}/>
                 </Col>
             </Row>
     </div>

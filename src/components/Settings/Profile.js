@@ -46,7 +46,7 @@ const Profile = (props) => {
                     <div className="col-md-12">
                         <div className="form-group">
                             <label for="account-pass">Bio</label>
-                            <input className="form-control" type="password" id="account-pass" placeholder="Enter bio" />
+                            <Form.Control as="textarea" rows={3} id="account-bio" placeholder='Enter bio' />
                         </div>
                     </div>
                    

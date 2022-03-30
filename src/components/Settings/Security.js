@@ -29,7 +29,7 @@ const Security = () => {
                     <div className="col-md-9">
                         <div className="form-group">
                             <label for="account-confirm-pass">New Password</label>
-                            <input className="form-control" type="password" id="account-confirm-pass"/>
+                            <input className="form-control" type="password" id="account-new-pass"/>
                         </div>
                     </div>
                     <div className="col-md-9">

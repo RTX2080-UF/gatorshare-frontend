@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react"
 import { Col, Row } from "react-bootstrap"
-import Home from "../../pages/Home"
 import NavBar from "./../NavBar"
 import SettingsSideBar from "./SettingsSideBar"
 import Data from "../../data/Data"
 import Profile from "./Profile"
 import Security from "./Security"
+import Notifications from "./Notifications"
 import { setUser } from "../../utils/SessionUtils"
 import {PATH} from "./SettingsPath";
 
@@ -27,7 +27,7 @@ const Settings = () => {
             <Col className="page-container ps-0">
                 {item === PATH.PROFILE ? <Profile/> : ""} 
                 {item === PATH.SECURITY ? <Security/> : ""} 
-                {item === PATH.NOTIFICATIONS ? "Notifications" : ""} 
+                {item === PATH.NOTIFICATIONS ? <Notifications/> : ""} 
             </Col>
         </Row>
     </div>

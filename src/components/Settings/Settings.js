@@ -11,9 +11,10 @@ import {PATH} from "./SettingsPath";
 
 const Settings = () => {
     const [item, setItem] = useState(PATH.PROFILE);
+    const [userData, setUserData] = useState("");
     useEffect(() => {
         Data.getCurrentUser().then(user => {
-            setUser(user)
+            setUserData(user)
         })
     }, [])
 
@@ -25,7 +26,7 @@ const Settings = () => {
             </Col>
             
             <Col className="page-container ps-0">
-                {item === PATH.PROFILE ? <Profile/> : ""} 
+                {item === PATH.PROFILE ? <Profile userData={userData}/> : ""} 
                 {item === PATH.SECURITY ? <Security/> : ""} 
                 {item === PATH.NOTIFICATIONS ? <Notifications/> : ""} 
             </Col>

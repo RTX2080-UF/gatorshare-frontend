@@ -5,7 +5,7 @@ import { setUser } from "../../utils/SessionUtils"
 import { Button, Form } from 'react-bootstrap';
 
 
-const Profile = () => {
+const Profile = (props) => {
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
@@ -22,41 +22,35 @@ const Profile = () => {
                     <div className="col-md-6">
                         <div className="form-group">
                             <label for="account-fn">First Name</label>
-                            <input className="form-control" type="text" id="account-fn" value="Daniel" required=""/>
+                            <input className="form-control" type="text" id="account-fn" value={props.userData.firstName} required=""/>
                         </div>
                     </div>
                     <div className="col-md-6">
                         <div className="form-group">
                             <label for="account-ln">Last Name</label>
-                            <input className="form-control" type="text" id="account-ln" value="Adams" required=""/>
+                            <input className="form-control" type="text" id="account-ln" value={props.userData.lastName} required=""/>
                         </div>
                     </div>
                     <div className="col-md-6">
                         <div className="form-group">
                             <label for="account-email">E-mail Address</label>
-                            <input className="form-control" type="email" id="account-email" value="daniel.adams@example.com" disabled=""/>
+                            <input className="form-control" type="email" id="account-email" value={props.userData.email} disabled=""/>
                         </div>
                     </div>
                     <div className="col-md-6">
                         <div className="form-group">
                             <label for="account-phone">Phone Number</label>
-                            <input className="form-control" type="text" id="account-phone" value="+7 (805) 348 95 72" required=""/>
+                            <input className="form-control" type="text" id="account-phone" value="(***)-***-****" required="" disabled="true"/>
                         </div>
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-md-12">
                         <div className="form-group">
-                            <label for="account-pass">New Password</label>
-                            <input className="form-control" type="password" id="account-pass"/>
+                            <label for="account-pass">Bio</label>
+                            <input className="form-control" type="password" id="account-pass" placeholder="Enter bio" />
                         </div>
                     </div>
-                    <div className="col-md-6">
-                        <div className="form-group">
-                            <label for="account-confirm-pass">Confirm Password</label>
-                            <input className="form-control" type="password" id="account-confirm-pass"/>
-                        </div>
-                    </div>
-                    <div className="col-12">
-                        <hr className="mt-2 mb-3"/>
+                   
+                    <div className="col-12 mt-4">
                         <div className="d-flex flex-wrap justify-content-between align-items-center">
                             <button className="btn btn-style-1 btn-primary" type="button" data-toast="" data-toast-position="topRight" data-toast-type="success" data-toast-icon="fe-icon-check-circle" data-toast-title="Success!" data-toast-message="Your profile updated successfuly.">Update Profile</button>
                         </div>

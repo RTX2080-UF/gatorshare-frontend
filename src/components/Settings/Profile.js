@@ -14,7 +14,7 @@ const Profile = () => {
         })
     }, [])
 
-    return <div className="page">
+    return <div className="page bg-light ps-5">
         <Row>
             <h2 className="mb-3">Profile</h2>
             <div className="col-lg-8 pb-5">

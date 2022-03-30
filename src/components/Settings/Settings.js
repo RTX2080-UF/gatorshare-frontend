@@ -19,11 +19,11 @@ const Settings = () => {
     return <div className="main-page">
         <NavBar />
         <Row className="main-container">
-            <Col md={3} lg={3} xl={2}>
+            <Col md={3} lg={3} xl={2} className="pe-0">
                 <SettingsSideBar setSettingsPath={(e)=>setItem(e)}/>
             </Col>
             
-            <Col className="page-container">
+            <Col className="page-container ps-0">
                 {item === PATH.PROFILE ? <Profile/> : ""} 
                 {item === PATH.SECURITY ? "Security" : ""} 
                 {item === PATH.NOTIFICATIONS ? "Notifications" : ""} 

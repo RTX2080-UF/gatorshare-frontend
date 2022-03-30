@@ -100,3 +100,7 @@
 .dropdown-toggle::after {
   display: none !important; 
 }
+
+.bg-light{
+  background-color: rgb(170, 175, 179);
+}

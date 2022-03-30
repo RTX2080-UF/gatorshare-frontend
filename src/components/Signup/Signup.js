@@ -2,7 +2,7 @@ import { Button, Form } from 'react-bootstrap';
 import BGImage from "../BGImage"
 import data from "../../data/Data"
 import { useState } from "react"
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 // import {setAccessToken} from '../../utils/SessionUtils'
 
 const Signup = () => {

@@ -1,10 +1,10 @@
 import { Navbar, Nav } from 'react-bootstrap';
+import { useEffect } from "react";
 import { mdiBellOutline } from '@mdi/js';
 import Image from 'react-bootstrap/Image'
 import { React, useState } from 'react';
 import LineSeparator from './LineSeparator';
 import CreatePostModal from './CreatePostModal';
-
 import "./NavBar.css";
 import UserNav from './UserNav';
 import logo from "../assets/logo_wide.png"
@@ -12,7 +12,10 @@ import Icon from '@mdi/react';
 import { getCurrentUser } from '../utils/SessionUtils';
 
 const NavBar = () => {
-    const currentUser = getCurrentUser()
+    const [currentUser, setCurrentUser] = useState("");
+    useEffect(() => {
+        setCurrentUser(getCurrentUser());
+    }, [])
     
     const [show, setShow] = useState(false);
     const handleShow = () => setShow(true);

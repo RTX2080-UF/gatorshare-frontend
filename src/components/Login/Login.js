@@ -26,13 +26,13 @@ const Login = () => {
         <div className="login-center d-flex justify-content-center align-items-center">
             <Form className="form rounded m-4 p-4" onSubmit={handleLogin}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>User Name:</Form.Label>
-                    <Form.Control type="text" placeholder="Enter Username" value={username} onChange={(e) => setUserName(e.target.value)}/>
+                    <Form.Label>User Name</Form.Label>
+                    <Form.Control type="text" id="username" placeholder="Enter Username" value={username} onChange={(e) => setUserName(e.target.value)}/>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" value={pwd} onChange={(e) => setPwd(e.target.value)}/>
+                    <Form.Control type="password" id="password" placeholder="Password" value={pwd} onChange={(e) => setPwd(e.target.value)}/>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Keep me signed in" />

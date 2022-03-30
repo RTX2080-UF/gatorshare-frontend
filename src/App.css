@@ -96,3 +96,7 @@
 .text-color-accent {
   color: #D65F3D;
 }
+
+.dropdown-toggle::after {
+  display: none !important; 
+}

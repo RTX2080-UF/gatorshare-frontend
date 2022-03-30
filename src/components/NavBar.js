@@ -1,20 +1,21 @@
-import { Navbar, Nav } from 'react-bootstrap';
-import { useEffect } from "react";
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { mdiBellOutline } from '@mdi/js';
 import Image from 'react-bootstrap/Image'
 import { React, useState } from 'react';
 import LineSeparator from './LineSeparator';
 import CreatePostModal from './CreatePostModal';
+
 import "./NavBar.css";
+import { useEffect } from "react"
 import UserNav from './UserNav';
 import logo from "../assets/logo_wide.png"
 import Icon from '@mdi/react';
 import { getCurrentUser } from '../utils/SessionUtils';
 
 const NavBar = () => {
-    const [currentUser, setCurrentUser] = useState("");
+    let currentUser = getCurrentUser()
     useEffect(() => {
-        setCurrentUser(getCurrentUser());
+        currentUser = getCurrentUser()
     }, [])
     
     const [show, setShow] = useState(false);
@@ -28,6 +29,13 @@ const NavBar = () => {
             <CreatePostModal show={show} handleShow={handleShow} handleClose={handleClose}></CreatePostModal>
         )
     }
+    const test = ()=>{
+        return (
+            <Nav.Link href="#deets">
+                <UserNav firstName={currentUser.firstName} lastName={currentUser.lastName} avatar={currentUser.avatar}/>
+            </Nav.Link>
+        )
+    }
     return (
         <div>
             {show ? returnModal() : ""}
@@ -36,9 +44,10 @@ const NavBar = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-auto align-items-center">
-                        <Nav.Link href="#deets">
-                            <UserNav firstName={currentUser.firstName} lastName={currentUser.lastName} avatar={currentUser.avatar}/>
-                        </Nav.Link>
+                        <NavDropdown title={test()} id="basic-nav-dropdown">
+                            <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.4">Logout</NavDropdown.Item>
+                        </NavDropdown>
                         <Nav.Link>
                             <LineSeparator />
                         </Nav.Link>

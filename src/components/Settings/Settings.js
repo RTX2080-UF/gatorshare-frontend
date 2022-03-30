@@ -1,0 +1,34 @@
+import React, { useEffect, useState } from "react"
+import { Col, Row } from "react-bootstrap"
+import Home from "../../pages/Home"
+import NavBar from "./../NavBar"
+import SettingsSideBar from "./SettingsSideBar"
+import Data from "../../data/Data"
+import { setUser } from "../../utils/SessionUtils"
+import {PATH} from "./SettingsPath";
+
+const Settings = () => {
+    const [item, setItem] = useState(PATH.PROFILE);
+    useEffect(() => {
+        Data.getCurrentUser().then(user => {
+            setUser(user)
+        })
+    }, [])
+
+    return <div className="main-page">
+        <NavBar />
+        <Row className="main-container">
+            <Col md={3} lg={3} xl={2}>
+                <SettingsSideBar setSettingsPath={(e)=>setItem(e)}/>
+            </Col>
+            
+            <Col className="page-container">
+                {item === PATH.PROFILE ? <Home /> : ""} 
+                {item === PATH.SECURITY ? <Home /> : ""} 
+                {item === PATH.NOTIFICATIONS ? <Home /> : ""} 
+            </Col>
+        </Row>
+    </div>
+}
+
+export default Settings

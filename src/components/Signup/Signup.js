@@ -3,11 +3,11 @@ import BGImage from "../BGImage"
 import data from "../../data/Data"
 import { useState } from "react"
 import { useNavigate } from 'react-router-dom';
-import {setAccessToken} from '../../utils/SessionUtils'
+// import {setAccessToken} from '../../utils/SessionUtils'
 
 const Signup = () => {
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const [username, setUserName] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');

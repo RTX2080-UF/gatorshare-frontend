@@ -4,7 +4,7 @@ import Image from 'react-bootstrap/Image'
 import { React, useState } from 'react';
 import LineSeparator from './LineSeparator';
 import CreatePostModal from './CreatePostModal';
-
+import { useNavigate } from 'react-router-dom';
 import "./NavBar.css";
 import { useEffect } from "react"
 import UserNav from './UserNav';
@@ -13,6 +13,7 @@ import Icon from '@mdi/react';
 import { getCurrentUser } from '../utils/SessionUtils';
 
 const NavBar = () => {
+    const navigate = useNavigate();
     let currentUser = getCurrentUser()
     useEffect(() => {
         currentUser = getCurrentUser()
@@ -23,6 +24,9 @@ const NavBar = () => {
     const handleClose = () => setShow(false);
     const handleCreateClick = (e)=> {
         handleShow()
+    }
+    const handleSettingsClick = (e)=> {
+        navigate("/settings");
     }
     const returnModal = ()=>{
         return (
@@ -40,13 +44,13 @@ const NavBar = () => {
         <div>
             {show ? returnModal() : ""}
             <Navbar className="ps-3 pe-3" collapseOnSelect expand="lg" bg="light" variant="light">
-                <Navbar.Brand href="#home"><Image src={logo} height={30} /></Navbar.Brand>
+                <Navbar.Brand href="/"><Image src={logo} height={30} /></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-auto align-items-center">
                         <NavDropdown title={test()} id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.4">Logout</NavDropdown.Item>
+                            <NavDropdown.Item href="#" onClick={(e)=>handleSettingsClick(e)}>Profile</NavDropdown.Item>
+                            <NavDropdown.Item href="#">Logout</NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link>
                             <LineSeparator />

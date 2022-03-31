@@ -6,6 +6,7 @@ import { Col, Row, Button } from 'react-bootstrap';
 import COLORS from '../../theme/colors';
 import SettingsSideBarItem from './SettingsSideBarItem';
 import {PATH} from "./SettingsPath";
+import { logOutUser } from '../utils/SessionUtils';
 
 const SettingsSideBar = (props) => {
     const handleProfileClick = (e)=> {
@@ -16,6 +17,10 @@ const SettingsSideBar = (props) => {
     }
     const handleNotificationsClick = (e)=> {
         props.setSettingsPath(PATH.NOTIFICATIONS);
+    }
+    const handleLogoutClick = (e)=> {
+        logOutUser();
+        navigate("/login");
     }
 
     const style = {
@@ -36,7 +41,7 @@ const SettingsSideBar = (props) => {
                 </Col>
             </Row>
             <div className='text-align-center logout-div'>
-                <Button variant="outline-dark" className='settings-logout primarytextcolor'>Logout</Button>
+                <Button variant="outline-dark" className='settings-logout primarytextcolor' onClick={(e)=>handleLogoutClick(e)}>Logout</Button>
             </div>
     </div>
 }

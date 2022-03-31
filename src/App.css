@@ -13,6 +13,10 @@
   height: calc(100vh - 72px) !important;
 }
 
+.page-container {
+  height: 100vh !important;
+}
+
 .page {
   width: 100% !important;
   height: calc(100% - 72px) !important;
@@ -68,7 +72,13 @@
 .gatorshare-button{
   background-color: #D65F3D;
   outline: none;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
   border:none !important;
+  border-radius: 32px;
+  box-shadow: 0px 0px 2px #999999;
 }
 .gatorshare-button:focus, 
 .gatorshare-button:active{

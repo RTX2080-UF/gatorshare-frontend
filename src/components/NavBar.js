@@ -36,7 +36,7 @@ const NavBar = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Form.Group className='me-auto mt-3 ms-4'>
-                        <Form.Control type='text' placeholder='Search'/>
+                        <Form.Control type='text' placeholder='Search' onClick={() => window.location.pathname = '/posts/search'}/>
                     </Form.Group>
                     <Nav className="ms-auto align-items-center">
                         <Nav.Link href="">

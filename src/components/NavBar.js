@@ -10,7 +10,7 @@ import { useEffect } from "react"
 import UserNav from './UserNav';
 import logo from "../assets/logo_wide.png"
 import Icon from '@mdi/react';
-import { getCurrentUser } from '../utils/SessionUtils';
+import { getCurrentUser, logOutUser } from '../utils/SessionUtils';
 
 const NavBar = () => {
     const navigate = useNavigate();
@@ -27,6 +27,10 @@ const NavBar = () => {
     }
     const handleSettingsClick = (e)=> {
         navigate("/settings");
+    }
+    const handleLogoutClick = (e)=> {
+        logOutUser();
+        navigate("/login");
     }
     const returnModal = ()=>{
         return (
@@ -50,7 +54,7 @@ const NavBar = () => {
                     <Nav className="ms-auto align-items-center">
                         <NavDropdown title={test()} id="basic-nav-dropdown">
                             <NavDropdown.Item href="#" onClick={(e)=>handleSettingsClick(e)}>Profile</NavDropdown.Item>
-                            <NavDropdown.Item href="#">Logout</NavDropdown.Item>
+                            <NavDropdown.Item href="#" onClick={(e)=>handleLogoutClick(e)}>Logout</NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link>
                             <LineSeparator />

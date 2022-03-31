@@ -2,7 +2,7 @@ import { mdiAccountCogOutline } from '@mdi/js';
 import { mdiShieldAccountOutline } from '@mdi/js';
 import { mdiBellOutline } from '@mdi/js';
 import React, { useState } from "react"
-import { Col, Row } from 'react-bootstrap';
+import { Col, Row, Button } from 'react-bootstrap';
 import COLORS from '../../theme/colors';
 import SettingsSideBarItem from './SettingsSideBarItem';
 import {PATH} from "./SettingsPath";
@@ -35,6 +35,9 @@ const SettingsSideBar = (props) => {
                     <SettingsSideBarItem name="Notifications" icon={mdiBellOutline} active handleClick={(e)=>handleNotificationsClick(e)}/>
                 </Col>
             </Row>
+            <div className='text-align-center logout-div'>
+                <Button variant="outline-dark" className='settings-logout primarytextcolor'>Logout</Button>
+            </div>
     </div>
 }
 

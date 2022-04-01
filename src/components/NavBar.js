@@ -13,7 +13,6 @@ import { getCurrentUser, logOutUser } from '../utils/SessionUtils';
 
 const NavBar = () => {
     const navigate = useNavigate();
-    const currentUser = getCurrentUser();
     
     const [show, setShow] = useState(false);
     const handleShow = () => setShow(true);
@@ -21,13 +20,16 @@ const NavBar = () => {
     const handleCreateClick = (e)=> {
         handleShow()
     }
+
     const handleSettingsClick = (e)=> {
         navigate("/settings");
     }
+
     const handleLogoutClick = (e)=> {
         logOutUser();
         navigate("/login");
     }
+
     const returnModal = ()=>{
         return (
             <CreatePostModal show={show} handleShow={handleShow} handleClose={handleClose} />
@@ -36,7 +38,7 @@ const NavBar = () => {
     const profile = ()=>{
         return (
             <Nav.Link href="">
-                <UserNav firstName={currentUser.firstName} lastName={currentUser.lastName} avatar={currentUser.avatar}/>
+                <UserNav firstName={getCurrentUser()?.firstName} lastName={getCurrentUser()?.lastName} avatar={getCurrentUser()?.avatar}/>
             </Nav.Link>
         )
     }

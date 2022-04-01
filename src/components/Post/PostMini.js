@@ -11,7 +11,6 @@ const PostMini = ({ data }) => {
     const participantCount = data.participantNum
     const postCreatedAt = data.CreatedAt
     const title = data.title
-
     const [commentCount, setCommentCount] = useState(0)
 
     useEffect(() => {

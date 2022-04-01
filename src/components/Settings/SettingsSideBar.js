@@ -6,9 +6,12 @@ import { Col, Row, Button } from 'react-bootstrap';
 import COLORS from '../../theme/colors';
 import SettingsSideBarItem from './SettingsSideBarItem';
 import {PATH} from "./SettingsPath";
-import { logOutUser } from '../utils/SessionUtils';
+import { useNavigate } from 'react-router-dom';
+import { logOutUser } from '../../utils/SessionUtils';
+import Colors from '../../theme/colors'
 
 const SettingsSideBar = (props) => {
+    const navigate = useNavigate();
     const handleProfileClick = (e)=> {
         props.setSettingsPath(PATH.PROFILE);
     }
@@ -41,7 +44,7 @@ const SettingsSideBar = (props) => {
                 </Col>
             </Row>
             <div className='text-align-center logout-div'>
-                <Button variant="outline-dark" className='settings-logout primarytextcolor' onClick={(e)=>handleLogoutClick(e)}>Logout</Button>
+                <Button variant="outline-dark" className='settings-logout' style={{ color: Colors.accent}} onClick={(e)=>handleLogoutClick(e)}>Logout</Button>
             </div>
     </div>
 }

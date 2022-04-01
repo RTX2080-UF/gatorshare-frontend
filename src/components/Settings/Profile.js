@@ -1,20 +1,22 @@
 import { useEffect, useState } from "react"
 import { Row } from "react-bootstrap"
 import Data from "../../data/Data"
-import { setUser } from "../../utils/SessionUtils"
 import { Form } from 'react-bootstrap';
 
 
 const Profile = (props) => {
+    const [firstName, setFirstname] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [bio, setBio] = useState("");
     useEffect(() => {
         Data.getCurrentUser().then(user => {
-            setUser(user)
+            setFirstname(user.firstName)
+            setLastName(user.lastName)
+            setEmail(user.email)
         })
     }, [])
-    const [firstname, setFirstname] = useState(props.userData.firstName);
-    const [lastName, setLastName] = useState(props.userData.firstName);
-    const [email, setEmail] = useState(props.userData.firstName);
-    const [bio, setBio] = useState("");
+    
 
     return <div className="page bg-light ps-5">
         <Row>
@@ -23,31 +25,31 @@ const Profile = (props) => {
                 <Form className="row">
                     <div className="col-md-6">
                         <div className="form-group">
-                            <label for="account-fn">First Name</label>
-                            <input className="form-control" type="text" id="account-fn" value={firstname} onChange={(e) => setFirstname(e.target.value)} required=""/>
+                            <label htmlFor="account-fn">First Name</label>
+                            <input className="form-control" type="text" id="account-fn" value={firstName} onChange={(e) => setFirstname(e.target.value)} required=""/>
                         </div>
                     </div>
                     <div className="col-md-6">
                         <div className="form-group">
-                            <label for="account-ln">Last Name</label>
+                            <label htmlFor="account-ln">Last Name</label>
                             <input className="form-control" type="text" id="account-ln" value={lastName} onChange={(e) => setLastName(e.target.value)} required=""/>
                         </div>
                     </div>
                     <div className="col-md-6">
                         <div className="form-group">
-                            <label for="account-email">E-mail Address</label>
+                            <label htmlFor="account-email">E-mail Address</label>
                             <input className="form-control" type="email" id="account-email" value={email} onChange={(e) => setEmail(e.target.value)} disabled=""/>
                         </div>
                     </div>
                     <div className="col-md-6">
                         <div className="form-group">
-                            <label for="account-phone">Phone Number</label>
+                            <label htmlFor="account-phone">Phone Number</label>
                             <input className="form-control" type="text" id="account-phone" value="(***)-***-****" required="" disabled="true"/>
                         </div>
                     </div>
                     <div className="col-md-12">
                         <div className="form-group">
-                            <label for="account-pass">Bio</label>
+                            <label htmlFor="account-pass">Bio</label>
                             <Form.Control as="textarea" rows={3} id="account-bio" placeholder='Enter bio' value={bio} onChange={(e) => setBio(e.target.value)}/>
                         </div>
                     </div>

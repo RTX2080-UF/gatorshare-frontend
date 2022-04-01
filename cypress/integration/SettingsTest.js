@@ -35,7 +35,7 @@ describe('Testing Settings UI', function () {
             cy.get('b').should('contain','Profile');
         })
         cy.get('#profile').click();
-        cy.get("#account-fn").type('johndoe').should('have.value','johndoe');
+        cy.get("#account-fn").clear().type('johndoe').should('have.value','johndoe');
     });
     it('Edit lastname section', function () {
         cy.visit("/settings");
@@ -43,7 +43,7 @@ describe('Testing Settings UI', function () {
             cy.get('b').should('contain','Profile');
         })
         cy.get('#profile').click();
-        cy.get("#account-ln").type('johndoe').should('have.value','johndoe');
+        cy.get("#account-ln").clear().type('johndoe').should('have.value','johndoe');
     });
     it('Edit email section', function () {
         cy.visit("/settings");
@@ -51,7 +51,7 @@ describe('Testing Settings UI', function () {
             cy.get('b').should('contain','Profile');
         })
         cy.get('#profile').click();
-        cy.get("#account-email").type('johndoe@gs.com').should('have.value','johndoe@gs.com');
+        cy.get("#account-email").clear().type('johndoe@gs.com').should('have.value','johndoe@gs.com');
     });
     it('Edit bio section', function () {
         cy.visit("/settings");
@@ -59,7 +59,7 @@ describe('Testing Settings UI', function () {
             cy.get('b').should('contain','Profile');
         })
         cy.get('#profile').click();
-        cy.get("#account-bio").type('johndoe@gs.com').should('have.value','johndoe@gs.com');
+        cy.get("#account-bio").clear().type('johndoe@gs.com').should('have.value','johndoe@gs.com');
     });
     it('Edit Security section', function () {
         cy.visit("/settings");
@@ -67,7 +67,7 @@ describe('Testing Settings UI', function () {
             cy.get('b').should('contain','Security');
         })
         cy.get('#security').click();
-        cy.get("#account-pass").type('johndoe').should('have.value','johndoe');
+        cy.get("#account-pass").clear().type('johndoe').should('have.value','johndoe');
     });
     it('Edit newpwd section', function () {
         cy.visit("/settings");
@@ -75,8 +75,8 @@ describe('Testing Settings UI', function () {
             cy.get('b').should('contain','Security');
         })
         cy.get('#security').click();
-        cy.get("#account-pass").type('johndoe').should('have.value','johndoe');
-        cy.get("#account-new-pass").type('johndoe').should('have.value','johndoe');
+        cy.get("#account-pass").clear().type('johndoe').should('have.value','johndoe');
+        cy.get("#account-new-pass").clear().type('johndoe').should('have.value','johndoe');
     });
     it('Edit confirm new pwd section', function () {
         cy.visit("/settings");
@@ -84,9 +84,9 @@ describe('Testing Settings UI', function () {
             cy.get('b').should('contain','Security');
         })
         cy.get('#security').click();
-        cy.get("#account-pass").type('johndoe').should('have.value','johndoe');
-        cy.get("#account-new-pass").type('johndoe').should('have.value','johndoe');
-        cy.get("#account-confirm-pass").type('johndoe').should('have.value','johndoe');
+        cy.get("#account-pass").clear().type('johndoe').should('have.value','johndoe');
+        cy.get("#account-new-pass").clear().type('johndoe').should('have.value','johndoe');
+        cy.get("#account-confirm-pass").clear().type('johndoe').should('have.value','johndoe');
     });
 
 });

@@ -12,7 +12,7 @@ Built by:
 Stack:
 - Frontend: React.js
 - Backend: GoLang
-- Database: TBD
+- Database: Postgres
 
 # GatorShare
 

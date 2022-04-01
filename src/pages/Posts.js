@@ -25,13 +25,6 @@ const Posts = () => {
                 <Row>
                     {
                         posts.length > 0 ?
-                            <Col xs={12}>
-                                <h2 className="mb-3">Posts</h2>
-                            </Col>
-                            : null
-                    }
-                    {
-                        posts.length > 0 ?
                             posts.map(post => {
                                 return <Col xs={12} className="mb-3" key={post.ID}>
                                     <a href={"/post/" + post.ID} className="link-no-style">

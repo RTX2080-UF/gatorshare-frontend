@@ -24,6 +24,10 @@
   height: 72px !important;
 }
 
+.mini-post {
+  height: 200px;
+}
+
 .user-mini {
   position: relative;
   height: 24px;

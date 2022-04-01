@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from "react"
 import { Col, Row } from "react-bootstrap"
 import NavBar from "../components/NavBar"
+import PostMini from "../components/Post/PostMini"
 import SideBar from "../components/SideBar/SideBar"
-import Post from "../components/Post/Post"
 import Data from "../data/Data"
 
 const Home = () => {
 
-    const [posts, setPosts] = useState([])
+    const [popularPosts, setPopularPosts] = useState([])
+    const [nearbyPosts, setNearbyPosts] = useState([])
+    const [followedPosts, setFollowedPosts] = useState([])
 
     useEffect(() => {
         Data.getPosts(1).then(posts => {
-            setPosts(posts.data)
+            setPopularPosts(posts.data)
+            setNearbyPosts(posts.data)
+            setFollowedPosts(posts.data)
         }).catch(e => {
             console.log("error in getposts")
         })
@@ -21,19 +25,40 @@ const Home = () => {
         <NavBar />
         <Row className="page">
             <Col md={3} lg={3} xl={2}>
-                <SideBar selected='/'/>
+                <SideBar selected='/' />
             </Col>
             <Col className="p-4 m-0">
                 <Row>
                     <Col sm={12}>
-                        <h5>Popular</h5>
+                        <h4 className="mt-4 mb-3">Popular</h4>
                     </Col>
+                    {
+                        popularPosts.map(post => {
+                            return <Col sm={12} md={4} lg={3} key={post.ID}>
+                                <PostMini data={post} />
+                            </Col>
+                        })
+                    }
                     <Col sm={12}>
-                        <h5>Nearby</h5>
+                        <h4 className="mt-4 mb-3">Nearby</h4>
                     </Col>
+                    {
+                        nearbyPosts.map(post => {
+                            return <Col sm={12} md={4} lg={3} key={post.ID}>
+                                <PostMini data={post} />
+                            </Col>
+                        })
+                    }
                     <Col sm={12}>
-                        <h5>From your followed categories</h5>
+                        <h4 className="mt-4 mb-3">From your followed categories</h4>
                     </Col>
+                    {
+                        followedPosts.map(post => {
+                            return <Col sm={12} md={4} lg={3} key={post.ID}>
+                                <PostMini data={post} />
+                            </Col>
+                        })
+                    }
                 </Row>
             </Col>
         </Row>

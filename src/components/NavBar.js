@@ -62,10 +62,6 @@ const NavBar = () => {
                         <Nav.Link>
                             <LineSeparator />
                         </Nav.Link>
-                        <Nav.Link className="text-center" href="">Your posts</Nav.Link>
-                        <Nav.Link>
-                            <LineSeparator />
-                        </Nav.Link>
                         <Nav.Link href="" className="text-uppercase" onClick={(e)=>handleCreateClick(e)}><strong className='primarytextcolor'>Create</strong></Nav.Link>
                         <Nav.Link>
                             <LineSeparator />

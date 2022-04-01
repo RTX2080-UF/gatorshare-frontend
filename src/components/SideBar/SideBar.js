@@ -25,7 +25,7 @@ const SideBar = ({selected}) => {
     return <div style={style} className='pt-5'>
         {
             SIDEBAR_ITEMS.map(item => {
-                return <SideBarItem name={item.name} icon={item.icon} active={item.link === selected} link={item.link} />
+                return <SideBarItem name={item.name} icon={item.icon} active={item.link === selected} link={item.link} key={item.link}/>
             })
         }
     </div>

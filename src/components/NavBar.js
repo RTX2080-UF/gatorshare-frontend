@@ -25,13 +25,13 @@ const NavBar = () => {
     }
     const returnModal = ()=>{
         return (
-            <CreatePostModal show={show} handleShow={handleShow} handleClose={handleClose}></CreatePostModal>
+            <CreatePostModal show={show} handleShow={handleShow} handleClose={handleClose} />
         )
     }
     return (
         <div>
             {show ? returnModal() : ""}
-            <Navbar className="ps-3 pe-3" collapseOnSelect expand="lg" bg="light" variant="light">
+            <Navbar className="ps-3 pe-3 topbar" collapseOnSelect expand="lg" bg="light" variant="light">
                 <Navbar.Brand href="#home"><Image src={logo} height={30} /></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">

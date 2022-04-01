@@ -2,8 +2,10 @@ import React, { useEffect } from "react"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Onboarding from "../pages/Onboarding";
 import Login from "./Login/Login"
+import ForgotPassword from "./Login/ForgotPassword"
 import Signup from "./Signup/Signup"
 import Home from "../pages/Home";
+import Settings from "./Settings/Settings"
 import PostDetails from "./Post/PostDetails";
 import Search from "../pages/Search";
 import Data from "../data/Data"
@@ -22,8 +24,10 @@ const Entry = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="/login" element={<Login />} />
+                <Route path="/forgotPwd" element={<ForgotPassword />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/" element={<Home />} />
+                <Route path="/settings" element={<Settings />} />
                 <Route path="/onboarding" element={<Onboarding />} />
                 <Route path="/post">
                     <Route path=":postId" element={<PostDetails />} />

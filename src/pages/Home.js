@@ -12,6 +12,8 @@ const Home = () => {
     useEffect(() => {
         Data.getPosts(1).then(posts => {
             setPosts(posts.data)
+        }).catch(e => {
+            console.log("error in getposts")
         })
     }, [])
 

@@ -1,5 +1,4 @@
 import { Navbar, Nav, Form, NavDropdown } from 'react-bootstrap';
-import { useEffect } from "react";
 import { mdiBellOutline } from '@mdi/js';
 import Image from 'react-bootstrap/Image'
 import { React, useState } from 'react';

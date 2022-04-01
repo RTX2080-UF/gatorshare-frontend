@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react"
-import { Col, Row } from "react-bootstrap"
+import { useEffect } from "react"
+import { Row } from "react-bootstrap"
 import Data from "../../data/Data"
 import { setUser } from "../../utils/SessionUtils"
-import { Form } from 'react-bootstrap'
 
 
 const Notifications = () => {

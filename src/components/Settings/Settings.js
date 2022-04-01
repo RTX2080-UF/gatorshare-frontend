@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Col, Row, Button } from "react-bootstrap"
+import { Col, Row } from "react-bootstrap"
 import NavBar from "./../NavBar"
 import SettingsSideBar from "./SettingsSideBar"
 import Data from "../../data/Data"

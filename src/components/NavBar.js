@@ -46,7 +46,7 @@ const NavBar = () => {
         <div>
             {show ? returnModal() : ""}
             <Navbar className="ps-3 pe-3 topbar" collapseOnSelect expand="lg" bg="light" variant="light">
-                <Navbar.Brand href="#home"><Image src={logo} height={30} /></Navbar.Brand>
+                <Navbar.Brand href="/"><Image src={logo} height={30} /></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Form.Group className='me-auto mt-3 ms-4'>

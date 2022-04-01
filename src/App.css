@@ -106,3 +106,23 @@
 .text-color-accent {
   color: #D65F3D;
 }
+
+.dropdown-toggle::after {
+  display: none !important; 
+}
+
+.bg-light{
+  background-color: rgb(170, 175, 179);
+}
+
+.settings-logout{
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 250px;
+}
+
+.logout-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

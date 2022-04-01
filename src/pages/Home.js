@@ -9,6 +9,8 @@ const Home = () => {
     useEffect(() => {
         data.getPosts(1).then(posts => {
             setPosts(posts.data)
+        }).catch(e => {
+            console.log("error in getposts")
         })
     }, [])
 

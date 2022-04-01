@@ -1,7 +1,7 @@
 import { mdiArrowLeft } from "@mdi/js"
 import Icon from "@mdi/react"
 import { mdiFilterVariant } from '@mdi/js'; 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Col, Form, Nav, Navbar, Row } from "react-bootstrap"
 import emptySearchIcon from '../assets/search-splash.png'
 import SearchFilter from "../components/modals/SearchFilter/SearchFilter"
@@ -18,6 +18,14 @@ const Search = () => {
     const [filterValue, setFilterValue] = useState()
     const [sort, setSort] = useState()
 
+    useEffect(() => {
+        // TODO: Do something with filter value
+    }, [filter, filterValue])
+
+    useEffect(() => {
+        // TODO: Do something with sort value
+    }, [sort])
+
     const handleSearchQueryChange = (event) => {
         setSearchQuery(event.target.value)
     }
@@ -31,7 +39,7 @@ const Search = () => {
         if(sort) {
             setSort(sort)
         }
-        
+
         setShowFilterModal(false)
     }
 

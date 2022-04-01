@@ -1,4 +1,4 @@
-## Sprint 2: Frontend
+## Sprint 3: Frontend
 
 ### Aim:
 The aim was to build the basic structure of the React app, including the code structure, routing strategy and best practices (utility functions and abstracted data access layers). Additionally, features to be implemented was showing all the posts, creating new posts and allowing comments. These major features had supplemental features such as building UI components like thenavigation bar, sidebar, home and post details. CI/CD was also implemented, achieved using Netlify. A working version of this repository can be found at https://gatorshare.netlify.app. 
@@ -19,8 +19,8 @@ The aim was to build the basic structure of the React app, including the code st
 ### Features completed:
 1. Created the `Settings` component - Users can view their Profile and Settings.
 2. Created the `Logout` component - Users can logout of theor account.
-3. Created the `Search` component - Users search for the posts using the search bar provided in the Navbar.
-4. Created the `Filter` component - Users filter from all the posts on their feed.
+3. Created the `Search` component - Users can search for the posts using the search bar provided in the Navbar.
+4. Created the `Filter` component - Users can filter from all the posts on their feed.
 5. Integrated `Cypress` testing framework to test the flow of our application.
 6. Integrated `JTest` unit testing framework.
 7. Implemented test cases for the Settings component.

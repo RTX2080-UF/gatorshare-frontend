@@ -13,16 +13,16 @@
   height: calc(100vh - 72px) !important;
 }
 
-.page-container {
-  height: 100vh !important;
-}
-
 .page {
   width: 100% !important;
   height: calc(100% - 72px) !important;
   overflow-y: auto !important;
   overflow-x: hidden !important;
   padding: 24px;
+}
+
+.topbar {
+  height: 72px !important;
 }
 
 .user-mini {

@@ -11,7 +11,9 @@ const Main = () => {
     useEffect(() => {
         Data.getCurrentUser().then(user => {
             setUser(user)
-        })
+        }).catch(e => {
+            console.log(e)
+        });
     }, [])
 
     return <div className="main-page">

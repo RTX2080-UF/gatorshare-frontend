@@ -33,18 +33,18 @@ const SettingsSideBar = (props) => {
     }
     return <div style={style} className={"m-0 p-0 pt-5"}>
             <Row className={"m-0 p-0 pt-5"}>
-                <Col xs={12} className={"m-0 p-0"} key="Profile">
+                <Col xs={12} className={"m-0 p-0"} id="profile" key="Profile">
                     <SettingsSideBarItem name="Profile" icon={mdiAccountCogOutline} active handleClick={(e)=>handleProfileClick(e)}/>
                 </Col>
                 <Col xs={12} className={"m-0 p-0"} key="Security">
-                    <SettingsSideBarItem name="Security" icon={mdiShieldAccountOutline} active handleClick={(e)=>handleSecurityClick(e)}/>
+                    <SettingsSideBarItem name="Security" id="security" icon={mdiShieldAccountOutline} active handleClick={(e)=>handleSecurityClick(e)}/>
                 </Col>
                 <Col xs={12} className={"m-0 p-0"} key="Notifications">
-                    <SettingsSideBarItem name="Notifications" icon={mdiBellOutline} active handleClick={(e)=>handleNotificationsClick(e)}/>
+                    <SettingsSideBarItem name="Notifications" id="notifications" icon={mdiBellOutline} active handleClick={(e)=>handleNotificationsClick(e)}/>
                 </Col>
             </Row>
             <div className='text-align-center logout-div'>
-                <Button variant="outline-dark" className='settings-logout' style={{ color: Colors.accent}} onClick={(e)=>handleLogoutClick(e)}>Logout</Button>
+                <Button variant="outline-dark" className='settings-logout' id="logoutBtn" style={{ color: Colors.accent}} onClick={(e)=>handleLogoutClick(e)}>Logout</Button>
             </div>
     </div>
 }

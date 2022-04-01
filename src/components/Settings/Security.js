@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react"
-import { Col, Row } from "react-bootstrap"
+import { Row } from "react-bootstrap"
 import Data from "../../data/Data"
 import { setUser } from "../../utils/SessionUtils"
-import { Button, Form } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 
 
 const Security = () => {
-    const [posts, setPosts] = useState([])
-
     useEffect(() => {
         Data.getCurrentUser().then(user => {
             setUser(user)

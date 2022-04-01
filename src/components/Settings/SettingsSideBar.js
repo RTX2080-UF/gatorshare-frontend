@@ -1,7 +1,7 @@
 import { mdiAccountCogOutline } from '@mdi/js';
 import { mdiShieldAccountOutline } from '@mdi/js';
 import { mdiBellOutline } from '@mdi/js';
-import React, { useState } from "react"
+import React from "react"
 import { Col, Row, Button } from 'react-bootstrap';
 import COLORS from '../../theme/colors';
 import SettingsSideBarItem from './SettingsSideBarItem';

@@ -16,14 +16,12 @@ const Post = ({ data }) => {
 
     const [commentCount, setCommentCount] = useState(0)
 
-    const [expiryTime, setExpiryTime] = useState(expires)
-
     useEffect(() => {
         DataSource.getCommentsOfPost(postId).then( comments => setCommentCount(comments.length))
     }, [postId])
 
     return <Card body>
-         <small><small className="text-danger">Expires in {getTimeToDate(expiryTime)}</small></small>
+         <small><small className="text-danger">Expires in {getTimeToDate(expires)}</small></small>
         <h4 className="mt-2">{title}</h4>
         <small>
             <Row>

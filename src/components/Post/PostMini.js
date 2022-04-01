@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Card, Col, Row } from "react-bootstrap"
+import { Card } from "react-bootstrap"
 import { getHumanReadableTimestamp } from "../../utils/Utils"
 import UserMini from "../UserMini"
 import DataSource from "../../data/Data"

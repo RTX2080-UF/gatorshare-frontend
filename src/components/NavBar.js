@@ -6,7 +6,6 @@ import LineSeparator from './LineSeparator';
 import CreatePostModal from './CreatePostModal';
 import { useNavigate } from 'react-router-dom';
 import "./NavBar.css";
-import { useEffect } from "react"
 import UserNav from './UserNav';
 import logo from "../assets/logo_wide.png"
 import Icon from '@mdi/react';
@@ -14,10 +13,7 @@ import { getCurrentUser, logOutUser } from '../utils/SessionUtils';
 
 const NavBar = () => {
     const navigate = useNavigate();
-    let currentUser = getCurrentUser()
-    useEffect(() => {
-        currentUser = getCurrentUser()
-    }, [])
+    const currentUser = getCurrentUser();
     
     const [show, setShow] = useState(false);
     const handleShow = () => setShow(true);

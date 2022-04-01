@@ -14,7 +14,8 @@ export const DEMO_DB = {
                 avatar: getDummyAvatar()
             },
             participantNum: 3,
-            CreatedAt: 1643936763000
+            CreatedAt: 1643936763000,
+            ExpiresAt: 1658852455000
         },
         {
             ID: 2,
@@ -28,7 +29,8 @@ export const DEMO_DB = {
                 avatar: getDummyAvatar()
             },
             participantNum: 2,
-            CreatedAt: 1643936854000
+            CreatedAt: 1643936854000,
+            ExpiresAt: 1658852455000
         },
 
     ],

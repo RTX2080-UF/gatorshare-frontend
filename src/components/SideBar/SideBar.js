@@ -1,14 +1,21 @@
-import { mdiHomeOutline } from '@mdi/js';
-import { Col, Row } from 'react-bootstrap';
+import { mdiHomeOutline, mdiNoteTextOutline } from '@mdi/js';
 import COLORS from '../../theme/colors';
 import SideBarItem from './SideBarItem';
 
 const SideBar = () => {
+
+    const currentPath = window.location.pathname
+
     const SIDEBAR_ITEMS = [
         {
             icon: mdiHomeOutline,
             name: 'Home',
             link: '/'
+        },
+        {
+            icon: mdiNoteTextOutline,
+            name: 'Posts',
+            link: '/posts'
         }
     ]
 
@@ -18,15 +25,13 @@ const SideBar = () => {
         height: '100%'
     }
 
-    return <Row style={style} className={"m-0 p-0 pt-5"}>
+    return <div style={style} className='pt-5'>
         {
             SIDEBAR_ITEMS.map(item => {
-                return <Col xs={12} className={"m-0 p-0"} key={item.name}>
-                    <SideBarItem name={item.name} icon={item.icon} active link={item.link}/>
-                </Col>
+                return <SideBarItem name={item.name} icon={item.icon} active={currentPath.startsWith(item.link)} link={item.link} />
             })
         }
-    </Row>
+    </div>
 }
 
 export default SideBar

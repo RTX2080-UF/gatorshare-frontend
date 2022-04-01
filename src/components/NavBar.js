@@ -6,7 +6,6 @@ import LineSeparator from './LineSeparator';
 import CreatePostModal from './CreatePostModal';
 import { useNavigate } from 'react-router-dom';
 import "./NavBar.css";
-import { useEffect } from "react"
 import UserNav from './UserNav';
 import logo from "../assets/logo_wide.png"
 import Icon from '@mdi/react';
@@ -14,10 +13,6 @@ import { getCurrentUser, logOutUser } from '../utils/SessionUtils';
 
 const NavBar = () => {
     const navigate = useNavigate();
-    let currentUser = getCurrentUser()
-    useEffect(() => {
-        currentUser = getCurrentUser()
-    }, [])
     
     const [show, setShow] = useState(false);
     const handleShow = () => setShow(true);
@@ -25,30 +20,33 @@ const NavBar = () => {
     const handleCreateClick = (e)=> {
         handleShow()
     }
+
     const handleSettingsClick = (e)=> {
         navigate("/settings");
     }
+
     const handleLogoutClick = (e)=> {
         logOutUser();
         navigate("/login");
     }
+
     const returnModal = ()=>{
         return (
-            <CreatePostModal show={show} handleShow={handleShow} handleClose={handleClose}></CreatePostModal>
+            <CreatePostModal show={show} handleShow={handleShow} handleClose={handleClose} />
         )
     }
     const profile = ()=>{
         return (
             <Nav.Link href="">
-                <UserNav firstName={currentUser.firstName} lastName={currentUser.lastName} avatar={currentUser.avatar}/>
+                <UserNav firstName={getCurrentUser()?.firstName} lastName={getCurrentUser()?.lastName} avatar={getCurrentUser()?.avatar}/>
             </Nav.Link>
         )
     }
     return (
         <div>
             {show ? returnModal() : ""}
-            <Navbar className="ps-3 pe-3" collapseOnSelect expand="lg" bg="light" variant="light">
-                <Navbar.Brand href="/"><Image src={logo} height={30} /></Navbar.Brand>
+            <Navbar className="ps-3 pe-3 topbar" collapseOnSelect expand="lg" bg="light" variant="light">
+                <Navbar.Brand href="#home"><Image src={logo} height={30} /></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Form.Group className='me-auto mt-3 ms-4'>
@@ -59,10 +57,6 @@ const NavBar = () => {
                             <NavDropdown.Item href="#" onClick={(e)=>handleSettingsClick(e)}>Profile</NavDropdown.Item>
                             <NavDropdown.Item href="#" onClick={(e)=>handleLogoutClick(e)}>Logout</NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link>
-                            <LineSeparator />
-                        </Nav.Link>
-                        <Nav.Link className="text-center" href="">Your posts</Nav.Link>
                         <Nav.Link>
                             <LineSeparator />
                         </Nav.Link>

@@ -45,7 +45,7 @@ const PostDetails = () => {
         }).then(comment => setComments([...comments, comment]))
     }
 
-    return post ? <div className="page">
+    return post ? <div className="page-container p-4">
         <Link to="/"><Icon path={mdiArrowLeft} size={1} color="gray" /></Link>
         <h2 className="mt-4">{post?.title}</h2>
         <Row>

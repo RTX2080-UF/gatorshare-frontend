@@ -18,11 +18,14 @@
   height: calc(100% - 72px) !important;
   overflow-y: auto !important;
   overflow-x: hidden !important;
-  padding: 24px;
 }
 
 .topbar {
   height: 72px !important;
+}
+
+.mini-post {
+  height: 200px;
 }
 
 .user-mini {

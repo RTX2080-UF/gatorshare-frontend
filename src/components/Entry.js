@@ -7,6 +7,7 @@ import Signup from "./Signup/Signup"
 import Settings from "./Settings/Settings"
 import Main from "./Main";
 import PostDetails from "./Post/PostDetails";
+import Search from "../pages/Search";
 
 const Entry = () => {
     return <div>
@@ -21,7 +22,7 @@ const Entry = () => {
                 <Route path="/post">
                     <Route path=":postId" element={<PostDetails />} />
                 </Route>
-
+                <Route path="/posts/search" element={<Search />} />
             </Routes>
         </BrowserRouter>
     </div>

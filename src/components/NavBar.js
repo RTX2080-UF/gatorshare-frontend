@@ -1,4 +1,5 @@
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav, Form, NavDropdown } from 'react-bootstrap';
+import { useEffect } from "react";
 import { mdiBellOutline } from '@mdi/js';
 import Image from 'react-bootstrap/Image'
 import { React, useState } from 'react';
@@ -39,7 +40,7 @@ const NavBar = () => {
     }
     const profile = ()=>{
         return (
-            <Nav.Link href="#deets">
+            <Nav.Link href="">
                 <UserNav firstName={currentUser.firstName} lastName={currentUser.lastName} avatar={currentUser.avatar}/>
             </Nav.Link>
         )
@@ -51,6 +52,9 @@ const NavBar = () => {
                 <Navbar.Brand href="/"><Image src={logo} height={30} /></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
+                    <Form.Group className='me-auto mt-3 ms-4'>
+                        <Form.Control type='text' placeholder='Search' onClick={() => window.location.pathname = '/posts/search'}/>
+                    </Form.Group>
                     <Nav className="ms-auto align-items-center">
                         <NavDropdown title={profile()} id="basic-nav-dropdown">
                             <NavDropdown.Item href="#" onClick={(e)=>handleSettingsClick(e)}>Profile</NavDropdown.Item>
@@ -59,15 +63,15 @@ const NavBar = () => {
                         <Nav.Link>
                             <LineSeparator />
                         </Nav.Link>
-                        <Nav.Link className="text-center" href="#deets">Your posts</Nav.Link>
+                        <Nav.Link className="text-center" href="">Your posts</Nav.Link>
                         <Nav.Link>
                             <LineSeparator />
                         </Nav.Link>
-                        <Nav.Link href="#deets" className="text-uppercase" onClick={(e)=>handleCreateClick(e)}><strong className='primarytextcolor'>Create</strong></Nav.Link>
+                        <Nav.Link href="" className="text-uppercase" onClick={(e)=>handleCreateClick(e)}><strong className='primarytextcolor'>Create</strong></Nav.Link>
                         <Nav.Link>
                             <LineSeparator />
                         </Nav.Link>
-                        <Nav.Link eventKey={2} href="#memes">
+                        <Nav.Link eventKey={2} href="">
                             <Icon path={mdiBellOutline} size={1} color="gray"/>
                         </Nav.Link>
                     </Nav>

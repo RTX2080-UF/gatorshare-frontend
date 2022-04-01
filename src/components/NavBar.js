@@ -37,7 +37,7 @@ const NavBar = () => {
             <CreatePostModal show={show} handleShow={handleShow} handleClose={handleClose}></CreatePostModal>
         )
     }
-    const test = ()=>{
+    const profile = ()=>{
         return (
             <Nav.Link href="#deets">
                 <UserNav firstName={currentUser.firstName} lastName={currentUser.lastName} avatar={currentUser.avatar}/>
@@ -52,7 +52,7 @@ const NavBar = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-auto align-items-center">
-                        <NavDropdown title={test()} id="basic-nav-dropdown">
+                        <NavDropdown title={profile()} id="basic-nav-dropdown">
                             <NavDropdown.Item href="#" onClick={(e)=>handleSettingsClick(e)}>Profile</NavDropdown.Item>
                             <NavDropdown.Item href="#" onClick={(e)=>handleLogoutClick(e)}>Logout</NavDropdown.Item>
                         </NavDropdown>

@@ -13,6 +13,9 @@ const Security = () => {
             setUser(user)
         })
     }, [])
+    const [currentPwd, setCurrentPwd] = useState("");
+    const [newPwd, setNewPwd] = useState("");
+    const [confirmNewPwd, setConfirmNewPwd] = useState("");
 
     return <div className="page bg-light ps-5">
         <Row>
@@ -23,19 +26,19 @@ const Security = () => {
                     <div className="col-md-9">
                         <div className="form-group">
                             <label for="account-pass">Current Password</label>
-                            <input className="form-control" type="password" id="account-pass"/>
+                            <input className="form-control" type="password" id="account-pass" value={currentPwd} onChange={(e) => setCurrentPwd(e.target.value)}/>
                         </div>
                     </div>
                     <div className="col-md-9">
                         <div className="form-group">
                             <label for="account-confirm-pass">New Password</label>
-                            <input className="form-control" type="password" id="account-new-pass"/>
+                            <input className="form-control" type="password" id="account-new-pass" value={newPwd} onChange={(e) => setNewPwd(e.target.value)}/>
                         </div>
                     </div>
                     <div className="col-md-9">
                         <div className="form-group">
                             <label for="account-confirm-pass">Confirm New Password</label>
-                            <input className="form-control" type="password" id="account-confirm-pass"/>
+                            <input className="form-control" type="password" id="account-confirm-pass" value={confirmNewPwd} onChange={(e) => setConfirmNewPwd(e.target.value)}/>
                         </div>
                     </div>
                     <div className="col-12 pt-4">

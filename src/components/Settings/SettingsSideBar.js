@@ -36,11 +36,11 @@ const SettingsSideBar = (props) => {
                 <Col xs={12} className={"m-0 p-0"} id="profile" key="Profile">
                     <SettingsSideBarItem name="Profile" icon={mdiAccountCogOutline} active handleClick={(e)=>handleProfileClick(e)}/>
                 </Col>
-                <Col xs={12} className={"m-0 p-0"} key="Security">
-                    <SettingsSideBarItem name="Security" id="security" icon={mdiShieldAccountOutline} active handleClick={(e)=>handleSecurityClick(e)}/>
+                <Col xs={12} className={"m-0 p-0"} id="security" key="Security">
+                    <SettingsSideBarItem name="Security" icon={mdiShieldAccountOutline} active handleClick={(e)=>handleSecurityClick(e)}/>
                 </Col>
-                <Col xs={12} className={"m-0 p-0"} key="Notifications">
-                    <SettingsSideBarItem name="Notifications" id="notifications" icon={mdiBellOutline} active handleClick={(e)=>handleNotificationsClick(e)}/>
+                <Col xs={12} className={"m-0 p-0"} id="notifications" key="Notifications">
+                    <SettingsSideBarItem name="Notifications" icon={mdiBellOutline} active handleClick={(e)=>handleNotificationsClick(e)}/>
                 </Col>
             </Row>
             <div className='text-align-center logout-div'>

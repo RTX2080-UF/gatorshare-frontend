@@ -13,6 +13,10 @@ const Profile = (props) => {
             setUser(user)
         })
     }, [])
+    const [firstname, setFirstname] = useState(props.userData.firstName);
+    const [lastName, setLastName] = useState(props.userData.firstName);
+    const [email, setEmail] = useState(props.userData.firstName);
+    const [bio, setBio] = useState("");
 
     return <div className="page bg-light ps-5">
         <Row>
@@ -22,19 +26,19 @@ const Profile = (props) => {
                     <div className="col-md-6">
                         <div className="form-group">
                             <label for="account-fn">First Name</label>
-                            <input className="form-control" type="text" id="account-fn" value={props.userData.firstName} required=""/>
+                            <input className="form-control" type="text" id="account-fn" value={firstname} onChange={(e) => setFirstname(e.target.value)} required=""/>
                         </div>
                     </div>
                     <div className="col-md-6">
                         <div className="form-group">
                             <label for="account-ln">Last Name</label>
-                            <input className="form-control" type="text" id="account-ln" value={props.userData.lastName} required=""/>
+                            <input className="form-control" type="text" id="account-ln" value={lastName} onChange={(e) => setLastName(e.target.value)} required=""/>
                         </div>
                     </div>
                     <div className="col-md-6">
                         <div className="form-group">
                             <label for="account-email">E-mail Address</label>
-                            <input className="form-control" type="email" id="account-email" value={props.userData.email} disabled=""/>
+                            <input className="form-control" type="email" id="account-email" value={email} onChange={(e) => setEmail(e.target.value)} disabled=""/>
                         </div>
                     </div>
                     <div className="col-md-6">
@@ -46,7 +50,7 @@ const Profile = (props) => {
                     <div className="col-md-12">
                         <div className="form-group">
                             <label for="account-pass">Bio</label>
-                            <Form.Control as="textarea" rows={3} id="account-bio" placeholder='Enter bio' />
+                            <Form.Control as="textarea" rows={3} id="account-bio" placeholder='Enter bio' value={bio} onChange={(e) => setBio(e.target.value)}/>
                         </div>
                     </div>
                    

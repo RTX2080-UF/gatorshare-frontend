@@ -12,6 +12,7 @@ import Data from "../data/Data"
 import { setUser } from "../utils/SessionUtils"
 import Posts from "../pages/Posts";
 
+
 const Entry = () => {
 
     useEffect(() => {

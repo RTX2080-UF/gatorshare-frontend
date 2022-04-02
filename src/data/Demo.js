@@ -136,6 +136,11 @@ export const DEMO_DB = {
 
 
 const data = {
+    login: (data) => new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve({data: 'testAccessToken'})
+        }, 100)
+    }),
     getPosts: (userId) => new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve({data: DEMO_DB.posts})
@@ -161,6 +166,16 @@ const data = {
         setTimeout(() => {
             resolve(filtered)
         }, 100)
+    }),
+    getAllCategories: () => new Promise((resolve, reject) => {
+        setInterval(() => {
+            resolve(DEMO_DB.categories)
+        }, 500);
+    }),
+    getPopularUsers: () => new Promise((resolve, reject) => {
+        setInterval(() => {
+            resolve(DEMO_DB.popularUsers)
+        }, 500);
     }),
     createComment: (commentData) => new Promise((resolve, reject) => {
         commentData.user = {

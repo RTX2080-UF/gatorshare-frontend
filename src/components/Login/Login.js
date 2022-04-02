@@ -3,7 +3,8 @@ import BGImage from "../BGImage"
 import data from "../../data/Data"
 import { useState } from "react"
 import { useNavigate } from 'react-router-dom';
-import {setAccessToken} from '../../utils/SessionUtils'
+import { setUser, setAccessToken } from '../../utils/SessionUtils'
+import { DEMO_DB } from '../../data/Demo';
 
 
 const Login = () => {
@@ -16,6 +17,7 @@ const Login = () => {
         const requestData = `{"username":"${username}","password":"${pwd}"}`;
         data.login(requestData).then(res => {
             setAccessToken(res.data);
+            setUser(DEMO_DB.user)
             navigate("/onboarding");
         })
     };
@@ -27,12 +29,12 @@ const Login = () => {
             <Form className="form rounded m-4 p-4" onSubmit={handleLogin}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>User Name</Form.Label>
-                    <Form.Control type="text" id="username" placeholder="Enter Username" value={username} onChange={(e) => setUserName(e.target.value)}/>
+                    <Form.Control type="text" id="username" placeholder="Enter Username" value={username} onChange={(e) => setUserName(e.target.value)} />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" id="password" placeholder="Password" value={pwd} onChange={(e) => setPwd(e.target.value)}/>
+                    <Form.Control type="password" id="password" placeholder="Password" value={pwd} onChange={(e) => setPwd(e.target.value)} />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Keep me signed in" />

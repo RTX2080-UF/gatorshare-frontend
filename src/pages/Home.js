@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react"
 import { Col, Row } from "react-bootstrap"
+import { useNavigate } from "react-router-dom"
 import NavBar from "../components/NavBar"
 import PostMini from "../components/Post/PostMini"
 import SideBar from "../components/SideBar/SideBar"
 import Data from "../data/Data"
+import { isLoggedIn } from "../utils/SessionUtils"
 
 const Home = () => {
 
@@ -11,14 +13,20 @@ const Home = () => {
     const [nearbyPosts, setNearbyPosts] = useState([])
     const [followedPosts, setFollowedPosts] = useState([])
 
+    const navigate = useNavigate();
+
     useEffect(() => {
-        Data.getPosts(1).then(posts => {
-            setPopularPosts(posts.data)
-            setNearbyPosts(posts.data)
-            setFollowedPosts(posts.data)
-        }).catch(e => {
-            console.log("error in getposts")
-        })
+        if (!isLoggedIn()) {
+            navigate('/login')
+        } else {
+            Data.getPosts(1).then(posts => {
+                setPopularPosts(posts.data)
+                setNearbyPosts(posts.data)
+                setFollowedPosts(posts.data)
+            }).catch(e => {
+                console.log("error in getposts")
+            })
+        }
     }, [])
 
     return <div className="page-container">
@@ -34,7 +42,7 @@ const Home = () => {
                     </Col>
                     {
                         popularPosts.map(post => {
-                            return <Col sm={12} md={4} lg={3} key={post.ID}>
+                            return <Col sm={12} md={2} lg={4} key={post.ID}>
                                 <PostMini data={post} />
                             </Col>
                         })
@@ -44,7 +52,7 @@ const Home = () => {
                     </Col>
                     {
                         nearbyPosts.map(post => {
-                            return <Col sm={12} md={4} lg={3} key={post.ID}>
+                            return <Col sm={12} md={2} lg={4} key={post.ID}>
                                 <PostMini data={post} />
                             </Col>
                         })
@@ -54,7 +62,7 @@ const Home = () => {
                     </Col>
                     {
                         followedPosts.map(post => {
-                            return <Col sm={12} md={4} lg={3} key={post.ID}>
+                            return <Col sm={12} md={2} lg={4} key={post.ID}>
                                 <PostMini data={post} />
                             </Col>
                         })

@@ -1,7 +1,7 @@
 ## Sprint 3: Frontend
 
 ### Aim:
-The aim was to build the basic structure of the React app, including the code structure, routing strategy and best practices (utility functions and abstracted data access layers). Additionally, features to be implemented was showing all the posts, creating new posts and allowing comments. These major features had supplemental features such as building UI components like thenavigation bar, sidebar, home and post details. CI/CD was also implemented, achieved using Netlify. A working version of this repository can be found at https://gatorshare.netlify.app. 
+The aim was to build the basic structure of the React app, including the code structure, routing strategy and best practices (utility functions and abstracted data access layers). Additionally, features to be implemented was showing all the posts, creating new posts and allowing comments. These major features had supplemental features such as building UI components like thenavigation bar, sidebar, home and post details. CI/CD was also implemented, achieved using Netlify. A working version of this repository can be found at https://gatorshare.netlify.app. Use username `johndoe@example.com` and password `test123456`
 
 
 #### Demo

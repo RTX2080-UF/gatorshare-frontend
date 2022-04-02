@@ -17,7 +17,8 @@ const PostMini = ({ data }) => {
         DataSource.getCommentsOfPost(postId).then( comments => setCommentCount(comments.length))
     }, [postId])
 
-    return <Card body className="mini-post">
+    return <a href={`/post/${postId}`} className="link-no-style">
+        <Card body className="mini-post">
         <small>{getHumanReadableTimestamp(postCreatedAt)}</small>
         <h5 className="mt-2">{title}</h5>
         <small>
@@ -25,6 +26,7 @@ const PostMini = ({ data }) => {
         </small>
         <p className="mt-2"><small><span>{participantCount} participants</span> • <span>{commentCount} comments</span></small></p>
     </Card>
+    </a>
 }
 
 export default PostMini

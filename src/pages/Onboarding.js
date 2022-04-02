@@ -60,7 +60,7 @@ const Onboarding = () => {
         </Col>
         {
             categories.map(category => {
-                return <Col sm={12} md={4} lg={3} className="mt-3" onClick={() => selectOrUnselectCategory(category.id)}>
+                return <Col key={category.id} sm={12} md={4} lg={3} className="mt-3" onClick={() => selectOrUnselectCategory(category.id)}>
                     <Category data={category} selected={selectedCategories.indexOf(category.id) !== -1} />
                 </Col>
             })
@@ -74,7 +74,7 @@ const Onboarding = () => {
         </Col>
         {
             popularUsers.map(user => {
-                return <Col sm={12} md={4} lg={3} className="mt-3" onClick={() => selectOrUnselectPopularUser(user.id)}>
+                return <Col key={user.id} sm={12} md={4} lg={3} className="mt-3" onClick={() => selectOrUnselectPopularUser(user.id)}>
                     <User data={user} selected={selectedUsers.indexOf(user.id) !== -1} />
                 </Col>
             })

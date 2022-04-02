@@ -7,6 +7,9 @@ The aim was to build the basic structure of the React app, including the code st
 #### Demo
 ![](/src/assets/sprint3.gif)
 
+### Jest
+![](/src/assets/jest_sprint3.jpeg)
+
 ### User stories achieved:
 1. User should be able to search for a specific "share requests" (Issue #7)
 2. User should have an option to reset their password (Issue #4)

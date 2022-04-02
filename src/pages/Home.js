@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"
 import { Col, Row } from "react-bootstrap"
-import { useNavigate } from "react-router-dom"
 import NavBar from "../components/NavBar"
 import PostMini from "../components/Post/PostMini"
 import SideBar from "../components/SideBar/SideBar"
@@ -13,11 +12,9 @@ const Home = () => {
     const [nearbyPosts, setNearbyPosts] = useState([])
     const [followedPosts, setFollowedPosts] = useState([])
 
-    const navigate = useNavigate();
-
     useEffect(() => {
         if (!isLoggedIn()) {
-            navigate('/login')
+            window.location.href = '/login'
         } else {
             Data.getPosts(1).then(posts => {
                 setPopularPosts(posts.data)

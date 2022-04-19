@@ -18,6 +18,8 @@ const Signup = () => {
         e.preventDefault();
         const requestData = `{"Username":"${username}","Firstname":"${firstName}","Lastname":"${lastName}","Email":"${email}","Password":"${pwd}"}`;
         data.register(requestData).then(res => {
+            console.log("data");
+            console.log(res.data);
             // setAccessToken(res.data);
             // navigate("/onboarding");
         })

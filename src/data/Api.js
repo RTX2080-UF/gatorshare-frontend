@@ -1,4 +1,5 @@
 import { DEMO_DB } from "./Demo"
+import * as sessionUtils from "../utils/SessionUtils"
 
 const SERVER_URL = 'https://gatorshare.herokuapp.com'
 
@@ -83,7 +84,7 @@ const data = {
     }),
 
     getCurrentUser: () => new Promise((resolve, reject) => {
-        resolve(DEMO_DB.user)
+        resolve(sessionUtils.getCurrentUser())
     }),
 
     getAllCategories: () => new Promise((resolve, reject) => {

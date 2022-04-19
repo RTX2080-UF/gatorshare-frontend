@@ -17,7 +17,8 @@ const Login = () => {
         const requestData = `{"username":"${username}","password":"${pwd}"}`;
         data.login(requestData).then(res => {
             setAccessToken(res.data);
-            setUser(DEMO_DB.user)
+            // console.log(res.data.userDetails);
+            setUser(res.data.userDetails)
             navigate("/onboarding");
         })
     };

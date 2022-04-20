@@ -14,7 +14,10 @@ const Security = () => {
         if (newPwd !== confirmNewPwd) {
             alert("Passwords don't match");
         } else {
-            // data.updatePassword
+            const requestData = `{"OldPassword":"${currentPwd}","Password":"${newPwd}"}`;
+            data.updateProfile(requestData).then(res => {
+                setUser(res.data)
+            })
         }
     }
 

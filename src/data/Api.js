@@ -158,7 +158,7 @@ const data = {
 
     updateProfile: (profileDetails) => new Promise((resolve, reject) => {
         const url = `${SERVER_URL}${VERSION}${ENDPOINTS.updateProfile()}`
-        patchRequest(url, JSON.stringify(profileDetails), resolve, reject)
+        patchRequest(url, profileDetails, resolve, reject)
     }),
 
     getForYouPosts: () => new Promise((resolve, reject) => {

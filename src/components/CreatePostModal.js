@@ -8,7 +8,6 @@ const CreatePostModal = (props) => {
     const [tag, setTag] = useState("");
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
-    const [dropdown, setDropdown] = useState("");
     const [date, setDate] = useState(new Date());
     const [limit, setLimit] = useState();
     const [tags, setTags] = useState([]);
@@ -19,18 +18,12 @@ const CreatePostModal = (props) => {
 
     const handleTagsEnter = () => {
         setTags([...tags,tag])
-        console.log("tags",tags);
         setTag("");    
     }
     const createPost = () => {
-        console.log("date.getTime - ", new Date(date).getTime())
-        // const requestData = `{"title":"${title}","description":"${desc}","userLimit":${limit},"status":1,"tags":"${tags}","expiry":"${new Date(date).getTime()}"}`;
         const requestData = JSON.stringify({title: title, description: desc, userLimit: parseInt(limit), status: 1, tags: tags, expiry: new Date(date).getTime()})
-        console.log(requestData)
         
         data.createPost(requestData).then(res => {
-            console.log("response - ", res);
-            // navigate("/login");
             props.handleClose();
         })
     }

@@ -1,13 +1,12 @@
 import { Button, Col, Form, Row } from "react-bootstrap"
 import { mdiArrowLeft, mdiDelete } from '@mdi/js'
 import Icon from '@mdi/react'
-import { getGravatar, getHumanReadableTimestamp } from "../../utils/Utils"
+import { getHumanReadableTimestamp } from "../../utils/Utils"
 import UserMini from "../UserMini"
 import { useEffect, useState } from "react"
 import data from "../../data/Data"
 import { Link, useParams } from "react-router-dom"
 import Comment from "../Comment/Comment"
-import { DEMO_DB } from "../../data/Demo"
 import { getCurrentUser } from "../../utils/SessionUtils"
 
 const PostDetails = () => {

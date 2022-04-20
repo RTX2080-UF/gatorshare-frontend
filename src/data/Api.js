@@ -145,7 +145,6 @@ const data = {
 
     createPost: (postData) => new Promise((resolve, reject) => {
         const url = `${SERVER_URL}${VERSION}${ENDPOINTS.createPost()}`
-        // console.log("create post - ", postData);
         postRequest(url, postData, resolve, reject)
     }),
     

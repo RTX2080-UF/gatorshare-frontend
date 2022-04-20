@@ -10,6 +10,7 @@ import UserNav from './UserNav';
 import logo from "../assets/logo_wide.png"
 import Icon from '@mdi/react';
 import { getCurrentUser, logOutUser } from '../utils/SessionUtils';
+import { getGravatar } from '../utils/Utils';
 
 const NavBar = () => {
     const navigate = useNavigate();
@@ -35,13 +36,17 @@ const NavBar = () => {
             <CreatePostModal show={show} handleShow={handleShow} handleClose={handleClose} />
         )
     }
+
     const profile = ()=>{
+        const user = getCurrentUser()
+
         return (
             <Nav.Link href="">
-                <UserNav firstName={getCurrentUser()?.firstName} lastName={getCurrentUser()?.lastName} avatar={getCurrentUser()?.avatar}/>
+                <UserNav firstName={getCurrentUser()?.firstName} lastName={getCurrentUser()?.lastName} avatar={getGravatar(user.Email)}/>
             </Nav.Link>
         )
     }
+
     return (
         <div>
             {show ? returnModal() : ""}

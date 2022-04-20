@@ -27,7 +27,7 @@ const Posts = () => {
                     {
                         posts.length > 0 ?
                             posts.map(post => {
-                                return <Col xs={12} className="mb-3" key={post.ID}>
+                                return <Col xs={12}className="mb-3" key={post.ID}>
                                     <Post data={post} />
                                 </Col>
                             }) :

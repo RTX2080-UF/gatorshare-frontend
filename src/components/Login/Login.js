@@ -5,7 +5,7 @@ import { useState } from "react"
 import { useNavigate } from 'react-router-dom';
 import { setUser, setAccessToken } from '../../utils/SessionUtils'
 import { DEMO_DB } from '../../data/Demo';
-import { generateMd5 } from '../../utils/Utils';
+import { getGravatar } from '../../utils/Utils';
 
 
 const Login = () => {
@@ -21,7 +21,7 @@ const Login = () => {
             const email = res.data.userDetails.email
             setUser({
                 ...res.data.userDetails,
-                avatar: `https://www.gravatar.com/avatar/${generateMd5(email)}?s=300&d=retro`,
+                avatar: getGravatar(email),
                 isOnboarded: (res.data.tag && res.data.tag.length > 0)
             })
             navigate("/onboarding");

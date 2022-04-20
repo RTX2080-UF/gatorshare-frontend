@@ -11,6 +11,7 @@ import Search from "../pages/Search";
 import Data from "../data/Data"
 import { setUser } from "../utils/SessionUtils"
 import Posts from "../pages/Posts";
+import ForYouPosts from "../pages/ForYouPosts";
 
 
 const Entry = () => {
@@ -35,6 +36,7 @@ const Entry = () => {
                 </Route>
                 <Route path="/posts/search" element={<Search />} />
                 <Route path="/posts" element={<Posts />} />
+                <Route path="/forYou" element={<ForYouPosts />} />
             </Routes>
         </BrowserRouter>
     </div>

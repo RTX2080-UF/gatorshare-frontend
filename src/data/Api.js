@@ -19,10 +19,12 @@ const ENDPOINTS = {
     updateProfile: () => '/users/updateProfile',
     getForYouPosts: () => '/home/user',
     getLatestPosts: () => '/home/latest?page=1&page_size=25',
-    getPopularTags: () => '/tags/popularTags'
+    getPopularTags: () => '/tags/popularTags',
+    deletePost: (postId) => `/posts/delete/${postId}`
 }
 
 const getRequest = (url, resolve, reject) => {
+    console.log(' <<<< Call GET with URL: ', url)
     fetch(url, {
         headers: {
             'Authorization': `Bearer ${sessionUtils.getAccessToken()}`
@@ -31,16 +33,21 @@ const getRequest = (url, resolve, reject) => {
         if (response.status >= 200 && response.status <= 299) {
             response.json().then(result => {
                 resolve(result)
+                console.log(' >>>> Received Response for URL: ', url, result)
             })
         } else {
-            if(response.status === 403) {
+            if (response.status === 403) {
                 window.location.href = '/login'
                 reject({ code: response.status, msg: 'Error occurred' })
             } else {
+                console.log(' >>>> Received Response for URL: ', url, 'Error: ' + response.status)
                 reject({ code: response.status, msg: 'Error occurred' })
             }
         }
-    }).catch(error => reject({ code: 999, msg: 'Unknown error occurred' }))
+    }).catch(error => {
+        console.log(error)
+        reject({ code: 999, msg: 'Unknown error occurred' })
+    })
 }
 
 const postRequest = (url, data, resolve, reject) => {
@@ -58,7 +65,7 @@ const postRequest = (url, data, resolve, reject) => {
                 resolve(result)
             })
         } else {
-            if(response.status === 403) {
+            if (response.status === 403) {
                 window.location.href = '/login'
                 reject({ code: response.status, msg: 'Error occurred' })
             } else {
@@ -83,7 +90,29 @@ const patchRequest = (url, data, resolve, reject) => {
                 resolve(result)
             })
         } else {
-            if(response.status === 403) {
+            if (response.status === 403) {
+                window.location.href = '/login'
+                reject({ code: response.status, msg: 'Error occurred' })
+            } else {
+                reject({ code: response.status, msg: 'Error occurred' })
+            }
+        }
+    }).catch(error => reject({ code: 999, msg: 'Unknown error occurred' }))
+}
+
+const deleteRequest = (url, resolve, reject) => {
+    fetch(url, {
+        headers: {
+            'Authorization': `Bearer ${sessionUtils.getAccessToken()}`
+        },
+        method: 'DELETE'
+    }).then(response => {
+        if (response.status >= 200 && response.status <= 299) {
+            response.json().then(result => {
+                resolve(result)
+            })
+        } else {
+            if (response.status === 403) {
                 window.location.href = '/login'
                 reject({ code: response.status, msg: 'Error occurred' })
             } else {
@@ -102,7 +131,7 @@ const data = {
     getPostById: (postId) => new Promise((resolve, reject) => {
         const url = `${SERVER_URL}${VERSION}${ENDPOINTS.getPostById(postId)}`
         getRequest(url, resolve, reject)
-    }), 
+    }),
 
     createPost: (postData) => new Promise((resolve, reject) => {
         const url = `${SERVER_URL}${VERSION}${ENDPOINTS.createPost()}`
@@ -153,7 +182,7 @@ const data = {
 
     getPopularTags: () => new Promise((resolve, reject) => {
         const url = `${SERVER_URL}${VERSION}${ENDPOINTS.getPopularTags()}/10`
-        getRequest(url,  resolve, reject)
+        getRequest(url, resolve, reject)
     }),
 
     updateProfile: (profileDetails) => new Promise((resolve, reject) => {
@@ -170,6 +199,11 @@ const data = {
         const url = `${SERVER_URL}${VERSION}${ENDPOINTS.getLatestPosts()}`
         getRequest(url, resolve, reject)
     }),
+
+    deletePost: (postId) => new Promise((resolve, reject) => {
+        const url = `${SERVER_URL}${VERSION}${ENDPOINTS.deletePost(postId)}`
+        deleteRequest(url, resolve, reject)
+    })
 }
 
 export default data

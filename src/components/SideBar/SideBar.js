@@ -1,4 +1,4 @@
-import { mdiHomeOutline, mdiNoteTextOutline } from '@mdi/js';
+import { mdiAccountHeartOutline, mdiHomeOutline, mdiNoteTextOutline } from '@mdi/js';
 import COLORS from '../../theme/colors';
 import SideBarItem from './SideBarItem';
 
@@ -8,6 +8,11 @@ const SideBar = ({selected}) => {
             icon: mdiHomeOutline,
             name: 'Home',
             link: '/'
+        },
+        {
+            icon: mdiAccountHeartOutline,
+            name: 'For You',
+            link: '/forYou'
         },
         {
             icon: mdiNoteTextOutline,

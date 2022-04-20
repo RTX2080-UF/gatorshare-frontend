@@ -44,3 +44,8 @@ export const getDummyAvatar = () => {
 export const generateMd5 = (data) => {
     return MD5(data).toString()
 }
+
+export const getGravatar = (email) => {
+    console.log('Creating Gravatar with Email ', email)
+    return `https://www.gravatar.com/avatar/${generateMd5(email)}?s=300&d=retro`
+}

@@ -1,13 +1,14 @@
 import { Button, Col, Form, Row } from "react-bootstrap"
-import { mdiArrowLeft } from '@mdi/js'
+import { mdiArrowLeft, mdiDelete } from '@mdi/js'
 import Icon from '@mdi/react'
-import { getHumanReadableTimestamp } from "../../utils/Utils"
+import { getGravatar, getHumanReadableTimestamp } from "../../utils/Utils"
 import UserMini from "../UserMini"
 import { useEffect, useState } from "react"
 import data from "../../data/Data"
 import { Link, useParams } from "react-router-dom"
 import Comment from "../Comment/Comment"
 import { DEMO_DB } from "../../data/Demo"
+import { getCurrentUser } from "../../utils/SessionUtils"
 
 const PostDetails = () => {
 
@@ -21,39 +22,71 @@ const PostDetails = () => {
     useEffect(() => {
         data.getPostById(postId).then(postData => {
             setPost(postData.data)
+            console.log(postData.data)
         }).catch(error => {
-            window.alert('Failed to fetch post details! \n' + error)
+            window.alert('Failed to fetch post details. Please try again later.')
             window.location.href = "/"
         })
 
         data.getCommentsOfPost(postId).then(commentsData => {
-            setComments(DEMO_DB.comments)
-        })
+            setComments(commentsData.data)
+        }).catch(error => console.log(error))
 
     }, [postId])
 
     const [currentComment, setCurrentComment] = useState('')
+    const [currentParentComment, setCurrentParentComment] = useState(null)
 
     const commentBeingTyped = (event) => {
         setCurrentComment(event.target.value)
     }
 
     const createComment = () => {
-        data.createComment({
-            postId: postId,
+        const comment = JSON.stringify({
+            postId: parseInt(postId),
             message: currentComment,
-        }).then(comment => setComments([...comments, comment]))
+            parentId: currentParentComment ? currentParentComment?.ID : 0,
+            votes: 0
+        })
+        data.createComment(comment).then(() => window.location.reload())
+    }
+
+    const replyCallback = (parentComment) => {
+        setCurrentComment(`@${parentComment.User.userName} ${currentComment}`)
+        setCurrentParentComment(parentComment)
+    }
+
+    const deletePost = () => {
+        const confirmDelete = window.confirm('Are you sure you wish to delete this post? This action cannot be undone.')
+        if(confirmDelete) {
+            data.deletePost(parseInt(postId)).then(response => {
+                window.alert('Post deleted.')
+                window.location.href = '/'
+            }).catch(e => {
+                console.log('Error deleting post: ', e)
+                window.alert('Failed to delete post. Please try again later.')
+            })
+        }
     }
 
     return post ? <div className="page-container p-4">
-        <Link to="/"><Icon path={mdiArrowLeft} size={1} color="gray" /></Link>
+        <Row>
+            <Col>
+                <Link to="/"><Icon path={mdiArrowLeft} size={1} color="gray" /></Link>
+            </Col>
+            <Col xs="auto">
+                { getCurrentUser().ID === post.User.ID ? <Icon path={mdiDelete} size={1} color="orange" onClick={() => deletePost()} /> : null}
+                
+            </Col>
+
+        </Row>
         <h2 className="mt-4">{post?.title}</h2>
         <Row>
             <Col xs="auto">
                 <p>Posted by</p>
             </Col>
             <Col xs="auto" className="m-0 p-0">
-                <UserMini firstName={post?.User.firstName} lastName={post?.User.lastName} avatar={post?.User.avatar} />
+                <UserMini firstName={post?.User.firstName} lastName={post?.User.lastName} avatar={getGravatar(post?.User.Email)} />
             </Col>
             <Col>
                 on {getHumanReadableTimestamp(post?.CreatedAt)}
@@ -61,29 +94,19 @@ const PostDetails = () => {
         </Row>
         <p>{post?.description}</p>
         <hr />
-        {/* <h5 className="mb-3">Participants</h5>
-        <Row>
-            {
-                post?.participantsNum > 0 ? post.participants.map(participant => {
-                    return <Col xs="auto" key={participant.id}>
-                        <UserMini firstName={participant.firstName} lastName={participant.lastName} avatar={participant.avatar} />
-                    </Col>
-                }) : <p>No participants yet</p>
-            }
-        </Row>
-        <hr /> */}
+
         <h5 className="mb-3">Comments</h5>
         <Row>
             <Col>
-                <Form.Control type="text" placeholder="Enter your comment here" onChange={commentBeingTyped.bind(this)}/>
+                <Form.Control type="text" placeholder="Enter your comment here" value={currentComment} onChange={commentBeingTyped.bind(this)} />
             </Col>
             <Col xs="auto">
-                <Button variant="warning" id="comment-post" onClick={() => createComment()}>Post</Button>
+                <Button variant="warning" id="comment-post" className="gatorshare-button" onClick={() => createComment()}>Post</Button>
             </Col>
             {
                 comments.length > 0 ? comments.map(comment => {
-                    return <Col xs={12} key={comment.id}>
-                        <Comment comment={comment} />
+                    return <Col xs={12} key={comment.ID}>
+                        <Comment comment={comment} replyCallback={replyCallback} />
                     </Col>
                 }) : <p>Be the first one to comment!</p>
             }

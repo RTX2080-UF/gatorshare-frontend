@@ -1,19 +1,36 @@
 import { Button, Form } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import BGImage from "../BGImage"
+import React, { useEffect, useState } from "react"
+import {useLocation} from 'react-router-dom';
+import data from "../../data/Data"
 
-
-const ChangePassword = () => {
-
-    const navigate = useNavigate();
+const ChangePassword = (props) => {
+    
     const [confirmPwd, setConfirmPwd] = useState('');
     const [pwd, setPwd] = useState('');
+    const [email, setEmail] = useState('');
+    const [token, setToken] = useState('');
+    const location = useLocation();
+    
+    useEffect(() => {
+        // const params = new URLSearchParams(window.location.search)
+        console.log("ChangePassword", location.state)
+        setToken(location.state.token);
+        setEmail(location.state.email);
+    }, [])
 
     const handleChangePassword = (e) => {
-        e.preventDefault();
-        const requestData = `{ "username": "${username}", "password": "${pwd}" }`;
-        data.login(requestData).then(res => {
-            navigate("/login");
-        })
+        // e.preventDefault();
+        if (pwd !== confirmPwd) {
+            alert("Passwords don't match");
+        } else {
+            const requestData = `{ "email": "${email}", "token": "${token}", "password":"${pwd}" }`;
+            data.updatePassword(requestData).then(res => {
+                console.log("PAssowrd updated!!!!")
+            })
+        }
+        
     };
 
     return <div>

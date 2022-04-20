@@ -4,15 +4,16 @@ import NavBar from "../components/NavBar"
 import Post from "../components/Post/Post"
 import SideBar from "../components/SideBar/SideBar"
 import Data from "../data/Data"
+import { useNavigate } from 'react-router-dom';
 import { isLoggedIn } from "../utils/SessionUtils"
 
 const Home = () => {
 
     const [latestPosts, setLatestPosts] = useState([])
+    const navigate = useNavigate();
 
     useEffect(() => {
         // const params = new URLSearchParams(window.location.search)
-
         if (!isLoggedIn()) {
             window.location.href = '/login'
         } else {

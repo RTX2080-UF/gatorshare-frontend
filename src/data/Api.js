@@ -18,6 +18,7 @@ const ENDPOINTS = {
     getPostById: (postId) => `/posts/getOne/${postId}`,
     updateProfile: () => '/users/updateProfile',
     resetPassword: () => '/users/resetPassword?email=',
+    updatePassword: () => '/users/updatePassword',
     getForYouPosts: () => '/home/user',
     getLatestPosts: () => '/home/latest?page=1&page_size=25',
     getPopularTags: () => '/tags/popularTags',
@@ -137,6 +138,11 @@ const data = {
     createPost: (postData) => new Promise((resolve, reject) => {
         const url = `${SERVER_URL}${VERSION}${ENDPOINTS.createPost()}`
         // console.log("create post - ", postData);
+        postRequest(url, postData, resolve, reject)
+    }),
+    
+    updatePassword: (postData) => new Promise((resolve, reject) => {
+        const url = `${SERVER_URL}${VERSION}${ENDPOINTS.updatePassword()}`
         postRequest(url, postData, resolve, reject)
     }),
 

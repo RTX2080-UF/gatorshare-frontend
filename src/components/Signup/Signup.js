@@ -13,13 +13,19 @@ const Signup = () => {
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [pwd, setPwd] = useState('');
+    const [confirmPwd, setConfirmPwd] = useState('');
 
     const handleSignUp = (e) => {
         e.preventDefault();
-        const requestData = `{"Username":"${username}","Firstname":"${firstName}","Lastname":"${lastName}","Email":"${email}","Password":"${pwd}"}`;
-        data.register(requestData).then(res => {
-            navigate("/login");
-        })
+        if (pwd !== confirmPwd) {
+            alert("Passwords don't match");
+        } else {
+            const requestData = `{"Username":"${username}","Firstname":"${firstName}","Lastname":"${lastName}","Email":"${email}","Password":"${pwd}"}`;
+            data.register(requestData).then(res => {
+                navigate("/login");
+            })
+        }
+        
     };
 
     return <div>
@@ -46,6 +52,10 @@ const Signup = () => {
                 <div className="form-group">
                     <label>Password</label>
                     <input type="password" id="password" className="form-control" placeholder="Enter password" value={pwd} onChange={(e) => setPwd(e.target.value)}/>
+                </div>
+                <div className="form-group">
+                    <label>Confirm Password</label>
+                    <input type="password" id="confirmpassword" className="form-control" placeholder="Confirm password" value={confirmPwd} onChange={(e) => setConfirmPwd(e.target.value)}/>
                 </div>
                 <Button variant="primary" type="submit" className='mb-3 gatorshare-button'>
                     Sign Up

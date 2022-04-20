@@ -12,6 +12,7 @@ const ENDPOINTS = {
     createComment: () => '/comments/create',
     login: () => '/users/login',
     register: () => '/users/register',
+    followTagsOnboarding: () => '/tags/selectTags',
     getPostById: (postId) => `/posts/getOne/${postId}`
 }
 
@@ -97,6 +98,16 @@ const data = {
             resolve(DEMO_DB.popularUsers)
         }, 500);
     }),
+
+    followTagsOnboarding: (tags) => new Promise((resolve, reject) => {
+        const url = `${SERVER_URL}${VERSION}${ENDPOINTS.followTagsOnboarding()}`
+        postRequest(url, JSON.stringify(tags), resolve, reject)
+    }),
+
+    getPopularTags: () => new Promise((resolve, reject) => {
+        const url = `${SERVER_URL}${VERSION}${ENDPOINTS.getPopularTags()}/10`
+        getRequest(url,  resolve, reject)
+    })
 }
 
 export default data

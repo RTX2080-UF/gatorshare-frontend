@@ -6,31 +6,31 @@ import Data from "../data/Data"
 import * as SessionUtils from "../utils/SessionUtils"
 
 const Onboarding = () => {
-    const [categories, setCategories] = useState([])
-    const [selectedCategories, setSelectedCategories] = useState([])
+    const [popularTags, setPopularTags] = useState([])
+    const [selectedTags, setSelectedTags] = useState([])
 
     const [popularUsers, setPopularUsers] = useState([])
     const [selectedUsers, setSelectedUsers] = useState([])
 
     useEffect(() => {
-        Data.getAllCategories().then(categories => {
-            setCategories(categories)
-        })
-
         Data.getPopularUsers().then(users => {
             setPopularUsers(users)
         })
+
+        Data.getPopularTags().then(response => {
+            setPopularTags(response.data)
+        })
     }, [])
 
-    const selectOrUnselectCategory = (categoryId) => {
-        const categoriesToSelect = [...selectedCategories]
-        const index = categoriesToSelect.indexOf(categoryId);
+    const selectOrUnselectTag = (tagId) => {
+        const tagsToSelect = [...selectedTags]
+        const index = tagsToSelect.indexOf(tagId);
         if (index === -1) {
-            categoriesToSelect.push(categoryId)
+            tagsToSelect.push(tagId)
         } else {
-            categoriesToSelect.splice(index, 1)
+            tagsToSelect.splice(index, 1)
         }
-        setSelectedCategories(categoriesToSelect)
+        setSelectedTags(tagsToSelect)
     }
 
     const selectOrUnselectPopularUser = (userId) => {
@@ -60,9 +60,9 @@ const Onboarding = () => {
             <p className="p-0 m-0 mb-3">Pick a few categories to get started...</p>
         </Col>
         {
-            categories.map(category => {
-                return <Col key={category.id} sm={12} md={4} lg={3} className="mt-3" onClick={() => selectOrUnselectCategory(category.id)}>
-                    <Category data={category} selected={selectedCategories.indexOf(category.id) !== -1} />
+            popularTags.map(tag => {
+                return <Col key={tag.ID} sm={12} md={4} lg={3} className="mt-3" onClick={() => selectOrUnselectTag(tag.ID)}>
+                    <Category data={tag} selected={selectedTags.indexOf(tag.ID) !== -1} />
                 </Col>
             })
         }

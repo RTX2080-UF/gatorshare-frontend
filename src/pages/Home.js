@@ -13,6 +13,8 @@ const Home = () => {
     const [followedPosts, setFollowedPosts] = useState([])
 
     useEffect(() => {
+        // const params = new URLSearchParams(window.location.search)
+        
         if (!isLoggedIn()) {
             window.location.href = '/login'
         } else {

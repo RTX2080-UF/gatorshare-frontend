@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Row } from "react-bootstrap"
 import data from "../../data/Data"
 import { Form } from 'react-bootstrap';
+import { setUser } from "../../utils/SessionUtils"
 
 
 const Profile = (props) => {
@@ -18,7 +19,10 @@ const Profile = (props) => {
     }, [])
 
     const updateProfile = () => {
-        
+        const requestData = `{ "Firstname": "${firstName}", "Lastname": "${lastName}", "Email": "${email}" }`;
+        data.updateProfile(requestData).then(res => {
+            setUser(res.data)
+        })
     }
     
 

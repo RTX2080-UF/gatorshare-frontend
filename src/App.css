@@ -138,4 +138,5 @@
 
 .notification-space {
   height: 50vh !important;
+  overflow-y: auto;
 }

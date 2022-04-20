@@ -28,7 +28,7 @@ const Post = ({ data }) => {
                     <p>Posted by</p>
                 </Col>
                 <Col xs="auto" className="m-0 p-0">
-                    <UserMini firstName={user.firstName} lastName={user.lastName} avatar={getGravatar(user.Email)} />
+                    <UserMini user={user} />
                 </Col>
                 <Col>
                     on {getHumanReadableTimestamp(postCreatedAt)}

@@ -14,10 +14,9 @@ const Login = () => {
 
     const handleLogin = (e) => {
         e.preventDefault();
-        const requestData = `{"username":"${username}","password":"${pwd}"}`;
+        const requestData = { username: username, password: pwd };
         data.login(requestData).then(res => {
             setAccessToken(res.data);
-            // console.log(res.data.userDetails);
             setUser(res.data.userDetails)
             navigate("/onboarding");
         })

@@ -34,7 +34,7 @@ const postRequest = (url, data, resolve, reject) => {
             'Content-Type': 'application/json'
         },
         method: 'POST',
-        body: data
+        body: JSON.stringify(data)
     }).then(response => {
         if (response.status >= 200 && response.status <= 299) {
             response.json().then(result => {

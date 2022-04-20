@@ -17,7 +17,7 @@ const ENDPOINTS = {
     followTagsOnboarding: () => '/tags/selectTags',
     getPostById: (postId) => `/posts/getOne/${postId}`,
     updateProfile: () => '/users/updateProfile',
-    resetPassword: () => '/users/resetPassword?email=',
+    resetPassword: (email) => `/users/resetPassword?email=${email}`,
     updatePassword: () => '/users/updatePassword',
     getForYouPosts: () => '/home/user',
     getLatestPosts: () => '/home/latest?page=1&page_size=25',
@@ -49,7 +49,7 @@ const getRequest = (url, resolve, reject) => {
             }
         }
     }).catch(error => {
-        console.log(error)
+        console.log("GET error - ",error)
         reject({ code: 999, msg: 'Unknown error occurred' })
     })
 }
@@ -206,7 +206,8 @@ const data = {
     }),
 
     resetPassword: (email) => new Promise((resolve, reject) => {
-        const url = `${SERVER_URL}${VERSION}${ENDPOINTS.resetPassword()}${email}`
+        const url = `${SERVER_URL}${VERSION}${ENDPOINTS.resetPassword(email)}`
+        console.log("RESET- " , url)
         getRequest(url, resolve, reject)
     }),
     

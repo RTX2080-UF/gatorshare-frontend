@@ -26,7 +26,9 @@ const NavBar = () => {
     
     const [show, setShow] = useState(false);
     const handleShow = () => setShow(true);
-    const handleClose = () => setShow(false);
+    const handleClose = () => {
+        setShow(false);
+    };
     const handleCreateClick = (e)=> {
         handleShow()
     }
@@ -81,7 +83,7 @@ const NavBar = () => {
                         <Nav.Link>
                             <LineSeparator />
                         </Nav.Link>
-                        <Nav.Link href="" className="text-uppercase" onClick={(e)=>handleCreateClick(e)}><strong className='primarytextcolor'>Create</strong></Nav.Link>
+                        <Nav.Link href="" className="text-uppercase" id="createModal" onClick={(e)=>handleCreateClick(e)}><strong className='primarytextcolor'>Create</strong></Nav.Link>
                         <Nav.Link>
                             <LineSeparator />
                         </Nav.Link>

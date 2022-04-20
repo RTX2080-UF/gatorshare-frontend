@@ -13,7 +13,6 @@ const Home = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // const params = new URLSearchParams(window.location.search)
         if (!isLoggedIn()) {
             window.location.href = '/login'
         } else {

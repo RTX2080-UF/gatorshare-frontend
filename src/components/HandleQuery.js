@@ -9,6 +9,8 @@ const HandleQuery = () => {
     useEffect(() => {
         // const params = new URLSearchParams(window.location.search)
         const queryParams = new URLSearchParams(window.location.search)
+        console.log(window.location.changePassword)
+        console.log(queryParams)
         if(queryParams.has('email') && queryParams.has('token')){
             navigate("/changePassword",{state:{email:queryParams.get('email'), token:queryParams.get('token')}});
         }

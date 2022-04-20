@@ -139,3 +139,7 @@
 .notification-space {
   height: 50vh !important;
 }
+
+.pointer {
+  cursor: pointer;
+}

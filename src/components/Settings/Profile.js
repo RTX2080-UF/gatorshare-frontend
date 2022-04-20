@@ -14,7 +14,7 @@ const Profile = (props) => {
         data.getCurrentUser().then(user => {
             setFirstname(user.firstName)
             setLastName(user.lastName)
-            setEmail(user.email)
+            setEmail(user.Email)
         })
     }, [])
 

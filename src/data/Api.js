@@ -17,6 +17,7 @@ const ENDPOINTS = {
     followTagsOnboarding: () => '/tags/selectTags',
     getPostById: (postId) => `/posts/getOne/${postId}`,
     updateProfile: () => '/users/updateProfile',
+    resetPassword: () => '/users/resetPassword?email=',
     getForYouPosts: () => '/home/user',
     getLatestPosts: () => '/home/latest?page=1&page_size=25',
     getPopularTags: () => '/tags/popularTags',
@@ -190,6 +191,11 @@ const data = {
         patchRequest(url, profileDetails, resolve, reject)
     }),
 
+    resetPassword: (email) => new Promise((resolve, reject) => {
+        const url = `${SERVER_URL}${VERSION}${ENDPOINTS.resetPassword()}${email}`
+        getRequest(url, resolve, reject)
+    }),
+    
     getForYouPosts: () => new Promise((resolve, reject) => {
         const url = `${SERVER_URL}${VERSION}${ENDPOINTS.getForYouPosts()}`
         getRequest(url, resolve, reject)

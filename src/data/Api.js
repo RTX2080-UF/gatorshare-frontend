@@ -16,7 +16,8 @@ const ENDPOINTS = {
     register: () => '/users/register',
     followTagsOnboarding: () => '/tags/selectTags',
     getPostById: (postId) => `/posts/getOne/${postId}`,
-    updateProfile: () => '/users/updateProfile'
+    updateProfile: () => '/users/updateProfile',
+    resetPassword: () => '/users/resetPassword?email='
 }
 
 const getRequest = (url, resolve, reject) => {
@@ -141,6 +142,12 @@ const data = {
     updateProfile: (profileDetails) => new Promise((resolve, reject) => {
         const url = `${SERVER_URL}${VERSION}${ENDPOINTS.updateProfile()}`
         patchRequest(url, profileDetails, resolve, reject)
+    }),
+
+    resetPassword: (email) => new Promise((resolve, reject) => {
+        const url = `${SERVER_URL}${VERSION}${ENDPOINTS.resetPassword()}${email}`
+        // console.log("Reset - ", url)
+        getRequest(url, resolve, reject)
     }),
 }
 

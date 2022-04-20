@@ -12,6 +12,11 @@ const Onboarding = () => {
     const [popularUsers, setPopularUsers] = useState([])
     const [selectedUsers, setSelectedUsers] = useState([])
 
+    const currentUser = SessionUtils.getCurrentUser()
+    if (currentUser && currentUser.selectedTags && currentUser.selectedTags.length > 0) {
+        window.location.href = '/'
+    }
+
     useEffect(() => {
         Data.getPopularUsers().then(users => {
             setPopularUsers(users)

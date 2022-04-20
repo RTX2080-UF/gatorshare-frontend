@@ -4,13 +4,14 @@ import NavBar from "../components/NavBar"
 import SideBar from "../components/SideBar/SideBar"
 import Post from "../components/Post/Post"
 import Data from "../data/Data"
+import { getCurrentUser } from "../utils/SessionUtils"
 
 const Posts = () => {
 
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
-        Data.getPosts(1).then(posts => {
+        Data.getPosts().then(posts => {
             setPosts(posts.data)
         })
     }, [])

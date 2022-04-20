@@ -6,14 +6,17 @@ const SERVER_URL = 'https://gatorshare.herokuapp.com'
 const VERSION = '/v1'
 
 const ENDPOINTS = {
-    getAllPostsOfUser: (userId) => `/posts/getAll/${userId}`,
+    getAllPostsOfUser: () => `/posts/getAll`,
     createPost: () => '/posts/create',
     getCommentsOfPost: (postId) => `/comments/getAll/${postId}`,
     createComment: () => '/comments/create',
+    getCommentById: (commentId) => `/comments/getOne/${commentId}`,
+    deleteComment: (commentId) => `/comments/delete/${commentId}`,
     login: () => '/users/login',
     register: () => '/users/register',
     followTagsOnboarding: () => '/tags/selectTags',
-    getPostById: (postId) => `/posts/getOne/${postId}`
+    getPostById: (postId) => `/posts/getOne/${postId}`,
+    updateProfile: () => '/users/updateProfile'
 }
 
 const getRequest = (url, resolve, reject) => {
@@ -52,9 +55,29 @@ const postRequest = (url, data, resolve, reject) => {
     }).catch(error => reject({ code: 999, msg: 'Unknown error occurred' }))
 }
 
+const patchRequest = (url, data, resolve, reject) => {
+    fetch(url, {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${sessionUtils.getAccessToken()}`
+        },
+        method: 'PATCH',
+        body: data
+    }).then(response => {
+        if (response.status >= 200 && response.status <= 299) {
+            response.json().then(result => {
+                resolve(result)
+            })
+        } else {
+            reject({ code: response.status, msg: 'Error occurred' })
+        }
+    }).catch(error => reject({ code: 999, msg: 'Unknown error occurred' }))
+}
+
 const data = {
-    getPosts: (userId) => new Promise((resolve, reject) => {
-        const url = `${SERVER_URL}${VERSION}${ENDPOINTS.getAllPostsOfUser(userId)}`
+    getPosts: () => new Promise((resolve, reject) => {
+        const url = `${SERVER_URL}${VERSION}${ENDPOINTS.getAllPostsOfUser()}`
         getRequest(url, resolve, reject)
     }),
 
@@ -113,7 +136,12 @@ const data = {
     getPopularTags: () => new Promise((resolve, reject) => {
         const url = `${SERVER_URL}${VERSION}${ENDPOINTS.getPopularTags()}/10`
         getRequest(url,  resolve, reject)
-    })
+    }),
+
+    updateProfile: (profileDetails) => new Promise((resolve, reject) => {
+        const url = `${SERVER_URL}${VERSION}${ENDPOINTS.updateProfile()}`
+        patchRequest(url, JSON.stringify(profileDetails), resolve, reject)
+    }),
 }
 
 export default data

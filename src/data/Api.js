@@ -17,7 +17,11 @@ const ENDPOINTS = {
 }
 
 const getRequest = (url, resolve, reject) => {
-    fetch(url).then(response => {
+    fetch(url, {
+        headers: {
+            'Authorization': `Bearer ${sessionUtils.getAccessToken()}`
+        }
+    }).then(response => {
         if (response.status >= 200 && response.status <= 299) {
             response.json().then(result => {
                 resolve(result)

@@ -44,13 +44,21 @@ const Onboarding = () => {
         setSelectedUsers(usersToSelect)
     }
 
+    const onboardUser = () => {
+        Data.followTagsOnboarding(selectedTags).then(
+            () => {
+                window.location.href = '/'
+            }
+        ).catch(e => window.alert(e))
+    }
+
     return <Row className="p-5">
         <Col>
             <h3 className="text-color-accent">Welcome to GatorShare!</h3>
             <p className="p-0 m-0">We're glad you're here. Let's roll!</p>
         </Col>
         <Col sm="auto">
-            <a href="/"><Button variant="warning"><b>NEXT</b></Button></a>
+            <Button variant="warning" onClick={() => onboardUser()}><b>NEXT</b></Button>
         </Col>
         <Col sm={12}>
             <div className="pt-4 pb-4">

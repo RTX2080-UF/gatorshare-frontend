@@ -4,8 +4,20 @@ import "../App.css";
 
 const CreatePostModal = (props) => {
     const [checked, setChecked] = useState(false);
+    const [tag, setTag] = useState("");
+    const [title, setTitle] = useState("");
+    const [tags, setTags] = useState([]);
     const handleChecked = (e) => {
         setChecked(e.target.checked)
+    }
+
+    const handleTagsEnter = () => {
+        setTags([...tags,tag])
+        console.log("tags",tags);
+        setTag("");    
+    }
+    const createPost = () => {
+
     }
     
     return (
@@ -24,7 +36,7 @@ const CreatePostModal = (props) => {
                 <Modal.Body>
                     <Form>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                            <Form.Control type="text" placeholder="Title" />
+                            <Form.Control type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)}/>
                             {/* <Form.Label>Description</Form.Label> */}
                             <Form.Control as="textarea" rows={3} placeholder='Enter description' />
                             <div className="row">
@@ -59,13 +71,19 @@ const CreatePostModal = (props) => {
                                     </Dropdown>
                                 </div>
                             </div>
-                            <Form.Label>Tags:</Form.Label>
-                            <p>
-                                <Badge pill bg="badge">Gatorshare</Badge>
-                                <Badge pill bg="badge">tag2</Badge>
-                                <Badge pill bg="badge">niche</Badge>
-                                <Badge pill bg="badge">rtx2080</Badge>
-                            </p>
+                            <div className="row mt-3">
+                                <div className="col-lg-6 col-md-12">
+                                    <p>Enter Tags: </p>
+                                </div>
+                                <div className="col-lg-6 col-md-12">
+                                    <Form.Control type="text" placeholder="Enter tag" value={tag} onChange={(e) => setTag(e.target.value)} onKeyPress={event => event.key === "Enter" && handleTagsEnter()}/>
+                                </div>
+                            </div>
+                            {
+                                tags.map(t => {
+                                    return <Badge pill bg="badge">{t}</Badge>
+                                })
+                            }
                             {/* Expiry:  */}
                         </Form.Group>
                     </Form>
@@ -74,7 +92,7 @@ const CreatePostModal = (props) => {
                     <Button variant="secondary" onClick={()=>props.handleClose()}>
                         Cancel
                     </Button>
-                    <Button  className='primarycolor'onClick={()=>props.handleClose()}>Post</Button>
+                    <Button  className='primarycolor'onClick={()=>createPost()}>Post</Button>
                 </Modal.Footer>
             </Modal>
              

@@ -2,12 +2,12 @@ import { Button, Form } from 'react-bootstrap';
 import BGImage from "../BGImage"
 import data from "../../data/Data"
 import { useState } from "react"
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 // import {setAccessToken} from '../../utils/SessionUtils'
 
 const Signup = () => {
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const [username, setUserName] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -18,10 +18,7 @@ const Signup = () => {
         e.preventDefault();
         const requestData = `{"Username":"${username}","Firstname":"${firstName}","Lastname":"${lastName}","Email":"${email}","Password":"${pwd}"}`;
         data.register(requestData).then(res => {
-            console.log("data");
-            console.log(res.data);
-            // setAccessToken(res.data);
-            // navigate("/onboarding");
+            navigate("/login");
         })
     };
 

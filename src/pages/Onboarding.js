@@ -3,6 +3,7 @@ import { Button, Col, Row } from "react-bootstrap"
 import Category from "../components/Onboarding/Category"
 import User from "../components/Onboarding/User"
 import Data from "../data/Data"
+import * as SessionUtils from "../utils/SessionUtils"
 
 const Onboarding = () => {
     const [categories, setCategories] = useState([])

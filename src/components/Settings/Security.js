@@ -1,19 +1,23 @@
 import { useEffect, useState } from "react"
 import { Row } from "react-bootstrap"
-import Data from "../../data/Data"
+import data from "../../data/Data"
 import { setUser } from "../../utils/SessionUtils"
 import { Form } from 'react-bootstrap';
 
 
 const Security = () => {
-    useEffect(() => {
-        Data.getCurrentUser().then(user => {
-            setUser(user)
-        })
-    }, [])
     const [currentPwd, setCurrentPwd] = useState("");
     const [newPwd, setNewPwd] = useState("");
     const [confirmNewPwd, setConfirmNewPwd] = useState("");
+
+    const updatePassword = () => { 
+        if (newPwd !== confirmNewPwd) {
+            alert("Passwords don't match");
+        } else {
+            // data.updatePassword
+        }
+    }
+
 
     return <div className="page bg-light ps-5">
         <Row>
@@ -41,7 +45,7 @@ const Security = () => {
                     </div>
                     <div className="col-12 pt-4">
                         <div className="d-flex flex-wrap justify-content-between align-items-center">
-                            <button className="btn btn-style-1 btn-primary" type="button" data-toast="" data-toast-position="topRight" data-toast-type="success" data-toast-icon="fe-icon-check-circle" data-toast-title="Success!" data-toast-message="Your profile updated successfuly.">Change Password</button>
+                            <button className="btn btn-style-1 btn-primary" type="button" data-toast="" data-toast-position="topRight" data-toast-type="success" data-toast-icon="fe-icon-check-circle" data-toast-title="Success!" data-toast-message="Your profile updated successfuly." onClick={()=>updatePassword()}>Change Password</button>
                         </div>
                     </div>
                 </Form>

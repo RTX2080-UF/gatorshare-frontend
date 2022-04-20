@@ -32,7 +32,8 @@ const postRequest = (url, data, resolve, reject) => {
     fetch(url, {
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${sessionUtils.getAccessToken()}`
         },
         method: 'POST',
         body: data
@@ -60,6 +61,7 @@ const data = {
 
     createPost: (postData) => new Promise((resolve, reject) => {
         const url = `${SERVER_URL}${VERSION}${ENDPOINTS.createPost()}`
+        // console.log("create post - ", postData);
         postRequest(url, postData, resolve, reject)
     }),
 

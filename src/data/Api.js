@@ -16,7 +16,10 @@ const ENDPOINTS = {
     register: () => '/users/register',
     followTagsOnboarding: () => '/tags/selectTags',
     getPostById: (postId) => `/posts/getOne/${postId}`,
-    updateProfile: () => '/users/updateProfile'
+    updateProfile: () => '/users/updateProfile',
+    getForYouPosts: () => '/home/user',
+    getLatestPosts: () => '/home/latest?page=1&page_size=25',
+    getPopularTags: () => '/tags/popularTags'
 }
 
 const getRequest = (url, resolve, reject) => {
@@ -30,7 +33,12 @@ const getRequest = (url, resolve, reject) => {
                 resolve(result)
             })
         } else {
-            reject({ code: response.status, msg: 'Error occurred' })
+            if(response.status === 403) {
+                window.location.href = '/login'
+                reject({ code: response.status, msg: 'Error occurred' })
+            } else {
+                reject({ code: response.status, msg: 'Error occurred' })
+            }
         }
     }).catch(error => reject({ code: 999, msg: 'Unknown error occurred' }))
 }
@@ -50,7 +58,12 @@ const postRequest = (url, data, resolve, reject) => {
                 resolve(result)
             })
         } else {
-            reject({ code: response.status, msg: 'Error occurred' })
+            if(response.status === 403) {
+                window.location.href = '/login'
+                reject({ code: response.status, msg: 'Error occurred' })
+            } else {
+                reject({ code: response.status, msg: 'Error occurred' })
+            }
         }
     }).catch(error => reject({ code: 999, msg: 'Unknown error occurred' }))
 }
@@ -70,7 +83,12 @@ const patchRequest = (url, data, resolve, reject) => {
                 resolve(result)
             })
         } else {
-            reject({ code: response.status, msg: 'Error occurred' })
+            if(response.status === 403) {
+                window.location.href = '/login'
+                reject({ code: response.status, msg: 'Error occurred' })
+            } else {
+                reject({ code: response.status, msg: 'Error occurred' })
+            }
         }
     }).catch(error => reject({ code: 999, msg: 'Unknown error occurred' }))
 }
@@ -141,6 +159,16 @@ const data = {
     updateProfile: (profileDetails) => new Promise((resolve, reject) => {
         const url = `${SERVER_URL}${VERSION}${ENDPOINTS.updateProfile()}`
         patchRequest(url, JSON.stringify(profileDetails), resolve, reject)
+    }),
+
+    getForYouPosts: () => new Promise((resolve, reject) => {
+        const url = `${SERVER_URL}${VERSION}${ENDPOINTS.getForYouPosts()}`
+        getRequest(url, resolve, reject)
+    }),
+
+    getLatestPosts: () => new Promise((resolve, reject) => {
+        const url = `${SERVER_URL}${VERSION}${ENDPOINTS.getLatestPosts()}`
+        getRequest(url, resolve, reject)
     }),
 }
 

@@ -6,13 +6,15 @@ import DataSource from "../../data/Data"
 
 const Post = ({ data }) => {
 
+    console.log('Post Data', data)
+
     const postId = data.ID
     const user = data.User
     const participantCount = data.participantNum
     const postCreatedAt = data.CreatedAt
     const description = data.description
     const title = data.title
-    const expires = data.ExpiresAt
+    const expires = data.Expiry
 
     const [commentCount, setCommentCount] = useState(0)
 
@@ -20,7 +22,7 @@ const Post = ({ data }) => {
         DataSource.getCommentsOfPost(postId).then( comments => setCommentCount(comments.length))
     }, [postId])
 
-    return <Card body>
+    return <a href={"/post/" + postId} className="link-no-style"><Card body className="mb-3">
          <small><small className="text-danger">Expires in {getTimeToDate(expires)}</small></small>
         <h4 className="mt-2">{title}</h4>
         <small>
@@ -38,7 +40,7 @@ const Post = ({ data }) => {
         </small>
         <p>{description}</p>
         <p><small><span>{participantCount} participants</span> • <span>{commentCount} comments</span></small></p>
-    </Card>
+    </Card></a>
 }
 
 export default Post

@@ -20,17 +20,15 @@ const Posts = () => {
         <NavBar />
         <Row className="page">
             <Col md={3} lg={3} xl={2}>
-                <SideBar selected='/posts'/>
+                <SideBar selected='/posts' />
             </Col>
-            <Col className="p-4 m-0">
+            <Col className="p-4 m-0 page-content">
                 <Row>
                     {
                         posts.length > 0 ?
                             posts.map(post => {
                                 return <Col xs={12} className="mb-3" key={post.ID}>
-                                    <a href={"/post/" + post.ID} className="link-no-style">
-                                        <Post data={post} />
-                                    </a>
+                                    <Post data={post} />
                                 </Col>
                             }) :
                             <p>No posts yet, go ahead and create one!</p>

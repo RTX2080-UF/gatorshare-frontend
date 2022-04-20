@@ -12,7 +12,6 @@ const Profile = (props) => {
     const [bio, setBio] = useState("");
     useEffect(() => {
         data.getCurrentUser().then(user => {
-            console.log("PROFILE : ", user)
             setFirstname(user.firstName)
             setLastName(user.lastName)
             setEmail(user.Email)

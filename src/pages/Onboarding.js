@@ -13,7 +13,7 @@ const Onboarding = () => {
     const [selectedUsers, setSelectedUsers] = useState([])
 
     const currentUser = SessionUtils.getCurrentUser()
-    if (currentUser && currentUser.selectedTags && currentUser.selectedTags.length > 0) {
+    if (currentUser && currentUser.isOnboarded) {
         window.location.href = '/'
     }
 
@@ -50,11 +50,16 @@ const Onboarding = () => {
     }
 
     const onboardUser = () => {
-        Data.followTagsOnboarding(selectedTags).then(
-            () => {
-                window.location.href = '/'
-            }
-        ).catch(e => window.alert(e))
+        if (selectedTags.length > 0) {
+            Data.followTagsOnboarding(selectedTags).then(
+                () => {
+                    window.location.href = '/'
+                    SessionUtils.setUser({ ...currentUser, isOnboarded: true })
+                }
+            ).catch(e => window.alert(e))
+        } else {
+            window.alert('Select atleast one tag')
+        }
     }
 
     return <Row className="p-5">

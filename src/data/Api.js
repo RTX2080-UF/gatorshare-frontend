@@ -21,7 +21,8 @@ const ENDPOINTS = {
     getForYouPosts: () => '/home/user',
     getLatestPosts: () => '/home/latest?page=1&page_size=25',
     getPopularTags: () => '/tags/popularTags',
-    deletePost: (postId) => `/posts/delete/${postId}`
+    deletePost: (postId) => `/posts/delete/${postId}`,
+    getNotifications: () => '/notifications/getNew'
 }
 
 const getRequest = (url, resolve, reject) => {
@@ -209,6 +210,11 @@ const data = {
     deletePost: (postId) => new Promise((resolve, reject) => {
         const url = `${SERVER_URL}${VERSION}${ENDPOINTS.deletePost(postId)}`
         deleteRequest(url, resolve, reject)
+    }),
+
+    getNotifications: () => new Promise((resolve, reject) => {
+        const url = `${SERVER_URL}${VERSION}${ENDPOINTS.getNotifications()}`
+        getRequest(url, resolve, reject)
     })
 }
 

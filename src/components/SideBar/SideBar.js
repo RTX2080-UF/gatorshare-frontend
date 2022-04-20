@@ -16,7 +16,7 @@ const SideBar = ({selected}) => {
         },
         {
             icon: mdiNoteTextOutline,
-            name: 'Posts',
+            name: 'Your Posts',
             link: '/posts'
         }
     ]

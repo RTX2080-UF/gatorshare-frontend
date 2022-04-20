@@ -11,9 +11,12 @@ import logo from "../assets/logo_wide.png"
 import Icon from '@mdi/react';
 import { getCurrentUser, logOutUser } from '../utils/SessionUtils';
 import { getGravatar } from '../utils/Utils';
+import Notifications from './modals/Notifications/Notifications';
 
 const NavBar = () => {
     const navigate = useNavigate();
+
+    const [showNotifications, setShowNotifications] = useState(false)
     
     const [show, setShow] = useState(false);
     const handleShow = () => setShow(true);
@@ -37,6 +40,12 @@ const NavBar = () => {
         )
     }
 
+    const renderNotificationsModal = ()=>{
+        return (
+            <Notifications show={showNotifications} onHide={setShowNotifications} />
+        )
+    }
+
     const profile = ()=>{
         const user = getCurrentUser()
 
@@ -50,6 +59,7 @@ const NavBar = () => {
     return (
         <div>
             {show ? returnModal() : ""}
+            {showNotifications ? renderNotificationsModal() : null}
             <Navbar className="ps-3 pe-3 topbar" collapseOnSelect expand="lg" bg="light" variant="light">
                 <Navbar.Brand href="/"><Image src={logo} height={30} /></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -70,7 +80,7 @@ const NavBar = () => {
                             <LineSeparator />
                         </Nav.Link>
                         <Nav.Link eventKey={2} href="">
-                            <Icon path={mdiBellOutline} size={1} color="gray"/>
+                            <Icon path={mdiBellOutline} size={1} color="gray" onClick={() => setShowNotifications(true)}/>
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

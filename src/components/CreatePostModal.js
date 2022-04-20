@@ -25,6 +25,7 @@ const CreatePostModal = (props) => {
         
         data.createPost(requestData).then(res => {
             props.handleClose();
+            window.location.href = '/'
         })
     }
     
@@ -44,15 +45,15 @@ const CreatePostModal = (props) => {
                 <Modal.Body>
                     <Form>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                            <Form.Control type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)}/>
+                            <Form.Control type="text" placeholder="Title" id="ctitle" value={title} onChange={(e) => setTitle(e.target.value)}/>
                             {/* <Form.Label>Description</Form.Label> */}
-                            <Form.Control as="textarea" rows={3} placeholder='Enter description' value={desc} onChange={(e) => setDesc(e.target.value)}/>
+                            <Form.Control as="textarea" rows={3} placeholder='Enter description' id="cdesc" value={desc} onChange={(e) => setDesc(e.target.value)}/>
                             <div className="row">
                                 <div className="col-lg-6 col-md-12">
                                     <p>Expiry: </p>
                                 </div>
                                 <div className="col-lg-6 col-md-12">
-                                    <Form.Control type="date" value={date} onChange={(e) => setDate(e.target.value)}/>
+                                    <Form.Control type="date" id="cdate" value={date} onChange={(e) => setDate(e.target.value)}/>
                                 </div>
                             </div>
                             <div className="row">
@@ -60,7 +61,7 @@ const CreatePostModal = (props) => {
                                     <p>Participant Limit: </p>
                                 </div>
                                 <div className="col-lg-6 col-md-12 d-flex flex-row">
-                                    <Form.Control className="me-5" type="number" disabled={checked === true ? true : false} value={limit} onChange={(e) => setLimit(e.target.value)}/>
+                                    <Form.Control className="me-5" type="number" id="climit" disabled={checked === true ? true : false} value={limit} onChange={(e) => setLimit(e.target.value)}/>
                                     <Form.Check className="ms-3 me-2"label="Unlimited" onClick={handleChecked}/>
                                 </div>
                             </div>
@@ -83,7 +84,7 @@ const CreatePostModal = (props) => {
                                     <p>Enter Tags: </p>
                                 </div>
                                 <div className="col-lg-6 col-md-12">
-                                    <Form.Control type="text" placeholder="Enter tag" value={tag} onChange={(e) => setTag(e.target.value)} onKeyPress={event => event.key === "Enter" && handleTagsEnter()}/>
+                                    <Form.Control type="text" placeholder="Enter tag" id="ctag" value={tag} onChange={(e) => setTag(e.target.value)} onKeyPress={event => event.key === "Enter" && handleTagsEnter()}/>
                                 </div>
                             </div>
                             {

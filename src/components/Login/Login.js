@@ -25,6 +25,9 @@ const Login = () => {
                 isOnboarded: (res.data.tag && res.data.tag.length > 0)
             })
             navigate("/onboarding");
+        }).catch(error => {
+            alert('Either details are wrong or the user is not registered!! \n')
+            // window.location.href = "/"
         })
     };
 

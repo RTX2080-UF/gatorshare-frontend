@@ -12,7 +12,7 @@ const ForgotPassword = () => {
             console.log("Reset done")
             // setUser(res.data)
         }).catch(error => {
-            window.alert('Failed to fetch post details! \n')
+            window.alert(error)
             // window.location.href = "/"
         })
     }

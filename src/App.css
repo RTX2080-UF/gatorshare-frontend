@@ -9,6 +9,12 @@
   overflow: hidden;
 }
 
+.search-container {
+  height: calc(100vh - 72px) !important;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
 .main-container {
   height: calc(100vh - 72px) !important;
 }

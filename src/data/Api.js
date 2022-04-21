@@ -26,7 +26,8 @@ const ENDPOINTS = {
     deletePost: (postId) => `/posts/delete/${postId}`,
     getNotifications: () => '/notifications/getNew',
     getUserById: (userId) => `/users/getUserProfile/${userId}`,
-    getPostsOfUser: (userId) => `/posts/getAllUserPost/${userId}`
+    getPostsOfUser: (userId) => `/posts/getAllUserPost/${userId}`,
+    followUser: (userId) => `/users/follow/${userId}`
 }
 
 const getRequest = (url, resolve, reject) => {
@@ -235,6 +236,11 @@ const data = {
     getNotifications: () => new Promise((resolve, reject) => {
         const url = `${SERVER_URL}${VERSION}${ENDPOINTS.getNotifications()}`
         getRequest(url, resolve, reject)
+    }),
+
+    followUser: (userId) => new Promise((resolve, reject) => {
+        const url = `${SERVER_URL}${VERSION}${ENDPOINTS.followUser(userId)}`
+        post(url, null, resolve, reject)
     })
 }
 

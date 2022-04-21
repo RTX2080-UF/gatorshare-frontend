@@ -1,7 +1,7 @@
 ## Sprint 4: Frontend
 
 ### Aim:
-The aim was to build the basic structure of the React app, including the code structure, routing strategy and best practices (utility functions and abstracted data access layers). Additionally, features to be implemented was showing all the posts, creating new posts and allowing comments. These major features had supplemental features such as building UI components like thenavigation bar, sidebar, home and post details. CI/CD was also implemented, achieved using Netlify. A working version of this repository can be found at https://gatorshare.netlify.app. Use username `johndoe@example.com` and password `test123456`
+The aim was to build the basic structure of the React app, including the code structure, routing strategy and best practices (utility functions and abstracted data access layers). Additionally, features to be implemented was showing all the posts, creating new posts and allowing comments. These major features had supplemental features such as building UI components like thenavigation bar, sidebar, home and post details. CI/CD was also implemented, achieved using Netlify. A working version of this repository can be found at https://gatorshare.netlify.app.
 
 
 ### Demo Video
@@ -10,7 +10,15 @@ https://user-images.githubusercontent.com/24786834/164369957-9d476b9b-019d-4647-
 ### Cypress
 https://user-images.githubusercontent.com/24786834/164369235-06d3801d-d1c6-4824-90ff-b25386dcdacb.mp4
 
+### Link to project board
+https://github.com/orgs/RTX2080-UF/projects/3
 
+### Link to Sprint4 deliverables
+https://github.com/RTX2080-UF/gatorshare-frontend/milestone/4?closed=1
+
+### Deployment links
+Frontend - https://gatorshare.netlify.app
+Backend - https://gatorshare.herokuapp.com/
 
 ### User stories achieved:
 1. User should be able to join a post (Issue #13)

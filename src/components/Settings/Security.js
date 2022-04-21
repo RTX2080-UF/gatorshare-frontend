@@ -17,6 +17,7 @@ const Security = () => {
             const requestData = `{"OldPassword":"${currentPwd}","Password":"${newPwd}"}`;
             data.updateProfile(requestData).then(res => {
                 setUser(res.data)
+                window.location.reload()
             })
         }
     }

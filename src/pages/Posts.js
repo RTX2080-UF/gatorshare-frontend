@@ -4,7 +4,6 @@ import NavBar from "../components/NavBar"
 import SideBar from "../components/SideBar/SideBar"
 import Post from "../components/Post/Post"
 import Data from "../data/Data"
-import { getCurrentUser } from "../utils/SessionUtils"
 
 const Posts = () => {
 

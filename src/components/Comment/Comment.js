@@ -1,7 +1,6 @@
-import { mdiHeart } from "@mdi/js"
-import Icon from "@mdi/react"
+
 import { Card, Col, Row } from "react-bootstrap"
-import { getGravatar, getHumanReadableTimestamp } from "../../utils/Utils"
+import { getHumanReadableTimestamp } from "../../utils/Utils"
 import UserMini from "../UserMini"
 
 const Comment = ({ comment, replyCallback, isChild }) => {

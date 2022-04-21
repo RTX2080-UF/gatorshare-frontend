@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Row } from "react-bootstrap"
 import data from "../../data/Data"
 import { setUser } from "../../utils/SessionUtils"

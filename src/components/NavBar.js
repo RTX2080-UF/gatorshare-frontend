@@ -9,8 +9,7 @@ import "./NavBar.css";
 import UserNav from './UserNav';
 import logo from "../assets/logo_wide.png"
 import Icon from '@mdi/react';
-import { getCurrentUser, isLoggedIn, logOutUser } from '../utils/SessionUtils';
-import { getGravatar } from '../utils/Utils';
+import { isLoggedIn, logOutUser } from '../utils/SessionUtils';
 import Notifications from './modals/Notifications/Notifications';
 
 const NavBar = () => {
@@ -55,8 +54,6 @@ const NavBar = () => {
     }
 
     const profile = ()=>{
-        const user = getCurrentUser()
-
         return (
             <Nav.Link href="">
                 <UserNav />

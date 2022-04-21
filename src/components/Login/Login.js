@@ -4,7 +4,6 @@ import data from "../../data/Data"
 import { useState } from "react"
 import { useNavigate } from 'react-router-dom';
 import { setUser, setAccessToken } from '../../utils/SessionUtils'
-import { DEMO_DB } from '../../data/Demo';
 import { getGravatar } from '../../utils/Utils';
 
 

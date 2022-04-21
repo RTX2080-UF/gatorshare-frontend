@@ -20,7 +20,7 @@ const PostDetails = () => {
     const [interested, setInterested] = useState(false)
 
     const callReaction = () => {
-        const body = JSON.stringify({ postId: parseInt(postId), reaction: 'INTERESTED' })
+        // const body = JSON.stringify({ postId: parseInt(postId), reaction: 'INTERESTED' })
         setInterested(true)
         // data.reactToPost(body).then(response => {
         //     setInterested(true)

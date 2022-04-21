@@ -1,9 +1,7 @@
 import { Button, Form } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
 import BGImage from "../BGImage"
 import React, { useEffect, useState } from "react"
 import {useLocation} from 'react-router-dom';
-import { useSearchParams } from 'react-router-dom';
 import data from "../../data/Data"
 
 const ChangePassword = () => {
@@ -50,7 +48,7 @@ const ChangePassword = () => {
             <Form className="form rounded m-4 p-4" onSubmit={handleChangePassword}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Enter New Password</Form.Label>
-                    <Form.Control type="text" id="username" placeholder="New Password" value={pwd} onChange={(e) => setPwd(e.target.value)} />
+                    <Form.Control type="password" id="username" placeholder="New Password" value={pwd} onChange={(e) => setPwd(e.target.value)} />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">

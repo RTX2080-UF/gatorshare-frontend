@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Card, Col, Row } from "react-bootstrap"
-import { getGravatar, getHumanReadableTimestamp, getTimeToDate } from "../../utils/Utils"
+import { getHumanReadableTimestamp, getTimeToDate } from "../../utils/Utils"
 import UserMini from "../UserMini"
 import DataSource from "../../data/Data"
 

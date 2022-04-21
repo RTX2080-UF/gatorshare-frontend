@@ -1,7 +1,7 @@
 import { Button, Form } from 'react-bootstrap';
 import BGImage from "../BGImage"
 import data from "../../data/Data"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 
 const ForgotPassword = () => {

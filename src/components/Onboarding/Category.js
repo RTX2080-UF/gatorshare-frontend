@@ -1,4 +1,4 @@
-import { Card, Col, Image, Row } from "react-bootstrap"
+import { Card, Col, Row } from "react-bootstrap"
 
 const Category = ({data, selected}) => {
     return <Card className={'p-3 ' + (selected ? 'selected-card' : '')}>

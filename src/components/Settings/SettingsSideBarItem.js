@@ -2,7 +2,7 @@ import Icon from "@mdi/react"
 import Colors from '../../theme/colors'
 
 const SettingsSideBarItem = ({ icon, name, active, pcolor, handleClick }) => {
-    const highlightColor = active ? Colors.accent : Colors.text.secondary
+    // const highlightColor = active ? Colors.accent : Colors.text.secondary
     const backgroundColor = active ? Colors.background.base : "transparent"
 
     return <div className="p-3 pointer" onClick={handleClick} style={{backgroundColor: backgroundColor}}>

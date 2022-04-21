@@ -1,46 +1,28 @@
 import { mdiArrowLeft } from "@mdi/js"
 import Icon from "@mdi/react"
-import { mdiFilterVariant } from '@mdi/js'; 
-import { useEffect, useState } from "react"
-import { Col, Form, Nav, Navbar, Row } from "react-bootstrap"
+import { useState } from "react"
+import { Button, Col, Form, Navbar, Row } from "react-bootstrap"
 import emptySearchIcon from '../assets/search-splash.png'
-import SearchFilter from "../components/modals/SearchFilter/SearchFilter"
+import Data from '../data/Data'
+import Post from '../components/Post/Post'
 
 import COLORS from '../theme/colors'
 
 const Search = () => {
 
     const [searchQuery, setSearchQuery] = useState('')
-
-    const [showFilterModal, setShowFilterModal] = useState(false)
-
-    const [filter, setFilter] = useState()
-    const [filterValue, setFilterValue] = useState()
-    const [sort, setSort] = useState()
-
-    useEffect(() => {
-        // TODO: Do something with filter value
-    }, [filter, filterValue])
-
-    useEffect(() => {
-        // TODO: Do something with sort value
-    }, [sort])
+    const [posts, setPosts] = useState([])
 
     const handleSearchQueryChange = (event) => {
         setSearchQuery(event.target.value)
     }
-
-    const onSelectFilters = (filter, filterValue, sort) => {
-        if (filter && filterValue) {
-            setFilter(filter)
-            setFilterValue(filterValue)
-        }
-
-        if(sort) {
-            setSort(sort)
-        }
-
-        setShowFilterModal(false)
+    
+    const search = () => {
+        const tags = searchQuery.trim().split(" ")
+        const body = JSON.stringify({tags: tags})
+        Data.search(body).then(response => {
+            setPosts(response.data)
+        }).catch(e => window.alert('An error occurred. Please try again!'))
     }
 
     const pageStyle = {
@@ -53,33 +35,35 @@ const Search = () => {
                 <a href="/"><Icon path={mdiArrowLeft} size={1} color="gray" className="m-3" /></a>
             </Navbar.Brand>
 
-            <Form.Group className='me-auto mt-3 ms-4'>
+            <Form.Group className='mt-3 ms-4'>
                 <Form.Control type='text' placeholder='Search' autoFocus onChange={handleSearchQueryChange} />
             </Form.Group>
 
-            <Nav className="ms-auto mt-auto mb-auto me-3" onClick={() => setShowFilterModal(true)}>
-                <Icon path={mdiFilterVariant} size={1} color={COLORS.accent} />
-            </Nav>
+            <Button className="me-auto ms-3 gatorshare-button" onClick={() => search()}>Search</Button>
         </Navbar>
 
         <Row className='page m-0 p-0' style={pageStyle}>
             {
-                searchQuery === '' ?
+                posts.length === 0 ?
                     <Col xs={12} md={{ span: 4, offset: 4 }} className='text-center p-5 mt-auto mb-auto'>
                         <img alt='An icon with magnifying glass and some documents' src={emptySearchIcon} width='25%' />
-                        <h4 className="mt-4">Start Typing Something</h4>
+                        <h4 className="mt-4">Search for Something</h4>
                         <p>Posts that match your search query will appear here.</p>
                     </Col> :
-                    <Col xs={12}>
-                        
+                    <Col xs={12} className="pt-3 search-container">
+                        {
+                            posts.map(post => {
+                                return <Post data={post} key={post.ID}/>
+                            })
+                        }
                     </Col>
             }
         </Row>
 
-        <SearchFilter
+        {/* <SearchFilter
             show={showFilterModal}
             onSelect={onSelectFilters}
-            onClose={() => setShowFilterModal(false)} />
+            onClose={() => setShowFilterModal(false)} /> */}
 
     </div>
 }

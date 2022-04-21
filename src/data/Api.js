@@ -27,7 +27,8 @@ const ENDPOINTS = {
     getUserById: (userId) => `/users/getUserProfile/${userId}`,
     getPostsOfUser: (userId) => `/posts/getAllUserPost/${userId}`,
     followUser: (userId) => `/users/follow/${userId}`,
-    reactToPost: () => '/posts/reactToPost'
+    reactToPost: () => '/posts/reactToPost',
+    search: () => '/posts/searchPost'
 }
 
 const getRequest = (url, resolve, reject) => {
@@ -245,6 +246,11 @@ const data = {
 
     reactToPost: (data) => new Promise((resolve, reject)=> {
         const url = `${SERVER_URL}${VERSION}${ENDPOINTS.reactToPost()}`
+        postRequest(url, data, resolve, reject)
+    }),
+
+    search: (data) => new Promise((resolve, reject) => {
+        const url = `${SERVER_URL}${VERSION}${ENDPOINTS.search()}`
         postRequest(url, data, resolve, reject)
     })
 }

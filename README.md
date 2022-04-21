@@ -16,10 +16,16 @@ Stack:
 - Database: Postgres
 
 # Sprint Readmes
-![Sprint 1](https://github.com/RTX2080-UF/gatorshare-frontend/blob/main/SPRINT1.md)
-![Sprint 2](https://github.com/RTX2080-UF/gatorshare-frontend/blob/main/SPRINT2.md)
-![Sprint 3](https://github.com/RTX2080-UF/gatorshare-frontend/blob/main/SPRINT3.md)
-![Sprint 4](https://github.com/RTX2080-UF/gatorshare-frontend/blob/main/SPRINT4.md)
+- ![Sprint 1](https://github.com/RTX2080-UF/gatorshare-frontend/blob/main/SPRINT1.md)
+- ![Sprint 2](https://github.com/RTX2080-UF/gatorshare-frontend/blob/main/SPRINT2.md)
+- ![Sprint 3](https://github.com/RTX2080-UF/gatorshare-frontend/blob/main/SPRINT3.md)
+- ![Sprint 4](https://github.com/RTX2080-UF/gatorshare-frontend/blob/main/SPRINT4.md)
+
+# Demo Video
+https://user-images.githubusercontent.com/24786834/164369957-9d476b9b-019d-4647-8f30-237173179b9f.mp4
+
+# Cypress Video
+https://user-images.githubusercontent.com/24786834/164369235-06d3801d-d1c6-4824-90ff-b25386dcdacb.mp4
 
 # GatorShare
 

@@ -5,6 +5,7 @@ The aim was to build the basic structure of the React app, including the code st
 
 
 ### Demo Video
+https://user-images.githubusercontent.com/24786834/164369957-9d476b9b-019d-4647-8f30-237173179b9f.mp4
 
 ### Cypress
 https://user-images.githubusercontent.com/24786834/164369235-06d3801d-d1c6-4824-90ff-b25386dcdacb.mp4

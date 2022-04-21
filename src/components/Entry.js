@@ -31,8 +31,12 @@ const Entry = () => {
                 <Route path="/login" element={<Login />} />
                 <Route path="/forgotPwd" element={<ForgotPassword />} />
                 <Route path="/signup" element={<Signup />} />
+<<<<<<< Updated upstream
                 <Route path="/changePassword" element={<HandleQuery />} />
                 <Route path="/passwordChange" element={<ChangePassword />} />
+=======
+                <Route path="/changePassword?email=dummy" element={<ChangePassword />} />
+>>>>>>> Stashed changes
                 <Route path="/" element={<Home />} />
                 <Route path="/settings" element={<Settings />} />
                 <Route path="/onboarding" element={<Onboarding />} />
@@ -42,9 +46,12 @@ const Entry = () => {
                 <Route path="/posts/search" element={<Search />} />
                 <Route path="/posts" element={<Posts />} />
                 <Route path="/forYou" element={<ForYouPosts />} />
+<<<<<<< Updated upstream
                 <Route path="/userProfile">
                     <Route path=":userId" element={<UserProfile />} />
                 </Route>
+=======
+>>>>>>> Stashed changes
                 {/* <Route path="*" element={<HandleQuery />} /> */}
             </Routes>
         </BrowserRouter>

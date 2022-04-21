@@ -1,5 +1,6 @@
 import { DEMO_DB } from "./Demo"
 import * as sessionUtils from "../utils/SessionUtils"
+import { reject, resolve } from "cypress/types/bluebird"
 
 const SERVER_URL = 'https://gatorshare.herokuapp.com'
 
@@ -24,7 +25,8 @@ const ENDPOINTS = {
     getPopularTags: () => '/tags/popularTags',
     deletePost: (postId) => `/posts/delete/${postId}`,
     getNotifications: () => '/notifications/getNew',
-    getUserById: (userId) => `/users/getUserProfile/${userId}`
+    getUserById: (userId) => `/users/getUserProfile/${userId}`,
+    getPostsOfUser: (userId) => `/posts/getAllUserPost/${userId}`
 }
 
 const getRequest = (url, resolve, reject) => {
@@ -131,6 +133,10 @@ const data = {
     getUserById: (userId) => new Promise((resolve, reject) => {
         const url = `${SERVER_URL}${VERSION}${ENDPOINTS.getUserById(userId)}`
         getRequest(url, resolve, reject)
+    }),
+
+    getPostsOfUser: (userId) => new Promise((resolve, reject) => {
+        const url = `${SERVER_URL}${VERSION}${ENDPOINTS.getPostsOfUser(userId)}`
     }),
 
     getPosts: () => new Promise((resolve, reject) => {

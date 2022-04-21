@@ -5,6 +5,7 @@ import { getGravatar } from "../utils/Utils"
 import { useEffect, useState } from "react"
 import data from "../data/Data"
 import { useParams } from "react-router-dom"
+import Post from "../components/Post/Post"
 
 const UserProfile = () => {
 
@@ -17,7 +18,13 @@ const UserProfile = () => {
     useEffect(() => {
         data.getUserById(userId).then(user => {
             setUser(user.data)
-            console.log(user.data)
+        }).catch(error => {
+            window.alert('Failed to fetch user details. Please try again later.')
+            window.history.back()
+        })
+
+        data.getPostsOfUser(userId).then(posts => {
+            setPosts(posts.data)
         }).catch(error => {
             window.alert('Failed to fetch user details. Please try again later.')
             window.history.back()
@@ -44,6 +51,10 @@ const UserProfile = () => {
             </Col>
         </Row>
         <hr/>
+        <h3>Posts by ${user.firstName}</h3>
+        {
+            posts.length > 0 ? posts.map(post => <Post data={post} />) : <p>No posts by the user</p>
+        }
     </div> : null
 }
 

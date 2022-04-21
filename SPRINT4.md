@@ -3,12 +3,14 @@
 ### Aim:
 The aim was to build the basic structure of the React app, including the code structure, routing strategy and best practices (utility functions and abstracted data access layers). Additionally, features to be implemented was showing all the posts, creating new posts and allowing comments. These major features had supplemental features such as building UI components like thenavigation bar, sidebar, home and post details. CI/CD was also implemented, achieved using Netlify. A working version of this repository can be found at https://gatorshare.netlify.app.
 
-
 ### Demo Video
 https://user-images.githubusercontent.com/24786834/164369957-9d476b9b-019d-4647-8f30-237173179b9f.mp4
 
 ### Cypress
 https://user-images.githubusercontent.com/24786834/164369235-06d3801d-d1c6-4824-90ff-b25386dcdacb.mp4
+
+### API working
+https://user-images.githubusercontent.com/25840499/164370596-a2e24a1e-e0a4-484f-adb0-c719ff1529ed.mp4
 
 ### Link to API Documentation
 https://github.com/RTX2080-UF/gatorshare-backend/blob/main/Sprint4.md

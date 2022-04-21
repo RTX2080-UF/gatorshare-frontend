@@ -7,8 +7,8 @@ describe('Testing Create Modal UI', function () {
     beforeEach(() => {
         // setUser(DEMO_DB.user)
         cy.visit("/login");
-        cy.get("#username").type('anuj123').should('have.value','anuj123');
-        cy.get("#password").type('hello').should('have.value','hello');
+        cy.get("#username").type('anujkoli').should('have.value','anujkoli');
+        cy.get("#password").type('hello123').should('have.value','hello123');
         cy.get("button").click();
         cy.wait(3000)
     });

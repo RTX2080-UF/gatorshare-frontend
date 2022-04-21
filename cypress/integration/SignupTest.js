@@ -53,6 +53,7 @@ describe('Testing Signup UI', function () {
         cy.get("#lastname").type('doe').should('have.value','doe');
         cy.get("#email").type('johndoe@gmail.com').should('have.value','johndoe@gmail.com');
         cy.get("#password").type('password123').should('have.value','password123');
+        cy.get("#confirmpassword").type('password123').should('have.value','password123');
     });
 
 });

@@ -1,7 +1,7 @@
 import { Navbar, Nav, Form, NavDropdown } from 'react-bootstrap';
 import { mdiBellOutline } from '@mdi/js';
 import Image from 'react-bootstrap/Image'
-import { React, useState } from 'react';
+import { React, useEffect, useState } from 'react';
 import LineSeparator from './LineSeparator';
 import CreatePostModal from './CreatePostModal';
 import { useNavigate } from 'react-router-dom';
@@ -9,11 +9,17 @@ import "./NavBar.css";
 import UserNav from './UserNav';
 import logo from "../assets/logo_wide.png"
 import Icon from '@mdi/react';
-import { getCurrentUser, logOutUser } from '../utils/SessionUtils';
+import { getCurrentUser, isLoggedIn, logOutUser } from '../utils/SessionUtils';
 import { getGravatar } from '../utils/Utils';
 import Notifications from './modals/Notifications/Notifications';
 
 const NavBar = () => {
+    useEffect(() => {
+        if(!isLoggedIn()) {
+            window.location.href = '/login'
+        }
+    }, [])
+
     const navigate = useNavigate();
 
     const [showNotifications, setShowNotifications] = useState(false)
@@ -53,7 +59,7 @@ const NavBar = () => {
 
         return (
             <Nav.Link href="">
-                <UserNav firstName={getCurrentUser()?.firstName} lastName={getCurrentUser()?.lastName} avatar={getGravatar(user.Email)}/>
+                <UserNav />
             </Nav.Link>
         )
     }

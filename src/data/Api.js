@@ -23,7 +23,8 @@ const ENDPOINTS = {
     getLatestPosts: () => '/home/latest?page=1&page_size=25',
     getPopularTags: () => '/tags/popularTags',
     deletePost: (postId) => `/posts/delete/${postId}`,
-    getNotifications: () => '/notifications/getNew'
+    getNotifications: () => '/notifications/getNew',
+    getUserById: (userId) => `/users/getUserProfile/${userId}`
 }
 
 const getRequest = (url, resolve, reject) => {
@@ -126,6 +127,12 @@ const deleteRequest = (url, resolve, reject) => {
 }
 
 const data = {
+
+    getUserById: (userId) => new Promise((resolve, reject) => {
+        const url = `${SERVER_URL}${VERSION}${ENDPOINTS.getUserById(userId)}`
+        getRequest(url, resolve, reject)
+    }),
+
     getPosts: () => new Promise((resolve, reject) => {
         const url = `${SERVER_URL}${VERSION}${ENDPOINTS.getAllPostsOfUser()}`
         getRequest(url, resolve, reject)
@@ -138,7 +145,6 @@ const data = {
 
     createPost: (postData) => new Promise((resolve, reject) => {
         const url = `${SERVER_URL}${VERSION}${ENDPOINTS.createPost()}`
-        // console.log("create post - ", postData);
         postRequest(url, postData, resolve, reject)
     }),
     

@@ -1,13 +1,12 @@
 import { Button, Col, Form, Row } from "react-bootstrap"
 import { mdiArrowLeft, mdiDelete } from '@mdi/js'
 import Icon from '@mdi/react'
-import { getGravatar, getHumanReadableTimestamp } from "../../utils/Utils"
+import { getHumanReadableTimestamp } from "../../utils/Utils"
 import UserMini from "../UserMini"
 import { useEffect, useState } from "react"
 import data from "../../data/Data"
 import { Link, useParams } from "react-router-dom"
 import Comment from "../Comment/Comment"
-import { DEMO_DB } from "../../data/Demo"
 import { getCurrentUser } from "../../utils/SessionUtils"
 
 const PostDetails = () => {
@@ -29,7 +28,7 @@ const PostDetails = () => {
         })
 
         data.getCommentsOfPost(postId).then(commentsData => {
-            setComments(commentsData.data)
+            setComments(mapComments(commentsData.data))
         }).catch(error => console.log(error))
 
     }, [postId])
@@ -69,6 +68,22 @@ const PostDetails = () => {
         }
     }
 
+    const mapComments = (comments) => {
+        const newComments = []
+        comments.forEach(comment => {
+            if(comment.parentId === 0) {
+                newComments.push(comment)
+            }
+            comments.forEach(child => {
+                if(comment.ID !== child.ID && child.parentId === comment.ID) {
+                    newComments.push(child)
+                }
+            })
+        })
+
+        return newComments
+    }
+
     return post ? <div className="page-container p-4">
         <Row>
             <Col>
@@ -86,7 +101,7 @@ const PostDetails = () => {
                 <p>Posted by</p>
             </Col>
             <Col xs="auto" className="m-0 p-0">
-                <UserMini firstName={post?.User.firstName} lastName={post?.User.lastName} avatar={getGravatar(post?.User.Email)} />
+                <UserMini user={post?.User} />
             </Col>
             <Col>
                 on {getHumanReadableTimestamp(post?.CreatedAt)}
@@ -105,8 +120,10 @@ const PostDetails = () => {
             </Col>
             {
                 comments.length > 0 ? comments.map(comment => {
+                    const isChild = comment.parentId !== 0
+
                     return <Col xs={12} key={comment.ID}>
-                        <Comment comment={comment} replyCallback={replyCallback} />
+                        <Comment comment={comment} replyCallback={replyCallback} isChild={isChild}/>
                     </Col>
                 }) : <p>Be the first one to comment!</p>
             }

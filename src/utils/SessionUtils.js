@@ -36,5 +36,5 @@ export const clearAccessToken = () => {
 }
  
 export const getAccessToken = () => {
-    return localStorage.getItem(KEYS.accessToken)
+    return localStorage.getItem(KEYS.accessToken) ? localStorage.getItem(KEYS.accessToken) : null
 }

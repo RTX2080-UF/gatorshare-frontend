@@ -14,12 +14,11 @@ import { setUser } from "../utils/SessionUtils"
 import Posts from "../pages/Posts";
 import ForYouPosts from "../pages/ForYouPosts";
 import HandleQuery from './HandleQuery'
+import UserProfile from "../pages/UserProfile";
 
 
 
 const Entry = () => {
-
-    // let [searchParams, setSearchParams] = useSearchParams()
     useEffect(() => {
         Data.getCurrentUser().then(user => {
             setUser(user)
@@ -42,6 +41,9 @@ const Entry = () => {
                 <Route path="/posts/search" element={<Search />} />
                 <Route path="/posts" element={<Posts />} />
                 <Route path="/forYou" element={<ForYouPosts />} />
+                <Route path="/userProfile">
+                    <Route path=":userId" element={<UserProfile />} />
+                </Route>
                 <Route path="*" element={<HandleQuery />} />
             </Routes>
         </BrowserRouter>

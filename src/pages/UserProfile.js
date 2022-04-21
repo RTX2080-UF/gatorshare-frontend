@@ -15,6 +15,14 @@ const UserProfile = () => {
     const [user, setUser] = useState(null)
     const [posts, setPosts] = useState([])
 
+    const [following, setFollowing] = useState(false)
+
+    const followUser = () => {
+        data.followUser(userId).then(response => {
+            setFollowing(true)
+        }).catch(e => setFollowing(true))
+    }
+
     useEffect(() => {
         data.getUserById(userId).then(user => {
             setUser(user.data)
@@ -47,11 +55,11 @@ const UserProfile = () => {
             </Col>
 
             <Col xs='auto' className="my-auto">
-                <Button className='gatorshare-button'>Follow</Button>
+                <Button className='gatorshare-button' onClick={() => followUser()}>{following ? 'Following' : 'Follow'}</Button>
             </Col>
         </Row>
         <hr/>
-        <h3>Posts by ${user.firstName}</h3>
+        <h5 className="mb-4 mt-4">Posts by {user.firstName}</h5>
         {
             posts.length > 0 ? posts.map(post => <Post data={post} />) : <p>No posts by the user</p>
         }

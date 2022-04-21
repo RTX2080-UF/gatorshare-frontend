@@ -14,7 +14,7 @@ const ChangePassword = () => {
     const location = useLocation();
     
     useEffect(() => {
-        console.log("ChangePassword", location.state)
+        // console.log("ChangePassword", location.state)
         setToken(location.state.token);
         setEmail(location.state.email);
         // if(searchParams.has('email') && searchParams.has('token')){
@@ -25,7 +25,7 @@ const ChangePassword = () => {
         // }else{
         //     alert("Inavlid reset link!!");
         // }
-    }, [])
+    }, [location])
 
     const handleChangePassword = (e) => {
         e.preventDefault();

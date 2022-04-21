@@ -18,7 +18,7 @@ const Notifications = (props) => {
             window.alert('Error fetching notifications, please try again later')
             props.onHide(false)
         })
-    }, [])
+    }, [props])
 
     return <Modal size="lg" centered show={props.show} onHide={props.onHide}>
         <Modal.Header closeButton>

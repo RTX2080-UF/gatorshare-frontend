@@ -10,7 +10,6 @@ const HandleQuery = () => {
     const [searchParams] = useSearchParams();
 
     useEffect(() => {
-        console.log(searchParams.toString())
         if(searchParams.has('email') && searchParams.has('token')){
             var e = searchParams.get('email');
             var t = searchParams.get('token');
@@ -18,7 +17,7 @@ const HandleQuery = () => {
         }else{
             alert("Inavlid reset link!!");
         }
-    }, [])
+    }, [navigate,searchParams])
 
 
     return (null)

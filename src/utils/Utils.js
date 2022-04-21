@@ -1,3 +1,5 @@
+import MD5 from 'crypto-js/md5'
+
 export const getHumanReadableTimestamp = (millisOrDateStr) => {
     const date = new Date(millisOrDateStr)
     return date.toLocaleString()
@@ -37,4 +39,13 @@ export const getDummyAvatar = () => {
         randomNum = 1
     }
     return `https://boredhumans.b-cdn.net/faces2/${randomNum}.jpg`
+}
+
+export const generateMd5 = (data) => {
+    return MD5(data).toString()
+}
+
+export const getGravatar = (email) => {
+    console.log('Creating Gravatar with Email ', email)
+    return `https://www.gravatar.com/avatar/${generateMd5(email)}?s=300&d=retro`
 }

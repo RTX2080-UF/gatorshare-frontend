@@ -5,6 +5,7 @@ import { useState } from "react"
 import { useNavigate } from 'react-router-dom';
 import { setUser, setAccessToken } from '../../utils/SessionUtils'
 import { DEMO_DB } from '../../data/Demo';
+import { getGravatar } from '../../utils/Utils';
 
 
 const Login = () => {
@@ -14,12 +15,19 @@ const Login = () => {
 
     const handleLogin = (e) => {
         e.preventDefault();
-        const requestData = `{"username":"${username}","password":"${pwd}"}`;
+        const requestData = `{ "username": "${username}", "password": "${pwd}" }`;
         data.login(requestData).then(res => {
-            setAccessToken(res.data);
-            // console.log(res.data.userDetails);
-            setUser(res.data.userDetails)
+            setAccessToken(res.data.token);
+            const email = res.data.userDetails.email
+            setUser({
+                ...res.data.userDetails,
+                avatar: getGravatar(email),
+                isOnboarded: (res.data.tag && res.data.tag.length > 0)
+            })
             navigate("/onboarding");
+        }).catch(error => {
+            alert('Either details are wrong or the user is not registered!! \n')
+            // window.location.href = "/"
         })
     };
 

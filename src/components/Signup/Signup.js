@@ -2,27 +2,33 @@ import { Button, Form } from 'react-bootstrap';
 import BGImage from "../BGImage"
 import data from "../../data/Data"
 import { useState } from "react"
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 // import {setAccessToken} from '../../utils/SessionUtils'
 
 const Signup = () => {
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const [username, setUserName] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [pwd, setPwd] = useState('');
+    const [confirmPwd, setConfirmPwd] = useState('');
 
     const handleSignUp = (e) => {
         e.preventDefault();
-        const requestData = `{"Username":"${username}","Firstname":"${firstName}","Lastname":"${lastName}","Email":"${email}","Password":"${pwd}"}`;
-        data.register(requestData).then(res => {
-            console.log("data");
-            console.log(res.data);
-            // setAccessToken(res.data);
-            // navigate("/onboarding");
-        })
+        if (pwd !== confirmPwd) {
+            alert("Passwords don't match");
+        } else {
+            const requestData = `{"Username":"${username}","Firstname":"${firstName}","Lastname":"${lastName}","Email":"${email}","Password":"${pwd}"}`;
+            data.register(requestData).then(res => {
+                navigate("/login");
+            }).catch(error => {
+                alert('User already exists!! \n')
+                // window.location.href = "/"
+            })
+        }
+        
     };
 
     return <div>
@@ -49,6 +55,10 @@ const Signup = () => {
                 <div className="form-group">
                     <label>Password</label>
                     <input type="password" id="password" className="form-control" placeholder="Enter password" value={pwd} onChange={(e) => setPwd(e.target.value)}/>
+                </div>
+                <div className="form-group">
+                    <label>Confirm Password</label>
+                    <input type="password" id="confirmpassword" className="form-control" placeholder="Confirm password" value={confirmPwd} onChange={(e) => setConfirmPwd(e.target.value)}/>
                 </div>
                 <Button variant="primary" type="submit" className='mb-3 gatorshare-button'>
                     Sign Up

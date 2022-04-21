@@ -3,33 +3,39 @@ import { Button, Col, Row } from "react-bootstrap"
 import Category from "../components/Onboarding/Category"
 import User from "../components/Onboarding/User"
 import Data from "../data/Data"
+import * as SessionUtils from "../utils/SessionUtils"
 
 const Onboarding = () => {
-    const [categories, setCategories] = useState([])
-    const [selectedCategories, setSelectedCategories] = useState([])
+    const [popularTags, setPopularTags] = useState([])
+    const [selectedTags, setSelectedTags] = useState([])
 
     const [popularUsers, setPopularUsers] = useState([])
     const [selectedUsers, setSelectedUsers] = useState([])
 
-    useEffect(() => {
-        Data.getAllCategories().then(categories => {
-            setCategories(categories)
-        })
+    const currentUser = SessionUtils.getCurrentUser()
+    if (currentUser && currentUser.isOnboarded) {
+        window.location.href = '/'
+    }
 
+    useEffect(() => {
         Data.getPopularUsers().then(users => {
             setPopularUsers(users)
         })
+
+        Data.getPopularTags().then(response => {
+            setPopularTags(response.data)
+        })
     }, [])
 
-    const selectOrUnselectCategory = (categoryId) => {
-        const categoriesToSelect = [...selectedCategories]
-        const index = categoriesToSelect.indexOf(categoryId);
+    const selectOrUnselectTag = (tagId) => {
+        const tagsToSelect = [...selectedTags]
+        const index = tagsToSelect.indexOf(tagId);
         if (index === -1) {
-            categoriesToSelect.push(categoryId)
+            tagsToSelect.push(tagId)
         } else {
-            categoriesToSelect.splice(index, 1)
+            tagsToSelect.splice(index, 1)
         }
-        setSelectedCategories(categoriesToSelect)
+        setSelectedTags(tagsToSelect)
     }
 
     const selectOrUnselectPopularUser = (userId) => {
@@ -43,13 +49,26 @@ const Onboarding = () => {
         setSelectedUsers(usersToSelect)
     }
 
+    const onboardUser = () => {
+        if (selectedTags.length > 0) {
+            Data.followTagsOnboarding(selectedTags).then(
+                () => {
+                    window.location.href = '/'
+                    SessionUtils.setUser({ ...currentUser, isOnboarded: true })
+                }
+            ).catch(e => window.alert(e))
+        } else {
+            window.alert('Select atleast one tag')
+        }
+    }
+
     return <Row className="p-5">
         <Col>
             <h3 className="text-color-accent">Welcome to GatorShare!</h3>
             <p className="p-0 m-0">We're glad you're here. Let's roll!</p>
         </Col>
         <Col sm="auto">
-            <a href="/"><Button variant="warning"><b>NEXT</b></Button></a>
+            <Button variant="warning" onClick={() => onboardUser()}><b>NEXT</b></Button>
         </Col>
         <Col sm={12}>
             <div className="pt-4 pb-4">
@@ -59,9 +78,9 @@ const Onboarding = () => {
             <p className="p-0 m-0 mb-3">Pick a few categories to get started...</p>
         </Col>
         {
-            categories.map(category => {
-                return <Col key={category.id} sm={12} md={4} lg={3} className="mt-3" onClick={() => selectOrUnselectCategory(category.id)}>
-                    <Category data={category} selected={selectedCategories.indexOf(category.id) !== -1} />
+            popularTags.map(tag => {
+                return <Col key={tag.ID} sm={12} md={4} lg={3} className="mt-3" onClick={() => selectOrUnselectTag(tag.ID)}>
+                    <Category data={tag} selected={selectedTags.indexOf(tag.ID) !== -1} />
                 </Col>
             })
         }

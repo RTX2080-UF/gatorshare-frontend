@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import { Row } from "react-bootstrap"
-import Data from "../../data/Data"
+import data from "../../data/Data"
 import { Form } from 'react-bootstrap';
+import { setUser } from "../../utils/SessionUtils"
 
 
 const Profile = (props) => {
@@ -10,12 +11,19 @@ const Profile = (props) => {
     const [email, setEmail] = useState("");
     const [bio, setBio] = useState("");
     useEffect(() => {
-        Data.getCurrentUser().then(user => {
+        data.getCurrentUser().then(user => {
             setFirstname(user.firstName)
             setLastName(user.lastName)
-            setEmail(user.email)
+            setEmail(user.Email)
         })
     }, [])
+
+    const updateProfile = () => {
+        const requestData = `{ "Firstname": "${firstName}", "Lastname": "${lastName}", "Email": "${email}" }`;
+        data.updateProfile(requestData).then(res => {
+            setUser(res.data)
+        })
+    }
     
 
     return <div className="page bg-light ps-5">
@@ -56,7 +64,7 @@ const Profile = (props) => {
                    
                     <div className="col-12 mt-4">
                         <div className="d-flex flex-wrap justify-content-between align-items-center">
-                            <button className="btn btn-style-1 btn-primary" type="button" data-toast="" data-toast-position="topRight" data-toast-type="success" data-toast-icon="fe-icon-check-circle" data-toast-title="Success!" data-toast-message="Your profile updated successfuly.">Update Profile</button>
+                            <button className="btn btn-style-1 btn-primary" type="button" data-toast="" data-toast-position="topRight" data-toast-type="success" data-toast-icon="fe-icon-check-circle" data-toast-title="Success!" data-toast-message="Your profile updated successfuly." onClick={()=>updateProfile()}>Update Profile</button>
                         </div>
                     </div>
                 </Form>

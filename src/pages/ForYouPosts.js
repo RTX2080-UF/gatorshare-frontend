@@ -4,21 +4,22 @@ import NavBar from "../components/NavBar"
 import Post from "../components/Post/Post"
 import SideBar from "../components/SideBar/SideBar"
 import Data from "../data/Data"
-import { useNavigate } from 'react-router-dom';
 import { isLoggedIn } from "../utils/SessionUtils"
 
-const Home = () => {
+const ForYouPosts = () => {
 
-    const [latestPosts, setLatestPosts] = useState([])
-    const navigate = useNavigate();
+    const [forYouPosts, setForYouPosts] = useState([])
 
     useEffect(() => {
         if (!isLoggedIn()) {
             window.location.href = '/login'
         } else {
-            Data.getLatestPosts().then(posts => {
-                setLatestPosts(posts.data)
-            }).catch(e => setLatestPosts([]))
+            Data.getForYouPosts().then(posts => {
+                setForYouPosts(posts.data)
+            }).catch(e => {
+                console.log('error', e)
+                setForYouPosts([])
+            })
         }
     }, [])
 
@@ -26,12 +27,12 @@ const Home = () => {
         <NavBar />
         <Row className="page">
             <Col md={3} lg={3} xl={2}>
-                <SideBar selected='/' />
+                <SideBar selected='/forYou' />
             </Col>
             <Col className="p-4 m-0 page-content">
-                <h4 className="mt-4 mb-3">Latest Posts</h4>
+                <h4 className="mt-4 mb-3">Posts that you may like...</h4>
                 {
-                    latestPosts.map(post => {
+                    forYouPosts.map(post => {
                         return <Post data={post} />
                     })
                 }
@@ -40,4 +41,4 @@ const Home = () => {
     </div>
 }
 
-export default Home
+export default ForYouPosts

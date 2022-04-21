@@ -59,7 +59,7 @@ const UserProfile = () => {
             </Col>
         </Row>
         <hr/>
-        <h3>Posts by ${user.firstName}</h3>
+        <h5 className="mb-4 mt-4">Posts by {user.firstName}</h5>
         {
             posts.length > 0 ? posts.map(post => <Post data={post} />) : <p>No posts by the user</p>
         }

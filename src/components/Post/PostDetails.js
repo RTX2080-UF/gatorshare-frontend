@@ -17,6 +17,15 @@ const PostDetails = () => {
 
     const [post, setPost] = useState(null)
     const [comments, setComments] = useState([])
+    const [interested, setInterested] = useState(false)
+
+    const callReaction = () => {
+        const body = JSON.stringify({ postId: parseInt(postId), reaction: 'INTERESTED' })
+        setInterested(true)
+        // data.reactToPost(body).then(response => {
+        //     setInterested(true)
+        // }).catch(e => window.alert('An error occurred. Please try again.'))
+    }
 
     useEffect(() => {
         data.getPostById(postId).then(postData => {
@@ -57,7 +66,7 @@ const PostDetails = () => {
 
     const deletePost = () => {
         const confirmDelete = window.confirm('Are you sure you wish to delete this post? This action cannot be undone.')
-        if(confirmDelete) {
+        if (confirmDelete) {
             data.deletePost(parseInt(postId)).then(response => {
                 window.alert('Post deleted.')
                 window.location.href = '/'
@@ -71,11 +80,11 @@ const PostDetails = () => {
     const mapComments = (comments) => {
         const newComments = []
         comments.forEach(comment => {
-            if(comment.parentId === 0) {
+            if (comment.parentId === 0) {
                 newComments.push(comment)
             }
             comments.forEach(child => {
-                if(comment.ID !== child.ID && child.parentId === comment.ID) {
+                if (comment.ID !== child.ID && child.parentId === comment.ID) {
                     newComments.push(child)
                 }
             })
@@ -90,12 +99,20 @@ const PostDetails = () => {
                 <Link to="/"><Icon path={mdiArrowLeft} size={1} color="gray" /></Link>
             </Col>
             <Col xs="auto">
-                { getCurrentUser().ID === post.User.ID ? <Icon path={mdiDelete} size={1} color="orange" onClick={() => deletePost()} /> : null}
-                
+                {getCurrentUser().ID === post.User.ID ? <Icon path={mdiDelete} size={1} color="orange" onClick={() => deletePost()} /> : null}
             </Col>
 
         </Row>
-        <h2 className="mt-4">{post?.title}</h2>
+        <Row className="mt-4">
+            <Col className="my-auto">
+                <h2>{post?.title}</h2>
+            </Col>
+            <Col xs="auto" className="my-auto">
+                <Button className="gatorshare-button" onClick={() => callReaction()}>
+                    { interested ? 'Interested' : 'Mark as Interested'}
+                </Button>
+            </Col>
+        </Row>
         <Row>
             <Col xs="auto">
                 <p>Posted by</p>
@@ -123,7 +140,7 @@ const PostDetails = () => {
                     const isChild = comment.parentId !== 0
 
                     return <Col xs={12} key={comment.ID}>
-                        <Comment comment={comment} replyCallback={replyCallback} isChild={isChild}/>
+                        <Comment comment={comment} replyCallback={replyCallback} isChild={isChild} />
                     </Col>
                 }) : <p>Be the first one to comment!</p>
             }

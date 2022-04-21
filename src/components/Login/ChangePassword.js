@@ -6,7 +6,6 @@ import {useLocation} from 'react-router-dom';
 import { useSearchParams } from 'react-router-dom';
 import data from "../../data/Data"
 
-<<<<<<< Updated upstream
 const ChangePassword = () => {
     
     const [confirmPwd, setConfirmPwd] = useState('');
@@ -28,21 +27,6 @@ const ChangePassword = () => {
         // }else{
         //     alert("Inavlid reset link!!");
         // }
-=======
-const ChangePassword = ({ match, location }) => {
-    
-    const [confirmPwd, setConfirmPwd] = useState('');
-    const [pwd, setPwd] = useState('');
-    const [email, setEmail] = useState('');
-    const [token, setToken] = useState('');
-    // const location = useLocation();
-    
-    useEffect(() => {
-        // const params = new URLSearchParams(window.location.search)
-        console.log("ChangePassword", location)
-        // setToken(location.state.token);
-        // setEmail(location.state.email);
->>>>>>> Stashed changes
     }, [])
 
     const handleChangePassword = (e) => {

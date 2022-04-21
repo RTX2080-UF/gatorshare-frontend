@@ -10,7 +10,6 @@ const HandleQuery = () => {
     const [searchParams] = useSearchParams();
 
     useEffect(() => {
-<<<<<<< Updated upstream
         console.log(searchParams.toString())
         if(searchParams.has('email') && searchParams.has('token')){
             var e = searchParams.get('email');
@@ -18,15 +17,6 @@ const HandleQuery = () => {
             navigate("/passwordChange",{state:{email:e, token:t}});
         }else{
             alert("Inavlid reset link!!");
-=======
-        // const params = new URLSearchParams(window.location.search)
-        console.log("HELLO")
-        const queryParams = new URLSearchParams(window.location.search)
-        console.log(window.location.search)
-        console.log(queryParams)
-        if(queryParams.has('email') && queryParams.has('token')){
-            navigate("/passwordChange",{state:{email:queryParams.get('email'), token:queryParams.get('token')}});
->>>>>>> Stashed changes
         }
     }, [])
 

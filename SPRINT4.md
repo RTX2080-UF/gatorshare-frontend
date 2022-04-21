@@ -10,6 +10,9 @@ https://user-images.githubusercontent.com/24786834/164369957-9d476b9b-019d-4647-
 ### Cypress
 https://user-images.githubusercontent.com/24786834/164369235-06d3801d-d1c6-4824-90ff-b25386dcdacb.mp4
 
+### Link to API Documentation
+https://github.com/RTX2080-UF/gatorshare-backend/blob/main/Sprint4.md
+
 ### Link to project board
 https://github.com/orgs/RTX2080-UF/projects/3
 

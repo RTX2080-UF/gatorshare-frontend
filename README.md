@@ -27,6 +27,20 @@ https://user-images.githubusercontent.com/24786834/164369957-9d476b9b-019d-4647-
 # Cypress Video
 https://user-images.githubusercontent.com/24786834/164369235-06d3801d-d1c6-4824-90ff-b25386dcdacb.mp4
 
+
+### Link to API Documentation
+https://github.com/RTX2080-UF/gatorshare-backend/blob/main/Sprint4.md
+
+### Link to project board
+https://github.com/orgs/RTX2080-UF/projects/3
+
+### Link to Sprint4 deliverables
+https://github.com/RTX2080-UF/gatorshare-frontend/milestone/4?closed=1
+
+### Deployment links
+Frontend - https://gatorshare.netlify.app
+Backend - https://gatorshare.herokuapp.com/
+
 # GatorShare
 
 College life is difficult, and expensive (unless you are Bill Gates' child). So, obviously, you'd want to save some money - let's say by sharing that cab ride to the airport (why would you even go there, though?), or maybe buy a large pizza and split the bill (and hopefully the pizza too) with different people. Whatever you want to do, GatorShare has you covered. Find people who want to share or split stuff with you and save money in the process. Wait, but its not just that, check out all that we offer below:

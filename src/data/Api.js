@@ -151,6 +151,7 @@ const data = {
     
     updatePassword: (postData) => new Promise((resolve, reject) => {
         const url = `${SERVER_URL}${VERSION}${ENDPOINTS.updatePassword()}`
+        console.log("URL UP - ", postData)
         postRequest(url, postData, resolve, reject)
     }),
 

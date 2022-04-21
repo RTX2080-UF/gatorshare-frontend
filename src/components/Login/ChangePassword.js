@@ -3,28 +3,39 @@ import { useNavigate } from 'react-router-dom';
 import BGImage from "../BGImage"
 import React, { useEffect, useState } from "react"
 import {useLocation} from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import data from "../../data/Data"
 
-const ChangePassword = (props) => {
+const ChangePassword = () => {
     
     const [confirmPwd, setConfirmPwd] = useState('');
     const [pwd, setPwd] = useState('');
-    const [email, setEmail] = useState('');
-    const [token, setToken] = useState('');
+    const [email, setEmail] = useState("");
+    const [token, setToken] = useState("");
+    // const [searchParams] = useSearchParams();
     const location = useLocation();
     
     useEffect(() => {
-        // const params = new URLSearchParams(window.location.search)
         console.log("ChangePassword", location.state)
         setToken(location.state.token);
         setEmail(location.state.email);
+        // if(searchParams.has('email') && searchParams.has('token')){
+        //     var e = searchParams.get('email');
+        //     var t = searchParams.get('token');
+        //     setToken(e);
+        //     setEmail(t);
+        // }else{
+        //     alert("Inavlid reset link!!");
+        // }
     }, [])
 
     const handleChangePassword = (e) => {
-        // e.preventDefault();
+        e.preventDefault();
         if (pwd !== confirmPwd) {
             alert("Passwords don't match");
         } else {
+            console.log("Email - ", email)
+            console.log("Token - ", token)
             const requestData = `{ "email": "${email}", "token": "${token}", "password":"${pwd}" }`;
             data.updatePassword(requestData).then(res => {
                 console.log("PAssowrd updated!!!!")

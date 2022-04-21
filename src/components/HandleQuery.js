@@ -1,18 +1,22 @@
 
 import { useNavigate } from 'react-router-dom';
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react";
+import { useSearchParams } from 'react-router-dom';
 
 
 const HandleQuery = () => {
 
     const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
+
     useEffect(() => {
-        // const params = new URLSearchParams(window.location.search)
-        const queryParams = new URLSearchParams(window.location.search)
-        console.log(window.location.changePassword)
-        console.log(queryParams)
-        if(queryParams.has('email') && queryParams.has('token')){
-            navigate("/changePassword",{state:{email:queryParams.get('email'), token:queryParams.get('token')}});
+        console.log(searchParams.toString())
+        if(searchParams.has('email') && searchParams.has('token')){
+            var e = searchParams.get('email');
+            var t = searchParams.get('token');
+            navigate("/passwordChange",{state:{email:e, token:t}});
+        }else{
+            alert("Inavlid reset link!!");
         }
     }, [])
 

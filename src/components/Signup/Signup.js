@@ -23,6 +23,9 @@ const Signup = () => {
             const requestData = `{"Username":"${username}","Firstname":"${firstName}","Lastname":"${lastName}","Email":"${email}","Password":"${pwd}"}`;
             data.register(requestData).then(res => {
                 navigate("/login");
+            }).catch(error => {
+                alert('User already exists!! \n')
+                // window.location.href = "/"
             })
         }
         

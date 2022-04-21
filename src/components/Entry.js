@@ -31,7 +31,8 @@ const Entry = () => {
                 <Route path="/login" element={<Login />} />
                 <Route path="/forgotPwd" element={<ForgotPassword />} />
                 <Route path="/signup" element={<Signup />} />
-                <Route path="/changePassword" element={<ChangePassword />} />
+                <Route path="/changePassword" element={<HandleQuery />} />
+                <Route path="/passwordChange" element={<ChangePassword />} />
                 <Route path="/" element={<Home />} />
                 <Route path="/settings" element={<Settings />} />
                 <Route path="/onboarding" element={<Onboarding />} />
@@ -44,7 +45,7 @@ const Entry = () => {
                 <Route path="/userProfile">
                     <Route path=":userId" element={<UserProfile />} />
                 </Route>
-                <Route path="*" element={<HandleQuery />} />
+                {/* <Route path="*" element={<HandleQuery />} /> */}
             </Routes>
         </BrowserRouter>
     </div>

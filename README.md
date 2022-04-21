@@ -29,8 +29,11 @@ https://user-images.githubusercontent.com/24786834/164369957-9d476b9b-019d-4647-
 # Cypress Video
 https://user-images.githubusercontent.com/24786834/164369235-06d3801d-d1c6-4824-90ff-b25386dcdacb.mp4
 
-### API working
+# API working
 https://user-images.githubusercontent.com/25840499/164370596-a2e24a1e-e0a4-484f-adb0-c719ff1529ed.mp4
+
+# Functional Test & Unit Tests
+https://user-images.githubusercontent.com/25840499/164372129-5c18a6a8-83ed-4f9f-85af-3316933ef2f7.mp4
 
 ### Link to API Documentation
 https://github.com/RTX2080-UF/gatorshare-backend/blob/main/Sprint4.md

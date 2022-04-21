@@ -3,6 +3,7 @@
 CI/CD Deplyment active. Main branch changes will be published to https://gatorshare.netlify.app
 
 Frontend Code of GatorShare, Software Engineering Spring 2022 project.
+
 Built by:
 - Anuj Singh (Backend)
 - Dinesh Valasala (Frontend)
@@ -13,6 +14,12 @@ Stack:
 - Frontend: React.js
 - Backend: GoLang
 - Database: Postgres
+
+# Sprint Readmes
+![Sprint 1](https://github.com/RTX2080-UF/gatorshare-frontend/blob/main/SPRINT1.md)
+![Sprint 2](https://github.com/RTX2080-UF/gatorshare-frontend/blob/main/SPRINT2.md)
+![Sprint 3](https://github.com/RTX2080-UF/gatorshare-frontend/blob/main/SPRINT3.md)
+![Sprint 4](https://github.com/RTX2080-UF/gatorshare-frontend/blob/main/SPRINT4.md)
 
 # GatorShare
 
